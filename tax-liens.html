@@ -62,6 +62,18 @@
     .range-inputs input { flex:1; }
     .btn-reset { width:100%; padding:8px; border:1px solid var(--gray-300); border-radius:5px; background:#fff; font-size:.8rem; font-weight:600; color:var(--gray-700); cursor:pointer; transition:all .15s; }
     .btn-reset:hover { background:var(--gray-100); }
+    /* ── Type filter pills ── */
+    .type-pills { display:flex; flex-direction:column; gap:6px; }
+    .type-pill { display:flex; align-items:center; gap:8px; padding:7px 10px; border:2px solid var(--gray-300); border-radius:6px; cursor:pointer; font-size:.8rem; font-weight:600; transition:all .15s; background:#fff; width:100%; text-align:left; }
+    .type-pill:hover { border-color:var(--gray-500); }
+    .type-pill.active-res  { border-color:#2e7d32; background:#e8f5e9; color:#1b5e20; }
+    .type-pill.active-com  { border-color:#1565c0; background:#e3f2fd; color:#0d47a1; }
+    .type-pill.active-vac  { border-color:#f57f17; background:#fff8e1; color:#e65100; }
+    .type-pill .pill-dot   { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+    .dot-res { background:#2e7d32; }
+    .dot-com { background:#1565c0; }
+    .dot-vac { background:#f57f17; }
+    .pill-count { margin-left:auto; font-size:.72rem; opacity:.7; }
 
     /* ── Content ── */
     .content { flex:1; min-width:0; display:flex; flex-direction:column; gap:16px; }
@@ -101,6 +113,9 @@
     .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.7rem; font-weight:700; }
     .badge-group { background:var(--blue-light); color:var(--blue-dark); }
     .badge-district { background:var(--gray-200); color:var(--gray-700); }
+    .badge-res { background:#e8f5e9; color:#1b5e20; }
+    .badge-com { background:#e3f2fd; color:#0d47a1; }
+    .badge-vac { background:#fff8e1; color:#e65100; }
     .amount-high { color:var(--red); font-weight:700; }
     .amount-med { color:var(--orange); font-weight:600; }
     .amount-low { color:var(--green); font-weight:500; }
@@ -305,6 +320,35 @@
       </div>
     </div>
     <div class="filter-card">
+      <div class="filter-card-title">&#x1F3E0; Property Type</div>
+      <div class="filter-card-body">
+        <div class="type-pills">
+          <button class="type-pill" data-type="" id="pill-all">
+            <span class="pill-dot" style="background:var(--gray-400)"></span>
+            All Types
+            <span class="pill-count" id="pill-count-all"></span>
+          </button>
+          <button class="type-pill" data-type="residential" id="pill-res">
+            <span class="pill-dot dot-res"></span>
+            Residential
+            <span class="pill-count" id="pill-count-res"></span>
+          </button>
+          <button class="type-pill" data-type="commercial" id="pill-com">
+            <span class="pill-dot dot-com"></span>
+            Commercial
+            <span class="pill-count" id="pill-count-com"></span>
+          </button>
+          <button class="type-pill" data-type="vacant" id="pill-vac">
+            <span class="pill-dot dot-vac"></span>
+            Vacant / Land
+            <span class="pill-count" id="pill-count-vac"></span>
+          </button>
+        </div>
+        <p style="font-size:.7rem;color:var(--gray-500);margin-top:8px;line-height:1.4">Classification based on owner name, entity type, address pattern, and assessed value.</p>
+      </div>
+    </div>
+
+    <div class="filter-card">
       <div class="filter-card-title">&#x1F4CA; Amount Brackets</div>
       <div class="filter-card-body">
         <div id="bracket-legend" style="display:flex;flex-direction:column;gap:6px;font-size:.78rem;"></div>
@@ -358,6 +402,7 @@
             <th data-col="group">Group<span class="sort-icon"></span></th>
             <th data-col="parcel">Parcel<span class="sort-icon"></span></th>
             <th data-col="address">Address / Owner<span class="sort-icon"></span></th>
+            <th data-col="type">Type<span class="sort-icon"></span></th>
             <th data-col="district">Dist.<span class="sort-icon"></span></th>
             <th data-col="fcv">FCV<span class="sort-icon"></span></th>
             <th data-col="amountDue">Amount Due<span class="sort-icon"></span></th>
@@ -424,15 +469,15 @@
 <script>
 (() => {
   /* ── State ── */
-  let filtered  = [...PROPERTIES];
-  let sortCol   = 'amountDue';
-  let sortDir   = 'desc';
-  let page      = 1;
-  let perPage   = 12;   // cards default
-  let viewMode  = 'table';
-  let modalIdx  = -1;   // index in filtered[]
-  let mapMode   = 'map';
-  let iframeReady = false;
+  let filtered   = [...PROPERTIES];
+  let sortCol    = 'amountDue';
+  let sortDir    = 'desc';
+  let page       = 1;
+  let perPage    = 12;
+  let viewMode   = 'table';
+  let modalIdx   = -1;
+  let mapMode    = 'map';
+  let filterType = '';  // '', 'residential', 'commercial', 'vacant'
 
   /* ── IO observer for lazy card maps ── */
   const observer = new IntersectionObserver(entries => {
@@ -513,8 +558,16 @@
   /* ── Helpers ── */
   const fmt$ = n => n==null ? '—' : '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
   const fmtK = n => { if(n==null)return'—'; if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M'; if(n>=1e3)return'$'+(n/1e3).toFixed(0)+'K'; return'$'+n; };
-  const amtCls = n => n>=25000 ? 'amount-high' : n>=10000 ? 'amount-med' : 'amount-low';
+  const amtCls  = n => n>=25000 ? 'amount-high' : n>=10000 ? 'amount-med' : 'amount-low';
   const amtBadge = n => n>=25000 ? 'high' : n>=10000 ? 'med' : 'low';
+
+  const TYPE_LABEL = { residential:'Residential', commercial:'Commercial', vacant:'Vacant / Land' };
+  const TYPE_BADGE = { residential:'badge-res', commercial:'badge-com', vacant:'badge-vac' };
+  const TYPE_ICON  = { residential:'🏠', commercial:'🏢', vacant:'🌿' };
+
+  function typeBadge(t) {
+    return `<span class="badge ${TYPE_BADGE[t]||'badge-district'}">${TYPE_ICON[t]||''} ${TYPE_LABEL[t]||t}</span>`;
+  }
 
   const encAddr = addr => encodeURIComponent(addr + ', Maryland');
 
@@ -541,8 +594,9 @@
     const maxF = parseFloat($filterFcvMax.value) || Infinity;
 
     filtered = PROPERTIES.filter(p => {
-      if (grp  && p.group    != grp)  return false;
-      if (dist && p.district != dist) return false;
+      if (grp        && p.group    != grp)       return false;
+      if (dist       && p.district != dist)      return false;
+      if (filterType && p.type     !== filterType) return false;
       if (p.amountDue < minA || p.amountDue > maxA) return false;
       if (p.fcv       < minF || p.fcv       > maxF) return false;
       if (q) {
@@ -551,7 +605,45 @@
       }
       return true;
     });
+    updateTypePills();
     applySort();
+  }
+
+  /* ── Update pill counts ── */
+  function updateTypePills() {
+    const base = PROPERTIES.filter(p => {
+      const q    = $search.value.trim().toLowerCase();
+      const grp  = $filterGroup.value;
+      const dist = $filterDistrict.value;
+      const minA = parseFloat($filterMin.value)    || 0;
+      const maxA = parseFloat($filterMax.value)    || Infinity;
+      const minF = parseFloat($filterFcvMin.value) || 0;
+      const maxF = parseFloat($filterFcvMax.value) || Infinity;
+      if (grp  && p.group    != grp)  return false;
+      if (dist && p.district != dist) return false;
+      if (p.amountDue < minA || p.amountDue > maxA) return false;
+      if (p.fcv       < minF || p.fcv       > maxF) return false;
+      if (q) { const hay=(p.address+' '+p.name+' '+p.parcel).toLowerCase(); if(!hay.includes(q)) return false; }
+      return true;
+    });
+    document.getElementById('pill-count-all').textContent = base.length;
+    ['residential','commercial','vacant'].forEach(t => {
+      const el = document.getElementById(`pill-count-${t.slice(0,3)}`);
+      if (el) el.textContent = base.filter(p=>p.type===t).length;
+    });
+    // Active state
+    document.querySelectorAll('.type-pill').forEach(pill => {
+      const t = pill.dataset.type;
+      pill.classList.remove('active-res','active-com','active-vac');
+      if (t === filterType) {
+        if (t==='residential') pill.classList.add('active-res');
+        else if (t==='commercial') pill.classList.add('active-com');
+        else if (t==='vacant') pill.classList.add('active-vac');
+        else { pill.style.borderColor='var(--blue)'; pill.style.background='var(--blue-light)'; }
+      } else {
+        pill.style.borderColor=''; pill.style.background='';
+      }
+    });
   }
 
   function applySort() {
@@ -593,6 +685,7 @@
             <div class="address-text">${p.address||'—'}</div>
             <div class="owner-text">${p.name||''}</div>
           </td>
+          <td>${typeBadge(p.type)}</td>
           <td><span class="badge badge-district">${p.district??'—'}</span></td>
           <td style="white-space:nowrap">${fmtK(p.fcv)}</td>
           <td style="white-space:nowrap"><span class="${amtCls(p.amountDue)}">${fmt$(p.amountDue)}</span></td>
@@ -631,6 +724,7 @@
             <div class="card-meta">
               <span class="badge badge-group">Group ${p.group??'—'}</span>
               <span class="badge badge-district">Dist. ${p.district??'—'}</span>
+              ${typeBadge(p.type)}
             </div>
             <div class="card-footer">
               <div>
@@ -682,11 +776,12 @@
     // Details grid
     $modalDetails.innerHTML = `
       <div class="detail-item"><label>Parcel</label><span style="font-family:monospace">${p.parcel||'—'}</span></div>
+      <div class="detail-item"><label>Property Type</label><span>${typeBadge(p.type)}</span></div>
       <div class="detail-item"><label>Group</label><span>${p.group??'—'}</span></div>
       <div class="detail-item"><label>District</label><span>${p.district??'—'}</span></div>
       <div class="detail-item"><label>Full Cash Value</label><span>${fmt$(p.fcv)}</span></div>
       <div class="detail-item"><label>Amount Due</label><span class="${amtCls(p.amountDue)}" style="font-size:1.1rem">${fmt$(p.amountDue)}</span></div>
-      <div class="detail-item"><label>Address</label><span>${p.address||'—'}</span></div>`;
+      <div class="detail-item"><label>Owner</label><span>${p.name||'—'}</span></div>`;
 
     // Action links
     $modalActions.innerHTML = `
@@ -806,6 +901,7 @@
   $btnReset.addEventListener('click', () => {
     $search.value=''; $filterGroup.value=''; $filterDistrict.value='';
     $filterMin.value=''; $filterMax.value=''; $filterFcvMin.value=''; $filterFcvMax.value='';
+    filterType = '';
     applyFilters();
   });
 
@@ -826,6 +922,14 @@
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
     a.download='tax-lien-properties.csv'; a.click();
+  });
+
+  /* ── Type pill clicks ── */
+  document.querySelectorAll('.type-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterType = pill.dataset.type;
+      applyFilters();
+    });
   });
 
   /* ── Mobile filter toggle ── */
