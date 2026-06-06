@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Lien Properties | Montgomery County</title>
+  <style>
+    :root {
+      --blue: #1a6fc4;
+      --blue-dark: #145da0;
+      --blue-light: #e8f0fb;
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --orange: #e65100;
+      --orange-light: #fff3e0;
+      --red: #c62828;
+      --red-light: #ffebee;
+      --gray-50: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #eeeeee;
+      --gray-300: #e0e0e0;
+      --gray-400: #bdbdbd;
+      --gray-600: #757575;
+      --gray-700: #616161;
+      --gray-800: #424242;
+      --gray-900: #212121;
+      --border-radius: 8px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.08);
+      --shadow-md: 0 4px 6px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray-100);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
+
+    /* ── Header ───────────────────────────────── */
+    .site-header {
+      background: linear-gradient(135deg, #1a3c5e 0%, #1a6fc4 100%);
+      color: #fff;
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-brand h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .header-brand p {
+      font-size: 0.8rem;
+      opacity: .75;
+      margin-top: 2px;
+    }
+    .header-badge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /* ── Stats bar ───────────────────────────── */
+    .stats-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stats-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      padding: 18px 20px;
+      border-right: 1px solid var(--gray-200);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-card:last-child { border-right: none; }
+    .stat-label {
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--gray-600);
+    }
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      white-space: nowrap;
+    }
+    .stat-value.green  { color: var(--green); }
+    .stat-value.orange { color: var(--orange); }
+    .stat-value.blue   { color: var(--blue); }
+
+    /* ── Main layout ─────────────────────────── */
+    .main {
+      max-width: 1400px;
+      margin: 24px auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* ── Sidebar / Filters ───────────────────── */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .filter-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .filter-card-title {
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 10px 14px;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--gray-700);
+    }
+    .filter-card-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+
+    label.filter-label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      display: block;
+      margin-bottom: 4px;
+    }
+    select.filter-select, input.filter-input {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid var(--gray-300);
+      border-radius: 5px;
+      font-size: .82rem;
+      background: #fff;
+      color: var(--gray-900);
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 9px center;
+      padding-right: 26px;
+    }
+    input.filter-input { background-image: none; padding-right: 10px; }
+    select.filter-select:focus, input.filter-input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(26,111,196,.15);
+    }
+
+    .range-inputs { display: flex; gap: 6px; align-items: center; }
+    .range-inputs input { flex: 1; }
+    .range-sep { font-size: .75rem; color: var(--gray-500); }
+
+    .btn-reset {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--gray-300);
+      border-radius: 5px;
+      background: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-reset:hover { background: var(--gray-100); border-color: var(--gray-400); }
+
+    /* ── Content area ────────────────────────── */
+    .content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+
+    /* ── Toolbar ─────────────────────────────── */
+    .toolbar {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .search-wrap {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+    .search-wrap svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--gray-400); }
+    .search-input {
+      width: 100%;
+      padding: 8px 10px 8px 34px;
+      border: 1px solid var(--gray-300);
+      border-radius: 5px;
+      font-size: .85rem;
+    }
+    .search-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 2px rgba(26,111,196,.15); }
+
+    .toolbar-right { display: flex; gap: 8px; align-items: center; }
+    .result-count { font-size: .8rem; color: var(--gray-600); white-space: nowrap; }
+
+    .sort-select {
+      padding: 7px 26px 7px 10px;
+      border: 1px solid var(--gray-300);
+      border-radius: 5px;
+      font-size: .82rem;
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E") no-repeat right 9px center;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .btn-export {
+      padding: 7px 14px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background .15s;
+    }
+    .btn-export:hover { background: var(--blue-dark); }
+
+    /* ── Table ───────────────────────────────── */
+    .table-wrap {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+    }
+    thead th {
+      background: var(--gray-50);
+      border-bottom: 2px solid var(--gray-200);
+      padding: 11px 12px;
+      text-align: left;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--gray-700);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    thead th:hover { background: var(--gray-100); color: var(--blue); }
+    thead th .sort-icon { margin-left: 4px; opacity: .4; font-size: .75rem; }
+    thead th.asc .sort-icon::after { content: '↑'; opacity: 1; }
+    thead th.desc .sort-icon::after { content: '↓'; opacity: 1; }
+    thead th:not(.asc):not(.desc) .sort-icon::after { content: '↕'; }
+
+    tbody tr { border-bottom: 1px solid var(--gray-200); transition: background .1s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--blue-light); }
+    tbody td { padding: 10px 12px; vertical-align: middle; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: .7rem;
+      font-weight: 700;
+    }
+    .badge-group { background: var(--blue-light); color: var(--blue-dark); }
+    .badge-district { background: var(--gray-200); color: var(--gray-700); }
+
+    .amount-high { color: var(--red); font-weight: 700; }
+    .amount-med  { color: var(--orange); font-weight: 600; }
+    .amount-low  { color: var(--green); font-weight: 500; }
+
+    .address-cell { max-width: 200px; }
+    .address-text { font-weight: 600; color: var(--gray-900); }
+    .owner-text { font-size: .75rem; color: var(--gray-600); margin-top: 1px; }
+
+    .parcel-text { font-family: monospace; font-size: .78rem; color: var(--gray-600); }
+
+    .zillow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      background: #006aff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: .72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: opacity .15s;
+    }
+    .zillow-btn:hover { opacity: .85; }
+    .zillow-icon {
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .6rem;
+      color: #006aff;
+      font-weight: 900;
+    }
+
+    /* ── Pagination ──────────────────────────── */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .page-info { font-size: .8rem; color: var(--gray-600); }
+    .page-controls { display: flex; gap: 4px; }
+    .page-btn {
+      min-width: 32px;
+      height: 32px;
+      padding: 0 6px;
+      border: 1px solid var(--gray-300);
+      background: #fff;
+      border-radius: 5px;
+      font-size: .8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+      color: var(--gray-700);
+    }
+    .page-btn:hover:not(:disabled) { background: var(--blue-light); border-color: var(--blue); color: var(--blue); }
+    .page-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 700; }
+    .page-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+    /* ── Per-page selector ───────────────────── */
+    .per-page-wrap { display: flex; align-items: center; gap: 8px; }
+    .per-page-label { font-size: .8rem; color: var(--gray-600); }
+
+    /* ── No results ──────────────────────────── */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-500);
+    }
+    .no-results svg { display: block; margin: 0 auto 12px; opacity: .3; }
+    .no-results p { font-size: .9rem; }
+
+    /* ── Footer ──────────────────────────────── */
+    .site-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: .78rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      margin-top: 32px;
+    }
+
+    /* ── Responsive ──────────────────────────── */
+    @media (max-width: 900px) {
+      .main { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .filter-card { flex: 1; min-width: 200px; }
+    }
+    @media (max-width: 600px) {
+      .stats-inner { flex-wrap: wrap; }
+      .stat-card { min-width: 45%; border-right: none; border-bottom: 1px solid var(--gray-200); }
+      table thead th:nth-child(4),
+      table tbody td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <h1>&#x1F3E6; Tax Lien Properties</h1>
+      <p>Montgomery County &mdash; Annual Tax Sale</p>
+    </div>
+    <span class="header-badge">1,378 Listings</span>
+  </div>
+</header>
+
+<!-- ── Stats bar ───────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <span class="stat-label">Total Properties</span>
+      <span class="stat-value blue" id="stat-total">1,378</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Total Amount Due</span>
+      <span class="stat-value orange" id="stat-total-due">$13,019,993</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Avg Amount Due</span>
+      <span class="stat-value" id="stat-avg">$9,448</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Max Amount Due</span>
+      <span class="stat-value red" id="stat-max">$236,076</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Filtered Results</span>
+      <span class="stat-value green" id="stat-filtered">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main ────────────────────────────────────── -->
+<div class="main">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <div class="filter-card">
+      <div class="filter-card-title">&#x1F50D; Filters</div>
+      <div class="filter-card-body">
+
+        <div>
+          <label class="filter-label" for="filter-group">Group</label>
+          <select class="filter-select" id="filter-group">
+            <option value="">All Groups</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="filter-label" for="filter-district">District</label>
+          <select class="filter-select" id="filter-district">
+            <option value="">All Districts</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="filter-label">Amount Due Range ($)</label>
+          <div class="range-inputs">
+            <input class="filter-input" type="number" id="filter-min" placeholder="Min" min="0" step="100" />
+            <span class="range-sep">–</span>
+            <input class="filter-input" type="number" id="filter-max" placeholder="Max" min="0" step="100" />
+          </div>
+        </div>
+
+        <div>
+          <label class="filter-label">FCV Range ($)</label>
+          <div class="range-inputs">
+            <input class="filter-input" type="number" id="filter-fcv-min" placeholder="Min" min="0" step="1000" />
+            <span class="range-sep">–</span>
+            <input class="filter-input" type="number" id="filter-fcv-max" placeholder="Max" min="0" step="1000" />
+          </div>
+        </div>
+
+        <button class="btn-reset" id="btn-reset">&#x21BA; Reset Filters</button>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <div class="filter-card-title">&#x1F4CA; Amount Brackets</div>
+      <div class="filter-card-body">
+        <div id="bracket-legend" style="display:flex;flex-direction:column;gap:6px;font-size:.78rem;"></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/>
+        </svg>
+        <input class="search-input" type="text" id="search" placeholder="Search address, owner name, or parcel…" />
+      </div>
+      <div class="toolbar-right">
+        <span class="result-count" id="result-count"></span>
+        <select class="sort-select" id="sort-select">
+          <option value="amountDue-desc">Amount Due ↓</option>
+          <option value="amountDue-asc">Amount Due ↑</option>
+          <option value="fcv-desc">FCV ↓</option>
+          <option value="fcv-asc">FCV ↑</option>
+          <option value="address-asc">Address A–Z</option>
+          <option value="group-asc">Group ↑</option>
+          <option value="district-asc">District ↑</option>
+        </select>
+        <button class="btn-export" id="btn-export">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+          </svg>
+          CSV
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table id="prop-table">
+        <thead>
+          <tr>
+            <th data-col="group">Group<span class="sort-icon"></span></th>
+            <th data-col="parcel">Parcel<span class="sort-icon"></span></th>
+            <th data-col="address">Address / Owner<span class="sort-icon"></span></th>
+            <th data-col="district">Dist.<span class="sort-icon"></span></th>
+            <th data-col="fcv">FCV<span class="sort-icon"></span></th>
+            <th data-col="amountDue">Amount Due<span class="sort-icon"></span></th>
+            <th>Zillow</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  Data source: Montgomery County Annual Tax Sale &bull; Zillow links open property search in a new tab &bull;
+  <a href="index.html" style="color:var(--blue);">&#8592; Back to Portfolio</a>
+</footer>
+
+<script src="assets/js/tax-liens-data.js"></script>
+<script>
+(() => {
+  /* ── State ───────────────────────────────── */
+  let filtered = [...PROPERTIES];
+  let sortCol  = 'amountDue';
+  let sortDir  = 'desc';
+  let page     = 1;
+  let perPage  = 25;
+
+  /* ── DOM refs ────────────────────────────── */
+  const $search        = document.getElementById('search');
+  const $filterGroup   = document.getElementById('filter-group');
+  const $filterDistrict= document.getElementById('filter-district');
+  const $filterMin     = document.getElementById('filter-min');
+  const $filterMax     = document.getElementById('filter-max');
+  const $filterFcvMin  = document.getElementById('filter-fcv-min');
+  const $filterFcvMax  = document.getElementById('filter-fcv-max');
+  const $sortSelect    = document.getElementById('sort-select');
+  const $tableBody     = document.getElementById('table-body');
+  const $pagination    = document.getElementById('pagination');
+  const $resultCount   = document.getElementById('result-count');
+  const $statFiltered  = document.getElementById('stat-filtered');
+  const $btnReset      = document.getElementById('btn-reset');
+  const $btnExport     = document.getElementById('btn-export');
+  const $bracketLegend = document.getElementById('bracket-legend');
+
+  /* ── Populate filter dropdowns ───────────── */
+  const groups    = [...new Set(PROPERTIES.map(p => p.group).filter(Boolean))].sort((a,b)=>a-b);
+  const districts = [...new Set(PROPERTIES.map(p => p.district).filter(Boolean))].sort((a,b)=>a-b);
+  groups.forEach(g => {
+    const o = document.createElement('option');
+    o.value = g; o.textContent = `Group ${g}`;
+    $filterGroup.append(o);
+  });
+  districts.forEach(d => {
+    const o = document.createElement('option');
+    o.value = d; o.textContent = `District ${d}`;
+    $filterDistrict.append(o);
+  });
+
+  /* ── Amount brackets ─────────────────────── */
+  const brackets = [
+    { label: '< $1,000',          min: 0,      max: 1000,   cls: 'amount-low' },
+    { label: '$1,000 – $5,000',   min: 1000,   max: 5000,   cls: 'amount-low' },
+    { label: '$5,000 – $10,000',  min: 5000,   max: 10000,  cls: '' },
+    { label: '$10,000 – $25,000', min: 10000,  max: 25000,  cls: 'amount-med' },
+    { label: '$25,000 – $50,000', min: 25000,  max: 50000,  cls: 'amount-med' },
+    { label: '> $50,000',         min: 50000,  max: Infinity,cls: 'amount-high' },
+  ];
+  brackets.forEach(b => {
+    const cnt = PROPERTIES.filter(p => p.amountDue >= b.min && p.amountDue < b.max).length;
+    const el = document.createElement('div');
+    el.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
+    el.innerHTML = `<span style="color:var(--gray-700)">${b.label}</span><span style="font-weight:700;color:var(--gray-900)">${cnt}</span>`;
+    $bracketLegend.append(el);
+  });
+
+  /* ── Format helpers ──────────────────────── */
+  const fmt$ = n => n == null ? '—' : '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmtK = n => {
+    if (n == null) return '—';
+    if (n >= 1e6) return '$' + (n/1e6).toFixed(1) + 'M';
+    if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+    return '$' + n;
+  };
+  const amountClass = n => {
+    if (n >= 25000) return 'amount-high';
+    if (n >= 10000) return 'amount-med';
+    return 'amount-low';
+  };
+
+  /* ── Zillow URL ──────────────────────────── */
+  const zillowUrl = addr => {
+    const q = encodeURIComponent(addr + ', MD');
+    return `https://www.zillow.com/homes/${q}_rb/`;
+  };
+
+  /* ── Apply filters + sort ────────────────── */
+  function applyFilters() {
+    const q        = $search.value.trim().toLowerCase();
+    const grp      = $filterGroup.value;
+    const dist     = $filterDistrict.value;
+    const minAmt   = parseFloat($filterMin.value) || 0;
+    const maxAmt   = parseFloat($filterMax.value) || Infinity;
+    const minFcv   = parseFloat($filterFcvMin.value) || 0;
+    const maxFcv   = parseFloat($filterFcvMax.value) || Infinity;
+
+    filtered = PROPERTIES.filter(p => {
+      if (grp  && p.group    != grp)  return false;
+      if (dist && p.district != dist) return false;
+      if (p.amountDue < minAmt || p.amountDue > maxAmt) return false;
+      if (p.fcv       < minFcv || p.fcv       > maxFcv) return false;
+      if (q) {
+        const hay = (p.address + ' ' + p.name + ' ' + p.parcel).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    applySort();
+  }
+
+  function applySort() {
+    const [col, dir] = sortCol === 'amountDue' ? ['amountDue', sortDir]
+      : [sortCol, sortDir];
+
+    filtered.sort((a, b) => {
+      let va = a[col], vb = b[col];
+      if (typeof va === 'string') va = va.toLowerCase();
+      if (typeof vb === 'string') vb = vb.toLowerCase();
+      if (va < vb) return dir === 'asc' ? -1 : 1;
+      if (va > vb) return dir === 'asc' ?  1 : -1;
+      return 0;
+    });
+
+    page = 1;
+    render();
+  }
+
+  /* ── Render table ────────────────────────── */
+  function render() {
+    const total = filtered.length;
+    const start = (page - 1) * perPage;
+    const end   = Math.min(start + perPage, total);
+    const slice = filtered.slice(start, end);
+
+    // Update counts
+    $resultCount.textContent  = `${total.toLocaleString()} result${total !== 1 ? 's' : ''}`;
+    $statFiltered.textContent = total.toLocaleString();
+
+    // Update filtered stats
+    if (filtered.length > 0) {
+      const dueSum = filtered.reduce((s, p) => s + (p.amountDue || 0), 0);
+      $statFiltered.textContent = filtered.length.toLocaleString() + ' shown';
+    }
+
+    // Render rows
+    if (slice.length === 0) {
+      $tableBody.innerHTML = `<tr><td colspan="7">
+        <div class="no-results">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/>
+          </svg>
+          <p>No properties match your filters.</p>
+        </div>
+      </td></tr>`;
+    } else {
+      $tableBody.innerHTML = slice.map(p => `
+        <tr>
+          <td><span class="badge badge-group">${p.group ?? '—'}</span></td>
+          <td><span class="parcel-text">${p.parcel || '—'}</span></td>
+          <td class="address-cell">
+            <div class="address-text">${p.address || '—'}</div>
+            <div class="owner-text">${p.name || ''}</div>
+          </td>
+          <td><span class="badge badge-district">${p.district ?? '—'}</span></td>
+          <td style="white-space:nowrap">${fmtK(p.fcv)}</td>
+          <td style="white-space:nowrap"><span class="${amountClass(p.amountDue)}">${fmt$(p.amountDue)}</span></td>
+          <td>
+            <a class="zillow-btn" href="${zillowUrl(p.address)}" target="_blank" rel="noopener noreferrer">
+              <span class="zillow-icon">Z</span>View
+            </a>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    renderPagination(total, start, end);
+    updateSortHeaders();
+  }
+
+  /* ── Pagination ──────────────────────────── */
+  function renderPagination(total, start, end) {
+    const totalPages = Math.ceil(total / perPage);
+    if (total === 0) { $pagination.innerHTML = ''; return; }
+
+    let pageButtons = '';
+    const delta = 2;
+    const range = [];
+    for (let i = Math.max(2, page - delta); i <= Math.min(totalPages - 1, page + delta); i++) {
+      range.push(i);
+    }
+    const withDots = (arr) => {
+      const result = [1];
+      if (arr[0] > 2) result.push('...');
+      result.push(...arr);
+      if (arr[arr.length - 1] < totalPages - 1) result.push('...');
+      if (totalPages > 1) result.push(totalPages);
+      return result;
+    };
+
+    const pages = withDots(range);
+    pages.forEach(p => {
+      if (p === '...') {
+        pageButtons += `<span class="page-btn" style="cursor:default;border:none;background:none">…</span>`;
+      } else {
+        pageButtons += `<button class="page-btn ${p === page ? 'active' : ''}" data-page="${p}">${p}</button>`;
+      }
+    });
+
+    $pagination.innerHTML = `
+      <span class="page-info">Showing ${(start+1).toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()}</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="per-page-wrap">
+          <span class="per-page-label">Per page:</span>
+          <select class="sort-select" id="per-page-sel">
+            ${[25,50,100,200].map(n => `<option value="${n}" ${n===perPage?'selected':''}>${n}</option>`).join('')}
+          </select>
+        </div>
+        <div class="page-controls">
+          <button class="page-btn" data-page="${page-1}" ${page===1?'disabled':''}>&#8249;</button>
+          ${pageButtons}
+          <button class="page-btn" data-page="${page+1}" ${page===totalPages?'disabled':''}>&#8250;</button>
+        </div>
+      </div>
+    `;
+
+    $pagination.querySelectorAll('[data-page]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = parseInt(btn.dataset.page);
+        if (!isNaN(p) && p >= 1 && p <= totalPages) { page = p; render(); }
+      });
+    });
+
+    const $perPage = document.getElementById('per-page-sel');
+    if ($perPage) {
+      $perPage.addEventListener('change', () => {
+        perPage = parseInt($perPage.value);
+        page = 1;
+        render();
+      });
+    }
+  }
+
+  /* ── Sort header highlight ───────────────── */
+  function updateSortHeaders() {
+    document.querySelectorAll('#prop-table thead th[data-col]').forEach(th => {
+      th.classList.remove('asc', 'desc');
+      if (th.dataset.col === sortCol) th.classList.add(sortDir);
+    });
+  }
+
+  /* ── Event listeners ─────────────────────── */
+  let searchTimer;
+  $search.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applyFilters, 200);
+  });
+
+  [$filterGroup, $filterDistrict, $filterMin, $filterMax, $filterFcvMin, $filterFcvMax]
+    .forEach(el => el.addEventListener('change', applyFilters));
+  [$filterMin, $filterMax, $filterFcvMin, $filterFcvMax]
+    .forEach(el => el.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(applyFilters, 400); }));
+
+  $sortSelect.addEventListener('change', () => {
+    const [col, dir] = $sortSelect.value.split('-');
+    sortCol = col; sortDir = dir;
+    applySort();
+  });
+
+  $btnReset.addEventListener('click', () => {
+    $search.value = '';
+    $filterGroup.value = '';
+    $filterDistrict.value = '';
+    $filterMin.value = '';
+    $filterMax.value = '';
+    $filterFcvMin.value = '';
+    $filterFcvMax.value = '';
+    applyFilters();
+  });
+
+  document.querySelectorAll('#prop-table thead th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (sortCol === col) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortCol = col;
+        sortDir = col === 'address' ? 'asc' : 'desc';
+      }
+      // Sync dropdown
+      const match = `${sortCol}-${sortDir}`;
+      if ([...$sortSelect.options].some(o => o.value === match)) $sortSelect.value = match;
+      applySort();
+    });
+  });
+
+  /* ── CSV Export ──────────────────────────── */
+  $btnExport.addEventListener('click', () => {
+    const header = ['Group','Parcel','Address','District','Owner Name','FCV','Amount Due'];
+    const rows   = filtered.map(p => [
+      p.group, p.parcel, `"${p.address}"`, p.district, `"${p.name}"`,
+      p.fcv, p.amountDue
+    ]);
+    const csv = [header, ...rows].map(r => r.join(',')).join('\n');
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'tax-lien-properties.csv';
+    a.click(); URL.revokeObjectURL(url);
+  });
+
+  /* ── Init ────────────────────────────────── */
+  applyFilters();
+})();
+</script>
+</body>
+</html>
