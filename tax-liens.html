@@ -3,256 +3,275 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax Lien Properties | Montgomery County</title>
+  <title>Tax Sale Investor Tool | Montgomery County, MD</title>
   <style>
     :root {
-      --blue: #1a6fc4;
-      --blue-dark: #145da0;
-      --blue-light: #e8f0fb;
-      --green: #2e7d32;
-      --orange: #e65100;
-      --red: #c62828;
-      --gray-50: #fafafa;
-      --gray-100: #f5f5f5;
-      --gray-200: #eeeeee;
-      --gray-300: #e0e0e0;
-      --gray-400: #bdbdbd;
-      --gray-500: #9e9e9e;
-      --gray-600: #757575;
-      --gray-700: #616161;
-      --gray-800: #424242;
-      --gray-900: #212121;
-      --radius: 8px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);
-      --shadow-md: 0 4px 6px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06);
-      --shadow-lg: 0 10px 25px rgba(0,0,0,.15);
+      --blue: #1a6fc4; --blue-dark: #145da0; --blue-light: #e8f0fb;
+      --green: #2e7d32; --green-light: #e8f5e9;
+      --orange: #e65100; --orange-light: #fff3e0;
+      --red: #c62828; --red-light: #ffebee;
+      --gold: #f57f17; --gold-light: #fff8e1;
+      --purple: #6a1b9a; --purple-light: #f3e5f5;
+      --gray-50:#fafafa; --gray-100:#f5f5f5; --gray-200:#eeeeee;
+      --gray-300:#e0e0e0; --gray-400:#bdbdbd; --gray-500:#9e9e9e;
+      --gray-600:#757575; --gray-700:#616161; --gray-800:#424242; --gray-900:#212121;
+      --radius:8px;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);
+      --shadow-md:0 4px 6px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06);
+      --shadow-lg:0 10px 25px rgba(0,0,0,.15);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--gray-100); color: var(--gray-900); min-height: 100vh; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--gray-100);color:var(--gray-900);min-height:100vh;}
 
     /* ── Header ── */
-    .site-header { background: linear-gradient(135deg,#1a3c5e,#1a6fc4); color:#fff; padding:0 24px; }
-    .header-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 0; flex-wrap:wrap; gap:12px; }
-    .header-brand h1 { font-size:1.5rem; font-weight:700; letter-spacing:-.3px; }
-    .header-brand p { font-size:.8rem; opacity:.75; margin-top:2px; }
-    .header-badge { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:20px; font-size:.8rem; font-weight:500; }
+    .site-header{background:linear-gradient(135deg,#0d2137,#1a6fc4);color:#fff;padding:0 24px;}
+    .header-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;gap:10px;}
+    .header-brand h1{font-size:1.4rem;font-weight:800;letter-spacing:-.4px;}
+    .header-brand p{font-size:.78rem;opacity:.7;margin-top:2px;}
+    .header-badges{display:flex;gap:8px;flex-wrap:wrap;}
+    .header-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;}
+    .header-badge.hot{background:rgba(245,127,23,.3);border-color:rgba(245,127,23,.6);}
+
+    /* ── Process Guide ── */
+    .process-guide{background:linear-gradient(135deg,#0d2137,#1a3c5e);border-bottom:3px solid var(--gold);padding:0 24px;}
+    .process-guide-inner{max-width:1440px;margin:0 auto;}
+    .guide-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 0;cursor:pointer;color:#fff;gap:10px;}
+    .guide-toggle-label{font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.9);}
+    .guide-toggle-arrow{transition:transform .25s;color:rgba(255,255,255,.6);font-size:.75rem;}
+    .guide-toggle.open .guide-toggle-arrow{transform:rotate(180deg);}
+    .guide-body{display:none;padding:0 0 16px;}
+    .guide-body.open{display:block;}
+    .guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+    .guide-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:12px 14px;}
+    .guide-card h3{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);margin-bottom:6px;}
+    .guide-card p,.guide-card li{font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.5;}
+    .guide-card ul{padding-left:14px;}
+    .guide-card .highlight{color:#ffd54f;font-weight:700;}
 
     /* ── Stats bar ── */
-    .stats-bar { background:#fff; border-bottom:1px solid var(--gray-200); padding:0 24px; box-shadow:var(--shadow-sm); }
-    .stats-inner { max-width:1400px; margin:0 auto; display:flex; overflow-x:auto; }
-    .stat-card { flex:1; min-width:130px; padding:16px 20px; border-right:1px solid var(--gray-200); display:flex; flex-direction:column; gap:3px; }
-    .stat-card:last-child { border-right:none; }
-    .stat-label { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.6px; color:var(--gray-600); }
-    .stat-value { font-size:1.35rem; font-weight:700; white-space:nowrap; }
-    .stat-value.blue { color:var(--blue); } .stat-value.orange { color:var(--orange); } .stat-value.green { color:var(--green); }
+    .stats-bar{background:#fff;border-bottom:1px solid var(--gray-200);padding:0 24px;box-shadow:var(--shadow-sm);}
+    .stats-inner{max-width:1440px;margin:0 auto;display:flex;overflow-x:auto;}
+    .stat-card{flex:1;min-width:130px;padding:14px 18px;border-right:1px solid var(--gray-200);display:flex;flex-direction:column;gap:3px;}
+    .stat-card:last-child{border-right:none;}
+    .stat-label{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-600);}
+    .stat-value{font-size:1.3rem;font-weight:800;white-space:nowrap;}
+    .stat-sub{font-size:.68rem;color:var(--gray-500);}
+    .sv-blue{color:var(--blue);} .sv-green{color:var(--green);} .sv-gold{color:var(--gold);} .sv-red{color:var(--red);} .sv-purple{color:var(--purple);}
 
     /* ── Layout ── */
-    .main { max-width:1400px; margin:24px auto; padding:0 24px; display:flex; gap:20px; align-items:flex-start; }
+    .main{max-width:1440px;margin:20px auto;padding:0 24px;display:flex;gap:20px;align-items:flex-start;}
 
     /* ── Sidebar ── */
-    .sidebar { width:240px; flex-shrink:0; display:flex; flex-direction:column; gap:16px; }
-    .filter-card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
-    .filter-card-title { background:var(--gray-50); border-bottom:1px solid var(--gray-200); padding:10px 14px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--gray-700); }
-    .filter-card-body { padding:12px 14px; display:flex; flex-direction:column; gap:10px; }
-    label.filter-label { font-size:.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:4px; }
-    select.filter-select, input.filter-input { width:100%; padding:7px 10px; border:1px solid var(--gray-300); border-radius:5px; font-size:.82rem; background:#fff; color:var(--gray-900); appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 9px center; padding-right:26px; }
-    input.filter-input { background-image:none; padding-right:10px; }
-    select.filter-select:focus, input.filter-input:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 2px rgba(26,111,196,.15); }
-    .range-inputs { display:flex; gap:6px; align-items:center; }
-    .range-inputs input { flex:1; }
-    .btn-reset { width:100%; padding:8px; border:1px solid var(--gray-300); border-radius:5px; background:#fff; font-size:.8rem; font-weight:600; color:var(--gray-700); cursor:pointer; transition:all .15s; }
-    .btn-reset:hover { background:var(--gray-100); }
-    /* ── Type filter pills ── */
-    .type-pills { display:flex; flex-direction:column; gap:6px; }
-    .type-pill { display:flex; align-items:center; gap:8px; padding:7px 10px; border:2px solid var(--gray-300); border-radius:6px; cursor:pointer; font-size:.8rem; font-weight:600; transition:all .15s; background:#fff; width:100%; text-align:left; }
-    .type-pill:hover { border-color:var(--gray-500); }
-    .type-pill.active-res  { border-color:#2e7d32; background:#e8f5e9; color:#1b5e20; }
-    .type-pill.active-com  { border-color:#1565c0; background:#e3f2fd; color:#0d47a1; }
-    .type-pill.active-vac  { border-color:#f57f17; background:#fff8e1; color:#e65100; }
-    .type-pill .pill-dot   { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-    .dot-res { background:#2e7d32; }
-    .dot-com { background:#1565c0; }
-    .dot-vac { background:#f57f17; }
-    .pill-count { margin-left:auto; font-size:.72rem; opacity:.7; }
+    .sidebar{width:245px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;}
+    .filter-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+    .filter-card-title{background:var(--gray-50);border-bottom:1px solid var(--gray-200);padding:9px 13px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-700);display:flex;align-items:center;gap:6px;}
+    .filter-card-body{padding:11px 13px;display:flex;flex-direction:column;gap:9px;}
+    label.filter-label{font-size:.78rem;font-weight:600;color:var(--gray-700);display:block;margin-bottom:3px;}
+    select.filter-select,input.filter-input{width:100%;padding:6px 9px;border:1px solid var(--gray-300);border-radius:5px;font-size:.8rem;background:#fff;color:var(--gray-900);appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;padding-right:24px;}
+    input.filter-input{background-image:none;padding-right:9px;}
+    select.filter-select:focus,input.filter-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,111,196,.15);}
+    .range-inputs{display:flex;gap:5px;align-items:center;}
+    .range-inputs input{flex:1;}
+    .btn-reset{width:100%;padding:7px;border:1px solid var(--gray-300);border-radius:5px;background:#fff;font-size:.78rem;font-weight:600;color:var(--gray-700);cursor:pointer;transition:all .15s;}
+    .btn-reset:hover{background:var(--gray-100);}
+
+    /* ── Grade pills ── */
+    .grade-pills{display:flex;gap:5px;flex-wrap:wrap;}
+    .grade-pill{padding:5px 10px;border:2px solid var(--gray-300);border-radius:6px;cursor:pointer;font-size:.78rem;font-weight:700;transition:all .15s;background:#fff;}
+    .grade-pill:hover{opacity:.85;}
+    .grade-pill[data-grade="A+"]{border-color:#f57f17;color:#e65100;}
+    .grade-pill[data-grade="A+"]:hover,.grade-pill[data-grade="A+"].active{background:#fff8e1;border-color:#f57f17;}
+    .grade-pill[data-grade="A"]{border-color:#2e7d32;color:#2e7d32;}
+    .grade-pill[data-grade="A"]:hover,.grade-pill[data-grade="A"].active{background:#e8f5e9;border-color:#2e7d32;}
+    .grade-pill[data-grade="B"]{border-color:#1a6fc4;color:#1a6fc4;}
+    .grade-pill[data-grade="B"]:hover,.grade-pill[data-grade="B"].active{background:#e8f0fb;border-color:#1a6fc4;}
+    .grade-pill[data-grade="C"]{border-color:#e65100;color:#e65100;}
+    .grade-pill[data-grade="C"]:hover,.grade-pill[data-grade="C"].active{background:#fff3e0;border-color:#e65100;}
+    .grade-pill[data-grade="D"]{border-color:#c62828;color:#c62828;}
+    .grade-pill[data-grade="D"]:hover,.grade-pill[data-grade="D"].active{background:#ffebee;border-color:#c62828;}
+
+    /* ── Type pills ── */
+    .type-pills{display:flex;flex-direction:column;gap:5px;}
+    .type-pill{display:flex;align-items:center;gap:7px;padding:6px 9px;border:2px solid var(--gray-300);border-radius:6px;cursor:pointer;font-size:.78rem;font-weight:600;transition:all .15s;background:#fff;width:100%;text-align:left;}
+    .type-pill:hover{border-color:var(--gray-500);}
+    .type-pill.active-res{border-color:#2e7d32;background:#e8f5e9;color:#1b5e20;}
+    .type-pill.active-com{border-color:#1565c0;background:#e3f2fd;color:#0d47a1;}
+    .type-pill.active-vac{border-color:#f57f17;background:#fff8e1;color:#e65100;}
+    .pill-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+    .dot-res{background:#2e7d32;} .dot-com{background:#1565c0;} .dot-vac{background:#f57f17;}
+    .pill-count{margin-left:auto;font-size:.7rem;opacity:.65;}
 
     /* ── Content ── */
-    .content { flex:1; min-width:0; display:flex; flex-direction:column; gap:16px; }
+    .content{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;}
 
     /* ── Toolbar ── */
-    .toolbar { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:12px 16px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .search-wrap { flex:1; min-width:180px; position:relative; }
-    .search-wrap svg { position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--gray-400); pointer-events:none; }
-    .search-input { width:100%; padding:8px 10px 8px 34px; border:1px solid var(--gray-300); border-radius:5px; font-size:.85rem; }
-    .search-input:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 2px rgba(26,111,196,.15); }
-    .toolbar-right { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    .result-count { font-size:.8rem; color:var(--gray-600); white-space:nowrap; }
-    .sort-select { padding:7px 26px 7px 10px; border:1px solid var(--gray-300); border-radius:5px; font-size:.82rem; background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E") no-repeat right 9px center; appearance:none; -webkit-appearance:none; }
-    .btn-export { padding:7px 12px; background:var(--blue); color:#fff; border:none; border-radius:5px; font-size:.8rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:5px; transition:background .15s; }
-    .btn-export:hover { background:var(--blue-dark); }
+    .toolbar{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:11px 14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+    .search-wrap{flex:1;min-width:180px;position:relative;}
+    .search-wrap svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--gray-400);pointer-events:none;}
+    .search-input{width:100%;padding:7px 9px 7px 32px;border:1px solid var(--gray-300);border-radius:5px;font-size:.83rem;}
+    .search-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,111,196,.15);}
+    .toolbar-right{display:flex;gap:7px;align-items:center;flex-wrap:wrap;}
+    .result-count{font-size:.78rem;color:var(--gray-600);white-space:nowrap;}
+    .sort-select{padding:6px 24px 6px 9px;border:1px solid var(--gray-300);border-radius:5px;font-size:.8rem;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E") no-repeat right 8px center;appearance:none;-webkit-appearance:none;}
+    .btn-hot{padding:6px 12px;background:linear-gradient(135deg,#e65100,#f57f17);color:#fff;border:none;border-radius:5px;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:4px;transition:opacity .15s;}
+    .btn-hot:hover{opacity:.88;}
+    .btn-hot.active{background:linear-gradient(135deg,#f57f17,#ffc107);color:#212121;}
+    .btn-export{padding:6px 11px;background:var(--blue);color:#fff;border:none;border-radius:5px;font-size:.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;transition:background .15s;}
+    .btn-export:hover{background:var(--blue-dark);}
+    .view-toggle{display:flex;border:1px solid var(--gray-300);border-radius:5px;overflow:hidden;}
+    .view-btn{padding:6px 11px;background:#fff;border:none;font-size:.78rem;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:4px;border-right:1px solid var(--gray-300);}
+    .view-btn:last-child{border-right:none;}
+    .view-btn.active{background:var(--blue);color:#fff;}
 
-    /* ── View toggle ── */
-    .view-toggle { display:flex; border:1px solid var(--gray-300); border-radius:5px; overflow:hidden; }
-    .view-btn { padding:6px 12px; background:#fff; border:none; font-size:.8rem; font-weight:600; color:var(--gray-600); cursor:pointer; transition:all .15s; display:flex; align-items:center; gap:5px; border-right:1px solid var(--gray-300); }
-    .view-btn:last-child { border-right:none; }
-    .view-btn.active { background:var(--blue); color:#fff; }
-    .view-btn:not(.active):hover { background:var(--gray-100); }
+    /* ── Grade badge ── */
+    .grade-badge{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:22px;padding:0 6px;border-radius:5px;font-size:.72rem;font-weight:800;letter-spacing:.3px;}
+    .grade-Ap{background:#fff8e1;color:#e65100;border:1.5px solid #f57f17;}
+    .grade-A{background:#e8f5e9;color:#1b5e20;border:1.5px solid #2e7d32;}
+    .grade-B{background:#e8f0fb;color:#0d47a1;border:1.5px solid #1a6fc4;}
+    .grade-C{background:#fff3e0;color:#bf360c;border:1.5px solid #e65100;}
+    .grade-D{background:#ffebee;color:#b71c1c;border:1.5px solid #c62828;}
+
+    /* ── Equity bar ── */
+    .equity-bar-wrap{display:flex;align-items:center;gap:6px;min-width:100px;}
+    .equity-bar{flex:1;height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden;}
+    .equity-fill{height:100%;border-radius:3px;transition:width .3s;}
+    .eq-high{background:#2e7d32;} .eq-med{background:#f57f17;} .eq-low{background:#c62828;}
+    .equity-pct{font-size:.72rem;font-weight:700;white-space:nowrap;}
+
+    /* ── Risk chip ── */
+    .risk-chip{display:inline-block;padding:1px 7px;border-radius:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;}
+    .risk-low{background:#e8f5e9;color:#1b5e20;}
+    .risk-med{background:#fff3e0;color:#bf360c;}
+    .risk-high{background:#ffebee;color:#b71c1c;}
+
+    /* ── Premium warning ── */
+    .premium-flag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:.65rem;font-weight:700;background:#fff8e1;color:#e65100;border:1px solid #f57f17;}
 
     /* ── Table ── */
-    .table-wrap { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
-    table { width:100%; border-collapse:collapse; font-size:.82rem; }
-    thead th { background:var(--gray-50); border-bottom:2px solid var(--gray-200); padding:11px 12px; text-align:left; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--gray-700); white-space:nowrap; cursor:pointer; user-select:none; }
-    thead th:hover { background:var(--gray-100); color:var(--blue); }
-    thead th .sort-icon { margin-left:4px; opacity:.4; font-size:.75rem; }
-    thead th.asc .sort-icon::after { content:'↑'; opacity:1; }
-    thead th.desc .sort-icon::after { content:'↓'; opacity:1; }
-    thead th:not(.asc):not(.desc) .sort-icon::after { content:'↕'; }
-    tbody tr { border-bottom:1px solid var(--gray-200); transition:background .1s; cursor:pointer; }
-    tbody tr:last-child { border-bottom:none; }
-    tbody tr:hover { background:var(--blue-light); }
-    tbody td { padding:10px 12px; vertical-align:middle; }
-    .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.7rem; font-weight:700; }
-    .badge-group { background:var(--blue-light); color:var(--blue-dark); }
-    .badge-district { background:var(--gray-200); color:var(--gray-700); }
-    .badge-res { background:#e8f5e9; color:#1b5e20; }
-    .badge-com { background:#e3f2fd; color:#0d47a1; }
-    .badge-vac { background:#fff8e1; color:#e65100; }
-    .amount-high { color:var(--red); font-weight:700; }
-    .amount-med { color:var(--orange); font-weight:600; }
-    .amount-low { color:var(--green); font-weight:500; }
-    .address-text { font-weight:600; }
-    .owner-text { font-size:.75rem; color:var(--gray-600); margin-top:1px; }
-    .parcel-text { font-family:monospace; font-size:.78rem; color:var(--gray-600); }
-    .zillow-btn { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; background:#006aff; color:#fff; text-decoration:none; border-radius:4px; font-size:.72rem; font-weight:700; white-space:nowrap; transition:opacity .15s; }
-    .zillow-btn:hover { opacity:.85; }
-    .zillow-icon { width:14px; height:14px; background:#fff; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:.6rem; color:#006aff; font-weight:900; }
+    .table-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+    table{width:100%;border-collapse:collapse;font-size:.8rem;}
+    thead th{background:var(--gray-50);border-bottom:2px solid var(--gray-200);padding:10px 11px;text-align:left;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-700);white-space:nowrap;cursor:pointer;user-select:none;}
+    thead th:hover{background:var(--gray-100);color:var(--blue);}
+    thead th .si{margin-left:3px;opacity:.35;font-size:.7rem;}
+    thead th.asc .si::after{content:'↑';opacity:1;} thead th.desc .si::after{content:'↓';opacity:1;} thead th:not(.asc):not(.desc) .si::after{content:'↕';}
+    tbody tr{border-bottom:1px solid var(--gray-200);transition:background .1s;cursor:pointer;}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:hover{background:#fafbff;}
+    tbody tr.grade-row-Ap{border-left:3px solid #f57f17;}
+    tbody tr.grade-row-A{border-left:3px solid #2e7d32;}
+    tbody tr.grade-row-B{border-left:3px solid #1a6fc4;}
+    tbody td{padding:9px 11px;vertical-align:middle;}
+    .badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:.68rem;font-weight:700;}
+    .badge-group{background:var(--blue-light);color:var(--blue-dark);}
+    .badge-district{background:var(--gray-200);color:var(--gray-700);}
+    .badge-res{background:#e8f5e9;color:#1b5e20;} .badge-com{background:#e3f2fd;color:#0d47a1;} .badge-vac{background:#fff8e1;color:#e65100;}
+    .amount-high{color:var(--red);font-weight:700;} .amount-med{color:var(--orange);font-weight:600;} .amount-low{color:var(--green);font-weight:500;}
+    .address-text{font-weight:600;} .owner-text{font-size:.72rem;color:var(--gray-600);margin-top:1px;}
+    .zillow-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;background:#006aff;color:#fff;text-decoration:none;border-radius:4px;font-size:.68rem;font-weight:700;white-space:nowrap;transition:opacity .15s;}
+    .zillow-btn:hover{opacity:.85;}
+    .zillow-icon{width:12px;height:12px;background:#fff;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#006aff;font-weight:900;}
 
-    /* ── Card grid ── */
-    .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px; }
-    .prop-card { background:#fff; border:1px solid var(--gray-200); border-radius:10px; overflow:hidden; cursor:pointer; transition:all .2s; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; }
-    .prop-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); border-color:var(--blue); }
-    .card-map { height:175px; position:relative; background:var(--gray-200); overflow:hidden; flex-shrink:0; }
-    .card-map iframe { width:100%; height:100%; border:none; pointer-events:none; display:block; }
-    .card-map-ph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg,#dce8f8,#e8f0fb); gap:8px; }
-    .card-map-ph svg { opacity:.35; }
-    .card-map-ph span { font-size:.72rem; color:var(--gray-500); }
-    .card-amount-badge { position:absolute; top:8px; right:8px; padding:3px 8px; border-radius:12px; font-size:.7rem; font-weight:700; backdrop-filter:blur(4px); }
-    .card-amount-badge.high { background:rgba(198,40,40,.85); color:#fff; }
-    .card-amount-badge.med { background:rgba(230,81,0,.85); color:#fff; }
-    .card-amount-badge.low { background:rgba(46,125,50,.85); color:#fff; }
-    .card-body { padding:14px; flex:1; display:flex; flex-direction:column; }
-    .card-address { font-size:.88rem; font-weight:700; line-height:1.3; }
-    .card-owner { font-size:.75rem; color:var(--gray-600); margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .card-meta { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
-    .card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:10px; border-top:1px solid var(--gray-200); margin-top:12px; }
-    .card-fcv { font-size:.75rem; color:var(--gray-600); }
-    .card-parcel { font-size:.7rem; font-family:monospace; color:var(--gray-500); }
-
-    /* ── Cards wrapper with pagination ── */
-    .cards-wrap { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
-    .cards-inner { padding:16px; }
+    /* ── Cards ── */
+    .cards-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+    .cards-inner{padding:14px;}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;}
+    .prop-card{background:#fff;border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+    .prop-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);border-color:var(--blue);}
+    .prop-card.card-Ap{border-top:3px solid #f57f17;}
+    .prop-card.card-A{border-top:3px solid #2e7d32;}
+    .prop-card.card-B{border-top:3px solid #1a6fc4;}
+    .card-map{height:160px;position:relative;background:var(--gray-200);overflow:hidden;flex-shrink:0;}
+    .card-map iframe{width:100%;height:100%;border:none;pointer-events:none;display:block;}
+    .card-map-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#dce8f8,#e8f0fb);gap:7px;}
+    .card-map-ph svg{opacity:.3;}
+    .card-map-ph span{font-size:.7rem;color:var(--gray-500);}
+    .card-amount-badge{position:absolute;top:7px;right:7px;padding:2px 8px;border-radius:12px;font-size:.68rem;font-weight:700;backdrop-filter:blur(4px);}
+    .cab-high{background:rgba(198,40,40,.85);color:#fff;} .cab-med{background:rgba(230,81,0,.85);color:#fff;} .cab-low{background:rgba(46,125,50,.85);color:#fff;}
+    .card-grade-overlay{position:absolute;top:7px;left:7px;font-size:.9rem;font-weight:900;padding:2px 8px;border-radius:5px;backdrop-filter:blur(4px);}
+    .cgo-Ap{background:rgba(245,127,23,.85);color:#fff;} .cgo-A{background:rgba(46,125,50,.85);color:#fff;} .cgo-B{background:rgba(26,111,196,.85);color:#fff;} .cgo-C{background:rgba(230,81,0,.85);color:#fff;} .cgo-D{background:rgba(198,40,40,.85);color:#fff;}
+    .card-body{padding:12px;flex:1;display:flex;flex-direction:column;}
+    .card-address{font-size:.86rem;font-weight:700;line-height:1.3;}
+    .card-owner{font-size:.72rem;color:var(--gray-600);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .card-equity-row{display:flex;align-items:center;justify-content:space-between;margin-top:9px;padding-top:8px;border-top:1px solid var(--gray-200);}
+    .card-equity-label{font-size:.68rem;color:var(--gray-600);}
+    .card-equity-val{font-size:.85rem;font-weight:700;}
+    .card-meta{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;}
+    .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:9px;border-top:1px solid var(--gray-200);margin-top:10px;}
 
     /* ── Pagination ── */
-    .pagination { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:var(--gray-50); border-top:1px solid var(--gray-200); flex-wrap:wrap; gap:8px; }
-    .page-info { font-size:.8rem; color:var(--gray-600); }
-    .page-btn { min-width:32px; height:32px; padding:0 6px; border:1px solid var(--gray-300); background:#fff; border-radius:5px; font-size:.8rem; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:all .15s; color:var(--gray-700); }
-    .page-btn:hover:not(:disabled) { background:var(--blue-light); border-color:var(--blue); color:var(--blue); }
-    .page-btn.active { background:var(--blue); border-color:var(--blue); color:#fff; font-weight:700; }
-    .page-btn:disabled { opacity:.4; cursor:not-allowed; }
-    .per-page-wrap { display:flex; align-items:center; gap:8px; }
-    .per-page-label { font-size:.8rem; color:var(--gray-600); }
+    .pagination{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--gray-50);border-top:1px solid var(--gray-200);flex-wrap:wrap;gap:7px;}
+    .page-info{font-size:.78rem;color:var(--gray-600);}
+    .page-btn{min-width:30px;height:30px;padding:0 5px;border:1px solid var(--gray-300);background:#fff;border-radius:5px;font-size:.78rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;color:var(--gray-700);}
+    .page-btn:hover:not(:disabled){background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+    .page-btn.active{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700;}
+    .page-btn:disabled{opacity:.35;cursor:not-allowed;}
+    .per-page-wrap{display:flex;align-items:center;gap:7px;}
+    .per-page-label{font-size:.78rem;color:var(--gray-600);}
 
     /* ── No results ── */
-    .no-results { text-align:center; padding:60px 20px; color:var(--gray-500); }
-    .no-results svg { display:block; margin:0 auto 12px; opacity:.3; }
-    .no-results p { font-size:.9rem; }
+    .no-results{text-align:center;padding:50px 20px;color:var(--gray-500);}
+    .no-results svg{display:block;margin:0 auto 10px;opacity:.25;}
+    .no-results p{font-size:.88rem;}
 
-    /* ── Detail Modal ── */
-    .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; display:flex; align-items:center; justify-content:center; padding:16px; opacity:0; pointer-events:none; transition:opacity .2s; }
-    .modal-overlay.open { opacity:1; pointer-events:auto; }
-    .modal { background:#fff; border-radius:12px; width:100%; max-width:860px; max-height:92vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow-lg); transform:scale(.96); transition:transform .2s; }
-    .modal-overlay.open .modal { transform:scale(1); }
-    .modal-header { padding:16px 20px; border-bottom:1px solid var(--gray-200); display:flex; justify-content:space-between; align-items:flex-start; flex-shrink:0; }
-    .modal-title { font-size:1.05rem; font-weight:700; }
-    .modal-subtitle { font-size:.78rem; color:var(--gray-600); margin-top:2px; }
-    .modal-close { background:none; border:1px solid var(--gray-300); border-radius:6px; width:30px; height:30px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; color:var(--gray-600); flex-shrink:0; margin-left:12px; transition:all .15s; }
-    .modal-close:hover { background:var(--gray-100); }
-    .modal-map { height:340px; flex-shrink:0; background:var(--gray-200); position:relative; }
-    .modal-map iframe { width:100%; height:100%; border:none; display:block; }
-    .modal-map-loading { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#dce8f8,#e8f0fb); flex-direction:column; gap:10px; }
-    .spinner { width:32px; height:32px; border:3px solid var(--gray-300); border-top-color:var(--blue); border-radius:50%; animation:spin .8s linear infinite; }
-    @keyframes spin { to { transform:rotate(360deg); } }
-    .modal-body { padding:20px; overflow-y:auto; flex:1; }
-    .modal-details-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; }
-    .detail-item label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--gray-600); display:block; margin-bottom:2px; }
-    .detail-item span { font-size:.9rem; font-weight:600; }
-    .modal-actions { display:flex; gap:8px; margin-top:20px; flex-wrap:wrap; }
-    .modal-link { display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:6px; font-size:.82rem; font-weight:700; text-decoration:none; transition:opacity .15s; }
-    .modal-link:hover { opacity:.85; }
-    .modal-link.zillow { background:#006aff; color:#fff; }
-    .modal-link.gmaps { background:#4285f4; color:#fff; }
-    .modal-link.streetview { background:#34a853; color:#fff; }
-    .modal-link.sat { background:#ea4335; color:#fff; }
-    .modal-nav { display:flex; gap:8px; }
-    .modal-nav-btn { padding:6px 12px; border:1px solid var(--gray-300); border-radius:5px; background:#fff; font-size:.8rem; font-weight:600; cursor:pointer; color:var(--gray-700); display:flex; align-items:center; gap:4px; transition:all .15s; }
-    .modal-nav-btn:hover { background:var(--blue-light); border-color:var(--blue); color:var(--blue); }
-    .modal-nav-btn:disabled { opacity:.35; cursor:not-allowed; }
-
-    /* ── Map view tabs inside modal ── */
-    .map-tabs { display:flex; gap:0; border-bottom:1px solid var(--gray-200); background:var(--gray-50); padding:8px 12px 0; flex-shrink:0; }
-    .map-tab { padding:6px 14px; font-size:.78rem; font-weight:600; cursor:pointer; border:1px solid transparent; border-bottom:none; border-radius:5px 5px 0 0; margin-bottom:-1px; color:var(--gray-600); transition:all .15s; }
-    .map-tab.active { background:#fff; border-color:var(--gray-200); color:var(--blue); }
-    .map-tab:not(.active):hover { background:var(--gray-100); }
-
-    /* ── Footer ── */
-    .site-footer { text-align:center; padding:24px; font-size:.78rem; color:var(--gray-500); border-top:1px solid var(--gray-200); margin-top:32px; }
+    /* ── Modal ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s;}
+    .modal-overlay.open{opacity:1;pointer-events:auto;}
+    .modal{background:#fff;border-radius:12px;width:100%;max-width:920px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);transform:scale(.96);transition:transform .2s;}
+    .modal-overlay.open .modal{transform:scale(1);}
+    .modal-header{padding:14px 18px;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0;gap:10px;}
+    .modal-title{font-size:1rem;font-weight:700;}
+    .modal-subtitle{font-size:.76rem;color:var(--gray-600);margin-top:2px;}
+    .modal-close{background:none;border:1px solid var(--gray-300);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gray-600);flex-shrink:0;transition:all .15s;}
+    .modal-close:hover{background:var(--gray-100);}
+    .modal-tabs-row{display:flex;justify-content:space-between;align-items:center;background:var(--gray-50);border-bottom:1px solid var(--gray-200);padding:0 14px;flex-shrink:0;}
+    .map-tabs{display:flex;gap:0;}
+    .map-tab{padding:8px 13px;font-size:.76rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;color:var(--gray-600);transition:all .15s;}
+    .map-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+    .modal-nav{display:flex;gap:6px;}
+    .modal-nav-btn{padding:5px 10px;border:1px solid var(--gray-300);border-radius:5px;background:#fff;font-size:.76rem;font-weight:600;cursor:pointer;color:var(--gray-700);display:flex;align-items:center;gap:3px;transition:all .15s;}
+    .modal-nav-btn:hover{background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+    .modal-nav-btn:disabled{opacity:.35;cursor:not-allowed;}
+    .modal-map{height:300px;flex-shrink:0;background:var(--gray-200);position:relative;}
+    .modal-map iframe{width:100%;height:100%;border:none;display:block;}
+    .modal-map-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#dce8f8,#e8f0fb);flex-direction:column;gap:9px;}
+    .spinner{width:28px;height:28px;border:3px solid var(--gray-300);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .modal-body{padding:18px;overflow-y:auto;flex:1;}
+    /* Two-column modal body */
+    .modal-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .modal-section-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-600);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--gray-200);}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px;}
+    .detail-item label{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);display:block;margin-bottom:2px;}
+    .detail-item span{font-size:.88rem;font-weight:600;}
+    /* Investment analysis panel */
+    .invest-panel{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px;}
+    .invest-score-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+    .big-grade{font-size:2rem;font-weight:900;line-height:1;}
+    .score-bar-wrap{flex:1;}
+    .score-bar{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden;margin-top:4px;}
+    .score-fill{height:100%;border-radius:4px;transition:width .5s;}
+    .equity-analysis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+    .ea-item{background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:9px 11px;}
+    .ea-label{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);}
+    .ea-val{font-size:.95rem;font-weight:700;margin-top:2px;}
+    .redemption-box{background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:10px 12px;margin-bottom:10px;}
+    .redemption-box h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);margin-bottom:8px;}
+    .redemption-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.78rem;padding:3px 0;border-bottom:1px solid var(--gray-100);}
+    .redemption-row:last-child{border-bottom:none;}
+    .warn-box{background:#fff8e1;border:1px solid #f57f17;border-radius:6px;padding:9px 11px;font-size:.76rem;color:#e65100;display:flex;gap:7px;align-items:flex-start;}
+    .modal-actions{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap;}
+    .modal-link{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none;transition:opacity .15s;}
+    .modal-link:hover{opacity:.85;}
+    .ml-zillow{background:#006aff;color:#fff;} .ml-gmaps{background:#4285f4;color:#fff;} .ml-sv{background:#34a853;color:#fff;} .ml-sat{background:#ea4335;color:#fff;}
 
     /* ── Mobile filter toggle ── */
-    .filter-toggle-btn { display:none; width:100%; padding:10px 14px; background:var(--blue); color:#fff; border:none; border-radius:var(--radius); font-size:.85rem; font-weight:600; cursor:pointer; text-align:left; margin-bottom:8px; }
-    .filter-toggle-btn svg { float:right; transition:transform .2s; }
-    .filter-toggle-btn.open svg { transform:rotate(180deg); }
-    .sidebar-collapsible { }
+    .filter-toggle-btn{display:none;width:100%;padding:9px 13px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius);font-size:.83rem;font-weight:600;cursor:pointer;text-align:left;margin-bottom:6px;align-items:center;justify-content:space-between;}
+    .sidebar-collapsible{}
 
     /* ── Responsive ── */
-    @media (max-width:900px) {
-      .main { flex-direction:column; padding:0 16px; }
-      .sidebar { width:100%; }
-      .filter-toggle-btn { display:flex; align-items:center; justify-content:space-between; }
-      .sidebar-collapsible { display:none; flex-direction:column; gap:16px; }
-      .sidebar-collapsible.open { display:flex; }
-    }
-    @media (max-width:700px) {
-      .stats-inner { flex-wrap:wrap; }
-      .stat-card { min-width:48%; border-right:none; border-bottom:1px solid var(--gray-200); flex:none; width:50%; }
-      .toolbar { padding:10px 12px; gap:8px; }
-      .toolbar-right { width:100%; justify-content:space-between; }
-      .search-wrap { min-width:0; }
-      .card-grid { grid-template-columns:1fr 1fr; }
-      .view-toggle { }
-    }
-    @media (max-width:500px) {
-      .main { padding:0 12px; margin:16px auto; }
-      .header-inner { padding:12px 0; }
-      .header-brand h1 { font-size:1.2rem; }
-      .stat-card { width:50%; padding:12px 14px; }
-      .stat-value { font-size:1.1rem; }
-      .toolbar { flex-direction:column; align-items:stretch; }
-      .toolbar-right { flex-wrap:wrap; gap:6px; }
-      .sort-select { flex:1; }
-      .card-grid { grid-template-columns:1fr; }
-      /* Table: horizontal scroll + hide less critical columns */
-      .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-      table { min-width:520px; }
-      table thead th:nth-child(2), table tbody td:nth-child(2) { display:none; }
-      table thead th:nth-child(4), table tbody td:nth-child(4) { display:none; }
-      /* Modal full-screen on mobile */
-      .modal-overlay { padding:0; align-items:flex-end; }
-      .modal { border-radius:16px 16px 0 0; max-height:95vh; }
-      .modal-map { height:220px; }
-      .modal-details-grid { grid-template-columns:1fr; }
-      .modal-actions { gap:6px; }
-      .modal-link { padding:8px 12px; font-size:.78rem; flex:1; justify-content:center; text-align:center; }
-      .modal-nav-btn { padding:6px 8px; font-size:.75rem; }
-    }
+    @media(max-width:1000px){.main{flex-direction:column;padding:0 16px;}.sidebar{width:100%;}.filter-toggle-btn{display:flex;}.sidebar-collapsible{display:none;flex-direction:column;gap:14px;}.sidebar-collapsible.open{display:flex;}}
+    @media(max-width:700px){.stats-inner{flex-wrap:wrap;}.stat-card{min-width:48%;border-right:none;border-bottom:1px solid var(--gray-200);flex:none;width:50%;}.toolbar{flex-direction:column;align-items:stretch;}.toolbar-right{flex-wrap:wrap;gap:6px;}.card-grid{grid-template-columns:1fr 1fr;}.guide-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:500px){.main{padding:0 10px;margin:14px auto;}.card-grid{grid-template-columns:1fr;}.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}table{min-width:560px;}table thead th:nth-child(1),table tbody td:nth-child(1){display:none;}.modal-overlay{padding:0;align-items:flex-end;}.modal{border-radius:16px 16px 0 0;max-height:95vh;}.modal-map{height:210px;}.modal-cols{grid-template-columns:1fr;}.detail-grid{grid-template-columns:1fr;}.equity-analysis{grid-template-columns:1fr 1fr;}.guide-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -261,21 +280,88 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="header-brand">
-      <h1>&#x1F3E6; Tax Lien Properties</h1>
-      <p>Montgomery County &mdash; Annual Tax Sale</p>
+      <h1>&#x1F4B0; Montgomery County Tax Sale — Investor Tool</h1>
+      <p>Identify, analyze, and prioritize tax lien properties for acquisition &amp; flip</p>
     </div>
-    <span class="header-badge">1,378 Listings</span>
+    <div class="header-badges">
+      <span class="header-badge">1,378 Properties</span>
+      <span class="header-badge hot" id="hdr-hot-count">— Hot Deals</span>
+    </div>
   </div>
 </header>
+
+<!-- ── Process Guide ── -->
+<div class="process-guide">
+  <div class="process-guide-inner">
+    <div class="guide-toggle" id="guide-toggle">
+      <span class="guide-toggle-label">
+        <span>&#x1F4CB;</span>
+        How Montgomery County Tax Sale Works — Investor Quick Reference
+      </span>
+      <span class="guide-toggle-arrow" id="guide-arrow">&#x25BC;</span>
+    </div>
+    <div class="guide-body" id="guide-body">
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>&#x1F3DB; What You Buy</h3>
+          <p>You purchase a <span class="highlight">tax lien certificate</span>, not the property itself. The county's lien transfers to you. The owner can redeem (pay you back) with interest, or you eventually foreclose and take title.</p>
+        </div>
+        <div class="guide-card">
+          <h3>&#x1F4C5; Sale Date &amp; Bidding</h3>
+          <ul>
+            <li>Held annually — <span class="highlight">2nd Monday of June</span></li>
+            <li>Sealed bid process</li>
+            <li>Minimum bid = amount advertised</li>
+            <li>Must purchase <span class="highlight">minimum 10 liens</span> per bidder</li>
+            <li>Payment via electronic funds transfer</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>&#x1F4B5; Interest Rates</h3>
+          <ul>
+            <li><span class="highlight">6% per annum</span> — owner-occupied homes</li>
+            <li><span class="highlight">20% per annum</span> — all other properties</li>
+            <li>Interest accrues daily from sale date</li>
+            <li>Paid by owner upon redemption</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>&#x23F3; Redemption Timeline</h3>
+          <ul>
+            <li>Owner-occupied: <span class="highlight">9 months</span> before foreclosure</li>
+            <li>Non-owner-occupied: <span class="highlight">6 months</span> before foreclosure</li>
+            <li>Certificate valid for <span class="highlight">2 years</span> — must file before expiry</li>
+            <li>~6 months after sale: certificate issued</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>&#x26A0; High-Bid Premium</h3>
+          <p>If your bid exceeds <span class="highlight">40% of the FCV</span>, a <span class="highlight">20% premium</span> is charged on the excess amount. Properties flagged ⚠️ in this tool have amount-due &gt; 40% of FCV — premium risk on any winning bid.</p>
+        </div>
+        <div class="guide-card">
+          <h3>&#x1F3AF; Flip Strategy</h3>
+          <ul>
+            <li><span class="highlight">Low LTV</span> = most equity cushion for flip</li>
+            <li>After foreclosure, take title &amp; resell</li>
+            <li>Grade A+/A = best equity-to-cost ratio</li>
+            <li>Commercial liens often redeemed at 20%</li>
+            <li>Check title for senior liens before bidding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ── Stats bar ── -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-card"><span class="stat-label">Total Properties</span><span class="stat-value blue" id="stat-total">1,378</span></div>
-    <div class="stat-card"><span class="stat-label">Total Amount Due</span><span class="stat-value orange" id="stat-total-due">$13,019,993</span></div>
-    <div class="stat-card"><span class="stat-label">Avg Amount Due</span><span class="stat-value" id="stat-avg">$9,448</span></div>
-    <div class="stat-card"><span class="stat-label">Max Amount Due</span><span class="stat-value" style="color:var(--red)" id="stat-max">$236,076</span></div>
-    <div class="stat-card"><span class="stat-label">Showing</span><span class="stat-value green" id="stat-filtered">—</span></div>
+    <div class="stat-card"><span class="stat-label">Hot Deals (A+/A)</span><span class="stat-value sv-gold" id="stat-hot">—</span><span class="stat-sub">Best equity ratio</span></div>
+    <div class="stat-card"><span class="stat-label">Avg Equity %</span><span class="stat-value sv-green" id="stat-avg-eq">—</span><span class="stat-sub">Across filtered set</span></div>
+    <div class="stat-card"><span class="stat-label">Total Equity</span><span class="stat-value sv-blue" id="stat-total-eq">—</span><span class="stat-sub">FCV minus amount due</span></div>
+    <div class="stat-card"><span class="stat-label">Total Amount Due</span><span class="stat-value sv-red" id="stat-total-due">$13.0M</span><span class="stat-sub">Capital to deploy</span></div>
+    <div class="stat-card"><span class="stat-label">Premium Risk ⚠️</span><span class="stat-value sv-purple" id="stat-premium">—</span><span class="stat-sub">Bid may trigger premium</span></div>
+    <div class="stat-card"><span class="stat-label">Showing</span><span class="stat-value sv-blue" id="stat-showing">—</span><span class="stat-sub" id="stat-showing-sub"></span></div>
   </div>
 </div>
 
@@ -285,76 +371,79 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <button class="filter-toggle-btn" id="filter-toggle">
-      &#x1F50D; Filters &amp; Options
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+      &#x1F50D; Filters &amp; Analysis
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
     </button>
     <div class="sidebar-collapsible" id="sidebar-content">
-    <div class="filter-card">
-      <div class="filter-card-title">&#x1F50D; Filters</div>
-      <div class="filter-card-body">
-        <div>
-          <label class="filter-label" for="filter-group">Group</label>
-          <select class="filter-select" id="filter-group"><option value="">All Groups</option></select>
-        </div>
-        <div>
-          <label class="filter-label" for="filter-district">District</label>
-          <select class="filter-select" id="filter-district"><option value="">All Districts</option></select>
-        </div>
-        <div>
-          <label class="filter-label">Amount Due ($)</label>
-          <div class="range-inputs">
-            <input class="filter-input" type="number" id="filter-min" placeholder="Min" min="0" step="100" />
-            <span style="font-size:.75rem;color:var(--gray-500)">–</span>
-            <input class="filter-input" type="number" id="filter-max" placeholder="Max" min="0" step="100" />
-          </div>
-        </div>
-        <div>
-          <label class="filter-label">FCV ($)</label>
-          <div class="range-inputs">
-            <input class="filter-input" type="number" id="filter-fcv-min" placeholder="Min" min="0" step="1000" />
-            <span style="font-size:.75rem;color:var(--gray-500)">–</span>
-            <input class="filter-input" type="number" id="filter-fcv-max" placeholder="Max" min="0" step="1000" />
-          </div>
-        </div>
-        <button class="btn-reset" id="btn-reset">&#x21BA; Reset Filters</button>
-      </div>
-    </div>
-    <div class="filter-card">
-      <div class="filter-card-title">&#x1F3E0; Property Type</div>
-      <div class="filter-card-body">
-        <div class="type-pills">
-          <button class="type-pill" data-type="" id="pill-all">
-            <span class="pill-dot" style="background:var(--gray-400)"></span>
-            All Types
-            <span class="pill-count" id="pill-count-all"></span>
-          </button>
-          <button class="type-pill" data-type="residential" id="pill-res">
-            <span class="pill-dot dot-res"></span>
-            Residential
-            <span class="pill-count" id="pill-count-res"></span>
-          </button>
-          <button class="type-pill" data-type="commercial" id="pill-com">
-            <span class="pill-dot dot-com"></span>
-            Commercial
-            <span class="pill-count" id="pill-count-com"></span>
-          </button>
-          <button class="type-pill" data-type="vacant" id="pill-vac">
-            <span class="pill-dot dot-vac"></span>
-            Vacant / Land
-            <span class="pill-count" id="pill-count-vac"></span>
-          </button>
-        </div>
-        <p style="font-size:.7rem;color:var(--gray-500);margin-top:8px;line-height:1.4">Classification based on owner name, entity type, address pattern, and assessed value.</p>
-      </div>
-    </div>
 
-    <div class="filter-card">
-      <div class="filter-card-title">&#x1F4CA; Amount Brackets</div>
-      <div class="filter-card-body">
-        <div id="bracket-legend" style="display:flex;flex-direction:column;gap:6px;font-size:.78rem;"></div>
+      <!-- Deal Grade -->
+      <div class="filter-card">
+        <div class="filter-card-title">&#x1F3C6; Deal Grade</div>
+        <div class="filter-card-body">
+          <div class="grade-pills" id="grade-pills">
+            <button class="grade-pill active" data-grade="">All</button>
+            <button class="grade-pill" data-grade="A+">A+</button>
+            <button class="grade-pill" data-grade="A">A</button>
+            <button class="grade-pill" data-grade="B">B</button>
+            <button class="grade-pill" data-grade="C">C</button>
+            <button class="grade-pill" data-grade="D">D</button>
+          </div>
+          <div id="grade-dist" style="display:flex;flex-direction:column;gap:4px;font-size:.75rem;margin-top:4px;"></div>
+        </div>
       </div>
-    </div>
-  </div><!-- /sidebar-collapsible -->
+
+      <!-- Investment Filters -->
+      <div class="filter-card">
+        <div class="filter-card-title">&#x1F4C8; Investment Filters</div>
+        <div class="filter-card-body">
+          <div>
+            <label class="filter-label">Min Equity %</label>
+            <input class="filter-input" type="number" id="filter-eq-pct" placeholder="e.g. 50" min="0" max="100" step="5" />
+          </div>
+          <div>
+            <label class="filter-label">Max Amount Due ($)</label>
+            <input class="filter-input" type="number" id="filter-max-due" placeholder="e.g. 20000" min="0" step="1000" />
+          </div>
+          <div>
+            <label class="filter-label">Min FCV ($)</label>
+            <input class="filter-input" type="number" id="filter-min-fcv" placeholder="e.g. 100000" min="0" step="10000" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Type -->
+      <div class="filter-card">
+        <div class="filter-card-title">&#x1F3E0; Property Type</div>
+        <div class="filter-card-body">
+          <div class="type-pills">
+            <button class="type-pill" data-type=""><span class="pill-dot" style="background:var(--gray-400)"></span>All Types<span class="pill-count" id="pill-count-all"></span></button>
+            <button class="type-pill" data-type="residential"><span class="pill-dot dot-res"></span>Residential<span class="pill-count" id="pill-count-res"></span></button>
+            <button class="type-pill" data-type="commercial"><span class="pill-dot dot-com"></span>Commercial<span class="pill-count" id="pill-count-com"></span></button>
+            <button class="type-pill" data-type="vacant"><span class="pill-dot dot-vac"></span>Vacant / Land<span class="pill-count" id="pill-count-vac"></span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Filters -->
+      <div class="filter-card">
+        <div class="filter-card-title">&#x1F50D; More Filters</div>
+        <div class="filter-card-body">
+          <div><label class="filter-label" for="filter-group">Group</label>
+            <select class="filter-select" id="filter-group"><option value="">All Groups</option></select></div>
+          <div><label class="filter-label" for="filter-district">District</label>
+            <select class="filter-select" id="filter-district"><option value="">All Districts</option></select></div>
+          <div><label class="filter-label">Amount Due Range</label>
+            <div class="range-inputs">
+              <input class="filter-input" type="number" id="filter-min" placeholder="Min" min="0" step="100" />
+              <span style="font-size:.72rem;color:var(--gray-500)">–</span>
+              <input class="filter-input" type="number" id="filter-max" placeholder="Max" min="0" step="100" />
+            </div>
+          </div>
+          <button class="btn-reset" id="btn-reset">&#x21BA; Reset All Filters</button>
+        </div>
+      </div>
+
+    </div><!-- /sidebar-collapsible -->
   </aside>
 
   <!-- Content -->
@@ -363,32 +452,33 @@
     <!-- Toolbar -->
     <div class="toolbar">
       <div class="search-wrap">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/></svg>
         <input class="search-input" type="text" id="search" placeholder="Search address, owner, or parcel…" />
       </div>
       <div class="toolbar-right">
         <span class="result-count" id="result-count"></span>
+        <button class="btn-hot" id="btn-hot">&#x1F525; Hot Deals</button>
         <select class="sort-select" id="sort-select">
-          <option value="amountDue-desc">Amount Due ↓</option>
+          <option value="score-desc">Deal Score ↓</option>
+          <option value="equityPct-desc">Equity % ↓</option>
+          <option value="equity-desc">Equity $ ↓</option>
           <option value="amountDue-asc">Amount Due ↑</option>
+          <option value="amountDue-desc">Amount Due ↓</option>
           <option value="fcv-desc">FCV ↓</option>
-          <option value="fcv-asc">FCV ↑</option>
           <option value="address-asc">Address A–Z</option>
-          <option value="group-asc">Group ↑</option>
-          <option value="district-asc">District ↑</option>
         </select>
         <div class="view-toggle">
-          <button class="view-btn active" id="btn-table" title="Table view">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/></svg>
+          <button class="view-btn active" id="btn-table" title="Table">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/></svg>
             Table
           </button>
-          <button class="view-btn" id="btn-cards" title="Card view">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5z"/></svg>
+          <button class="view-btn" id="btn-cards" title="Cards">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5z"/></svg>
             Cards
           </button>
         </div>
         <button class="btn-export" id="btn-export">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/></svg>
           CSV
         </button>
       </div>
@@ -399,13 +489,14 @@
       <table id="prop-table">
         <thead>
           <tr>
-            <th data-col="group">Group<span class="sort-icon"></span></th>
-            <th data-col="parcel">Parcel<span class="sort-icon"></span></th>
-            <th data-col="address">Address / Owner<span class="sort-icon"></span></th>
-            <th data-col="type">Type<span class="sort-icon"></span></th>
-            <th data-col="district">Dist.<span class="sort-icon"></span></th>
-            <th data-col="fcv">FCV<span class="sort-icon"></span></th>
-            <th data-col="amountDue">Amount Due<span class="sort-icon"></span></th>
+            <th data-col="score">Grade<span class="si"></span></th>
+            <th data-col="address">Address / Owner<span class="si"></span></th>
+            <th data-col="type">Type<span class="si"></span></th>
+            <th data-col="amountDue">Amt Due<span class="si"></span></th>
+            <th data-col="fcv">FCV<span class="si"></span></th>
+            <th data-col="equity">Equity $<span class="si"></span></th>
+            <th data-col="equityPct">Equity %<span class="si"></span></th>
+            <th data-col="risk">Risk<span class="si"></span></th>
             <th>Links</th>
           </tr>
         </thead>
@@ -416,9 +507,7 @@
 
     <!-- Card view -->
     <div id="view-cards" class="cards-wrap" style="display:none">
-      <div class="cards-inner">
-        <div class="card-grid" id="card-grid"></div>
-      </div>
+      <div class="cards-inner"><div class="card-grid" id="card-grid"></div></div>
       <div class="pagination" id="pagination-cards"></div>
     </div>
 
@@ -429,518 +518,664 @@
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-header">
-      <div>
+      <div style="min-width:0">
         <div class="modal-title" id="modal-title">Property Details</div>
         <div class="modal-subtitle" id="modal-subtitle"></div>
       </div>
-      <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
         <div class="modal-nav">
           <button class="modal-nav-btn" id="modal-prev">&#8592; Prev</button>
           <button class="modal-nav-btn" id="modal-next">Next &#8594;</button>
         </div>
-        <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+        <button class="modal-close" id="modal-close">&#x2715;</button>
       </div>
     </div>
-    <div class="map-tabs">
-      <span class="map-tab active" data-map="map">&#x1F5FA; Map</span>
-      <span class="map-tab" data-map="satellite">&#x1F6F0; Satellite</span>
-      <span class="map-tab" data-map="streetview">&#x1F4F7; Street View</span>
+    <div class="modal-tabs-row">
+      <div class="map-tabs">
+        <span class="map-tab active" data-map="map">&#x1F5FA; Map</span>
+        <span class="map-tab" data-map="satellite">&#x1F6F0; Satellite</span>
+        <span class="map-tab" data-map="streetview">&#x1F4F7; Street View</span>
+      </div>
     </div>
     <div class="modal-map" id="modal-map">
-      <div class="modal-map-loading" id="modal-map-loading">
-        <div class="spinner"></div>
-        <span style="font-size:.8rem;color:var(--gray-600)">Loading map…</span>
-      </div>
+      <div class="modal-map-loading" id="modal-map-loading"><div class="spinner"></div><span style="font-size:.76rem;color:var(--gray-600)">Loading map…</span></div>
       <iframe id="modal-iframe" style="display:none" allowfullscreen loading="lazy"></iframe>
     </div>
     <div class="modal-body">
-      <div class="modal-details-grid" id="modal-details"></div>
-      <div class="modal-actions" id="modal-actions"></div>
+      <div class="modal-cols">
+        <!-- Left: property details -->
+        <div>
+          <div class="modal-section-title">&#x1F3E0; Property Details</div>
+          <div class="detail-grid" id="modal-details"></div>
+          <div class="modal-actions" id="modal-actions"></div>
+        </div>
+        <!-- Right: investment analysis -->
+        <div>
+          <div class="modal-section-title">&#x1F4B0; Investment Analysis</div>
+          <div id="modal-invest"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<footer class="site-footer">
-  Data source: Montgomery County Annual Tax Sale &bull; Click any property to view on map &bull;
-  <a href="index.html" style="color:var(--blue)">&#8592; Back to Portfolio</a>
+<footer style="text-align:center;padding:20px;font-size:.75rem;color:var(--gray-500);border-top:1px solid var(--gray-200);margin-top:28px;">
+  Data: Montgomery County Annual Tax Sale &bull; Analysis is heuristic — verify with official county records before bidding &bull;
+  <a href="https://www.montgomerycountymd.gov/department-finance/tax-sale/tax-sale-information-procedures" target="_blank" rel="noopener" style="color:var(--blue)">Official Tax Sale Info</a> &bull;
+  <a href="index.html" style="color:var(--blue)">&#8592; Portfolio</a>
 </footer>
 
 <script src="assets/js/tax-liens-data.js"></script>
 <script>
 (() => {
-  /* ── State ── */
+  /* ────────────────────────────────────────────────
+     INVESTMENT METRICS
+  ─────────────────────────────────────────────── */
+  function calcMetrics(p) {
+    const fcv = p.fcv || 0;
+    const due = p.amountDue || 0;
+    if (fcv <= 0) return { score:0, grade:'D', risk:'high', equity:0, equityPct:0, ltv:1, premiumRisk:false, returnLow:0, returnHigh:0 };
+
+    const equity    = fcv - due;
+    const equityPct = equity / fcv;               // 0–1
+    const ltv       = due / fcv;                   // 0–1
+    const premiumRisk = due > fcv * 0.40;
+    const premiumAmt  = premiumRisk ? (due - fcv * 0.40) * 0.20 : 0;
+
+    // Estimated interest return if redeemed
+    const returnLow  = due * 0.06 * (9/12);   // owner-occ 9mo @ 6%
+    const returnHigh = due * 0.20 * (6/12);   // non-owner 6mo @ 20%
+
+    // ── Score: 0–100 ──
+    let s = 0;
+    // Equity % (50 pts) — most important: higher equity = safer flip
+    s += equityPct>=.92?50: equityPct>=.85?45: equityPct>=.78?40: equityPct>=.70?34:
+         equityPct>=.62?27: equityPct>=.52?19: equityPct>=.40?12: equityPct>=.25?5:0;
+    // Equity $ (30 pts) — absolute upside
+    s += equity>=600000?30: equity>=350000?26: equity>=200000?21: equity>=100000?16:
+         equity>=50000?10:  equity>=20000?5: 2;
+    // Amount due (20 pts) — lower cost = more accessible
+    s += due<=2000?20: due<=5000?17: due<=10000?13: due<=20000?9: due<=40000?5:1;
+    // Penalty: premium risk
+    if (premiumRisk) s = Math.max(0, s - 6);
+
+    s = Math.min(100, Math.max(0, s));
+
+    const grade = s>=80?'A+': s>=65?'A': s>=50?'B': s>=35?'C':'D';
+    const risk  = equityPct>=.65?'low': equityPct>=.38?'medium':'high';
+
+    return { score:s, grade, risk, equity, equityPct, ltv, premiumRisk, premiumAmt, returnLow, returnHigh };
+  }
+
+  // Pre-compute metrics for all properties
+  PROPERTIES.forEach(p => { p._m = calcMetrics(p); });
+
+  /* ────────────────────────────────────────────────
+     STATE
+  ─────────────────────────────────────────────── */
   let filtered   = [...PROPERTIES];
-  let sortCol    = 'amountDue';
+  let sortCol    = 'score';
   let sortDir    = 'desc';
   let page       = 1;
-  let perPage    = 12;
+  let perPage    = 25;
   let viewMode   = 'table';
   let modalIdx   = -1;
   let mapMode    = 'map';
-  let filterType = '';  // '', 'residential', 'commercial', 'vacant'
+  let filterType = '';
+  let filterGrade= '';
+  let hotOnly    = false;
 
-  /* ── IO observer for lazy card maps ── */
+  /* ────────────────────────────────────────────────
+     INTERSECTION OBSERVER (lazy card maps)
+  ─────────────────────────────────────────────── */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        const ph = e.target;
-        const addr = ph.dataset.addr;
-        if (addr && !ph.dataset.loaded) {
-          ph.dataset.loaded = '1';
-          const iframe = document.createElement('iframe');
-          iframe.src = mapEmbedUrl(addr, 'map');
-          iframe.loading = 'lazy';
-          iframe.style.cssText = 'width:100%;height:100%;border:none;display:block';
-          ph.innerHTML = '';
-          ph.appendChild(iframe);
-        }
-        observer.unobserve(ph);
-      }
+      if (!e.isIntersecting) return;
+      const ph = e.target;
+      if (ph.dataset.loaded) return;
+      ph.dataset.loaded = '1';
+      const iframe = document.createElement('iframe');
+      iframe.src = mapEmbedUrl(ph.dataset.addr, 'map');
+      iframe.loading = 'lazy';
+      iframe.style.cssText='width:100%;height:100%;border:none;display:block';
+      ph.innerHTML=''; ph.appendChild(iframe);
+      observer.unobserve(ph);
     });
-  }, { rootMargin: '200px' });
+  }, { rootMargin:'200px' });
 
-  /* ── DOM ── */
-  const $search         = document.getElementById('search');
-  const $filterGroup    = document.getElementById('filter-group');
-  const $filterDistrict = document.getElementById('filter-district');
-  const $filterMin      = document.getElementById('filter-min');
-  const $filterMax      = document.getElementById('filter-max');
-  const $filterFcvMin   = document.getElementById('filter-fcv-min');
-  const $filterFcvMax   = document.getElementById('filter-fcv-max');
-  const $sortSelect     = document.getElementById('sort-select');
-  const $tableBody      = document.getElementById('table-body');
-  const $cardGrid       = document.getElementById('card-grid');
-  const $pagTable       = document.getElementById('pagination-table');
-  const $pagCards       = document.getElementById('pagination-cards');
-  const $resultCount    = document.getElementById('result-count');
-  const $statFiltered   = document.getElementById('stat-filtered');
-  const $btnReset       = document.getElementById('btn-reset');
-  const $btnExport      = document.getElementById('btn-export');
-  const $bracketLegend  = document.getElementById('bracket-legend');
-  const $viewTable      = document.getElementById('view-table');
-  const $viewCards      = document.getElementById('view-cards');
-  const $btnTable       = document.getElementById('btn-table');
-  const $btnCards       = document.getElementById('btn-cards');
-  const $overlay        = document.getElementById('modal-overlay');
-  const $modalTitle     = document.getElementById('modal-title');
-  const $modalSubtitle  = document.getElementById('modal-subtitle');
-  const $modalDetails   = document.getElementById('modal-details');
-  const $modalActions   = document.getElementById('modal-actions');
-  const $modalIframe    = document.getElementById('modal-iframe');
-  const $modalLoading   = document.getElementById('modal-map-loading');
-  const $modalClose     = document.getElementById('modal-close');
-  const $modalPrev      = document.getElementById('modal-prev');
-  const $modalNext      = document.getElementById('modal-next');
+  /* ────────────────────────────────────────────────
+     DOM
+  ─────────────────────────────────────────────── */
+  const $search       = document.getElementById('search');
+  const $filterGroup  = document.getElementById('filter-group');
+  const $filterDist   = document.getElementById('filter-district');
+  const $filterMin    = document.getElementById('filter-min');
+  const $filterMax    = document.getElementById('filter-max');
+  const $filterEqPct  = document.getElementById('filter-eq-pct');
+  const $filterMaxDue = document.getElementById('filter-max-due');
+  const $filterMinFCV = document.getElementById('filter-min-fcv');
+  const $sortSelect   = document.getElementById('sort-select');
+  const $tableBody    = document.getElementById('table-body');
+  const $cardGrid     = document.getElementById('card-grid');
+  const $pagTable     = document.getElementById('pagination-table');
+  const $pagCards     = document.getElementById('pagination-cards');
+  const $resultCount  = document.getElementById('result-count');
+  const $btnReset     = document.getElementById('btn-reset');
+  const $btnExport    = document.getElementById('btn-export');
+  const $btnHot       = document.getElementById('btn-hot');
+  const $viewTable    = document.getElementById('view-table');
+  const $viewCards    = document.getElementById('view-cards');
+  const $btnTable     = document.getElementById('btn-table');
+  const $btnCards     = document.getElementById('btn-cards');
+  const $overlay      = document.getElementById('modal-overlay');
+  const $modalTitle   = document.getElementById('modal-title');
+  const $modalSub     = document.getElementById('modal-subtitle');
+  const $modalDetails = document.getElementById('modal-details');
+  const $modalInvest  = document.getElementById('modal-invest');
+  const $modalActions = document.getElementById('modal-actions');
+  const $modalIframe  = document.getElementById('modal-iframe');
+  const $modalLoading = document.getElementById('modal-map-loading');
+  const $modalClose   = document.getElementById('modal-close');
+  const $modalPrev    = document.getElementById('modal-prev');
+  const $modalNext    = document.getElementById('modal-next');
 
   /* ── Populate dropdowns ── */
-  const groups    = [...new Set(PROPERTIES.map(p=>p.group).filter(Boolean))].sort((a,b)=>a-b);
-  const districts = [...new Set(PROPERTIES.map(p=>p.district).filter(Boolean))].sort((a,b)=>a-b);
-  groups.forEach(g    => { const o=document.createElement('option'); o.value=g; o.textContent=`Group ${g}`; $filterGroup.append(o); });
-  districts.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=`District ${d}`; $filterDistrict.append(o); });
+  [...new Set(PROPERTIES.map(p=>p.group).filter(Boolean))].sort((a,b)=>a-b)
+    .forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=`Group ${g}`;$filterGroup.append(o);});
+  [...new Set(PROPERTIES.map(p=>p.district).filter(Boolean))].sort((a,b)=>a-b)
+    .forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=`District ${d}`;$filterDist.append(o);});
 
-  /* ── Brackets ── */
-  const brackets = [
-    {label:'< $1,000',     min:0,     max:1000},
-    {label:'$1K – $5K',    min:1000,  max:5000},
-    {label:'$5K – $10K',   min:5000,  max:10000},
-    {label:'$10K – $25K',  min:10000, max:25000},
-    {label:'$25K – $50K',  min:25000, max:50000},
-    {label:'> $50K',       min:50000, max:Infinity},
-  ];
-  brackets.forEach(b => {
-    const cnt = PROPERTIES.filter(p=>p.amountDue>=b.min && p.amountDue<b.max).length;
-    const el = document.createElement('div');
-    el.style.cssText='display:flex;justify-content:space-between;align-items:center;';
-    el.innerHTML=`<span style="color:var(--gray-700)">${b.label}</span><span style="font-weight:700">${cnt}</span>`;
-    $bracketLegend.append(el);
+  /* ── Grade distribution (static) ── */
+  const GRADES = ['A+','A','B','C','D'];
+  const GRADE_COLORS = {'A+':'#f57f17','A':'#2e7d32','B':'#1a6fc4','C':'#e65100','D':'#c62828'};
+  const gradeDist = document.getElementById('grade-dist');
+  GRADES.forEach(g => {
+    const cnt = PROPERTIES.filter(p=>p._m.grade===g).length;
+    const pct = cnt/PROPERTIES.length;
+    const el  = document.createElement('div');
+    el.style.cssText='display:flex;align-items:center;gap:6px;';
+    el.innerHTML=`<span style="font-weight:700;color:${GRADE_COLORS[g]};width:20px">${g}</span>
+      <div style="flex:1;height:5px;background:var(--gray-200);border-radius:3px;overflow:hidden">
+        <div style="height:100%;width:${pct*100}%;background:${GRADE_COLORS[g]};border-radius:3px"></div>
+      </div>
+      <span style="color:var(--gray-600);width:26px;text-align:right">${cnt}</span>`;
+    gradeDist.append(el);
   });
 
-  /* ── Helpers ── */
-  const fmt$ = n => n==null ? '—' : '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const fmtK = n => { if(n==null)return'—'; if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M'; if(n>=1e3)return'$'+(n/1e3).toFixed(0)+'K'; return'$'+n; };
-  const amtCls  = n => n>=25000 ? 'amount-high' : n>=10000 ? 'amount-med' : 'amount-low';
-  const amtBadge = n => n>=25000 ? 'high' : n>=10000 ? 'med' : 'low';
+  /* ────────────────────────────────────────────────
+     HELPERS
+  ─────────────────────────────────────────────── */
+  const fmt$  = n => n==null?'—':'$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmtK  = n => {if(n==null)return'—';if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M';if(n>=1e3)return'$'+(n/1e3).toFixed(0)+'K';return'$'+n;};
+  const fmtPct= n => (n*100).toFixed(1)+'%';
+  const amtCls= n => n>=25000?'amount-high':n>=10000?'amount-med':'amount-low';
+  const amtBadge=n=> n>=25000?'cab-high':n>=10000?'cab-med':'cab-low';
 
-  const TYPE_LABEL = { residential:'Residential', commercial:'Commercial', vacant:'Vacant / Land' };
-  const TYPE_BADGE = { residential:'badge-res', commercial:'badge-com', vacant:'badge-vac' };
-  const TYPE_ICON  = { residential:'🏠', commercial:'🏢', vacant:'🌿' };
+  const TYPE_LABEL = {residential:'Residential',commercial:'Commercial',vacant:'Vacant'};
+  const TYPE_BADGE = {residential:'badge-res',commercial:'badge-com',vacant:'badge-vac'};
+  const TYPE_ICON  = {residential:'🏠',commercial:'🏢',vacant:'🌿'};
+  const typeBadge  = t => `<span class="badge ${TYPE_BADGE[t]||'badge-district'}">${TYPE_ICON[t]||''} ${TYPE_LABEL[t]||t}</span>`;
 
-  function typeBadge(t) {
-    return `<span class="badge ${TYPE_BADGE[t]||'badge-district'}">${TYPE_ICON[t]||''} ${TYPE_LABEL[t]||t}</span>`;
+  function gradeBadge(grade) {
+    const cls = grade.replace('+','p');
+    return `<span class="grade-badge grade-${cls}">${grade}</span>`;
   }
 
-  const encAddr = addr => encodeURIComponent(addr + ', Maryland');
-
-  function mapEmbedUrl(addr, mode) {
-    const q = encAddr(addr);
-    if (mode === 'satellite') return `https://maps.google.com/maps?q=${q}&output=embed&z=18&t=k`;
-    if (mode === 'streetview') return `https://www.google.com/maps/embed/v1/streetview?location=${q}&key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY`;
-    return `https://maps.google.com/maps?q=${q}&output=embed&z=17`;
+  function equityBar(pct) {
+    const cls = pct>=.65?'eq-high':pct>=.38?'eq-med':'eq-low';
+    const col  = pct>=.65?'#2e7d32':pct>=.38?'#f57f17':'#c62828';
+    return `<div class="equity-bar-wrap">
+      <div class="equity-bar"><div class="equity-fill ${cls}" style="width:${Math.min(100,pct*100).toFixed(0)}%"></div></div>
+      <span class="equity-pct" style="color:${col}">${fmtPct(pct)}</span>
+    </div>`;
   }
 
-  const zillowUrl  = addr => `https://www.zillow.com/homes/${encAddr(addr)}_rb/`;
-  const gmapsUrl   = addr => `https://www.google.com/maps/search/${encAddr(addr)}`;
-  const svUrl      = addr => `https://www.google.com/maps?q=${encAddr(addr)}&layer=c`;
-  const satUrl     = addr => `https://www.google.com/maps?q=${encAddr(addr)}&t=k`;
+  const encAddr   = a => encodeURIComponent(a+', Maryland');
+  const mapEmbedUrl = (a,m) => m==='satellite'
+    ? `https://maps.google.com/maps?q=${encAddr(a)}&output=embed&z=18&t=k`
+    : m==='streetview'
+    ? `https://www.google.com/maps/embed/v1/streetview?location=${encAddr(a)}&key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY`
+    : `https://maps.google.com/maps?q=${encAddr(a)}&output=embed&z=17`;
+  const zillowUrl = a => `https://www.zillow.com/homes/${encAddr(a)}_rb/`;
+  const gmapsUrl  = a => `https://www.google.com/maps/search/${encAddr(a)}`;
+  const svUrl     = a => `https://www.google.com/maps?q=${encAddr(a)}&layer=c`;
+  const satUrl    = a => `https://www.google.com/maps?q=${encAddr(a)}&t=k`;
 
-  /* ── Filter + sort ── */
+  /* ────────────────────────────────────────────────
+     FILTER + SORT
+  ─────────────────────────────────────────────── */
   function applyFilters() {
-    const q    = $search.value.trim().toLowerCase();
-    const grp  = $filterGroup.value;
-    const dist = $filterDistrict.value;
-    const minA = parseFloat($filterMin.value)    || 0;
-    const maxA = parseFloat($filterMax.value)    || Infinity;
-    const minF = parseFloat($filterFcvMin.value) || 0;
-    const maxF = parseFloat($filterFcvMax.value) || Infinity;
+    const q      = $search.value.trim().toLowerCase();
+    const grp    = $filterGroup.value;
+    const dist   = $filterDist.value;
+    const minA   = parseFloat($filterMin.value)    || 0;
+    const maxA   = parseFloat($filterMax.value)    || Infinity;
+    const minEq  = (parseFloat($filterEqPct.value) || 0) / 100;
+    const maxDue = parseFloat($filterMaxDue.value) || Infinity;
+    const minFCV = parseFloat($filterMinFCV.value) || 0;
 
     filtered = PROPERTIES.filter(p => {
-      if (grp        && p.group    != grp)       return false;
-      if (dist       && p.district != dist)      return false;
-      if (filterType && p.type     !== filterType) return false;
+      const m = p._m;
+      if (grp        && p.group    != grp)          return false;
+      if (dist       && p.district != dist)         return false;
+      if (filterType && p.type     !== filterType)  return false;
+      if (filterGrade&& m.grade    !== filterGrade) return false;
+      if (hotOnly    && m.grade !== 'A+' && m.grade !== 'A') return false;
       if (p.amountDue < minA || p.amountDue > maxA) return false;
-      if (p.fcv       < minF || p.fcv       > maxF) return false;
+      if (p.amountDue > maxDue)                     return false;
+      if (p.fcv < minFCV)                           return false;
+      if (m.equityPct < minEq)                      return false;
       if (q) {
         const hay = (p.address+' '+p.name+' '+p.parcel).toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
     });
-    updateTypePills();
+
+    updateSidebarCounts();
     applySort();
   }
 
-  /* ── Update pill counts ── */
-  function updateTypePills() {
-    const base = PROPERTIES.filter(p => {
-      const q    = $search.value.trim().toLowerCase();
-      const grp  = $filterGroup.value;
-      const dist = $filterDistrict.value;
-      const minA = parseFloat($filterMin.value)    || 0;
-      const maxA = parseFloat($filterMax.value)    || Infinity;
-      const minF = parseFloat($filterFcvMin.value) || 0;
-      const maxF = parseFloat($filterFcvMax.value) || Infinity;
-      if (grp  && p.group    != grp)  return false;
-      if (dist && p.district != dist) return false;
-      if (p.amountDue < minA || p.amountDue > maxA) return false;
-      if (p.fcv       < minF || p.fcv       > maxF) return false;
-      if (q) { const hay=(p.address+' '+p.name+' '+p.parcel).toLowerCase(); if(!hay.includes(q)) return false; }
-      return true;
-    });
-    document.getElementById('pill-count-all').textContent = base.length;
-    ['residential','commercial','vacant'].forEach(t => {
-      const el = document.getElementById(`pill-count-${t.slice(0,3)}`);
-      if (el) el.textContent = base.filter(p=>p.type===t).length;
-    });
-    // Active state
-    document.querySelectorAll('.type-pill').forEach(pill => {
-      const t = pill.dataset.type;
-      pill.classList.remove('active-res','active-com','active-vac');
-      if (t === filterType) {
-        if (t==='residential') pill.classList.add('active-res');
-        else if (t==='commercial') pill.classList.add('active-com');
-        else if (t==='vacant') pill.classList.add('active-vac');
-        else { pill.style.borderColor='var(--blue)'; pill.style.background='var(--blue-light)'; }
-      } else {
-        pill.style.borderColor=''; pill.style.background='';
-      }
-    });
-  }
-
   function applySort() {
+    // Map sort column to either p._m.X or p.X
     filtered.sort((a,b) => {
-      let va=a[sortCol], vb=b[sortCol];
-      if (typeof va==='string') { va=va.toLowerCase(); vb=vb.toLowerCase(); }
+      let va, vb;
+      if (['score','grade','risk','equity','equityPct','ltv'].includes(sortCol)) {
+        va = a._m[sortCol]; vb = b._m[sortCol];
+      } else {
+        va = a[sortCol]; vb = b[sortCol];
+      }
+      if (typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}
       if (va<vb) return sortDir==='asc'?-1:1;
       if (va>vb) return sortDir==='asc'?1:-1;
       return 0;
     });
-    page = 1;
+    page=1;
+    updateStats();
     render();
   }
 
-  /* ── Render ── */
+  /* ── Update stats bar ── */
+  function updateStats() {
+    const hotCount  = filtered.filter(p=>p._m.grade==='A+'||p._m.grade==='A').length;
+    const premCount = filtered.filter(p=>p._m.premiumRisk).length;
+    const totalEq   = filtered.reduce((s,p)=>s+(p._m.equity||0),0);
+    const totalDue  = filtered.reduce((s,p)=>s+(p.amountDue||0),0);
+    const avgEqPct  = filtered.length ? filtered.reduce((s,p)=>s+p._m.equityPct,0)/filtered.length : 0;
+
+    document.getElementById('stat-hot').textContent       = hotCount.toLocaleString();
+    document.getElementById('stat-avg-eq').textContent    = fmtPct(avgEqPct);
+    document.getElementById('stat-total-eq').textContent  = fmtK(Math.round(totalEq));
+    document.getElementById('stat-total-due').textContent = fmtK(Math.round(totalDue));
+    document.getElementById('stat-premium').textContent   = premCount.toLocaleString();
+    document.getElementById('stat-showing').textContent   = filtered.length.toLocaleString();
+    document.getElementById('stat-showing-sub').textContent = `of ${PROPERTIES.length.toLocaleString()} total`;
+    document.getElementById('hdr-hot-count').textContent  = hotCount + ' Hot Deals';
+    document.getElementById('result-count').textContent   = `${filtered.length.toLocaleString()} result${filtered.length!==1?'s':''}`;
+  }
+
+  /* ── Sidebar counts ── */
+  function updateSidebarCounts() {
+    // Type pill counts
+    const base = filtered;
+    document.getElementById('pill-count-all').textContent = PROPERTIES.length;
+    ['residential','commercial','vacant'].forEach(t => {
+      const el = document.getElementById(`pill-count-${t.slice(0,3)}`);
+      if(el) el.textContent = PROPERTIES.filter(p=>p.type===t).length;
+    });
+    document.querySelectorAll('.type-pill').forEach(pill => {
+      pill.classList.remove('active-res','active-com','active-vac');
+      pill.style.borderColor=''; pill.style.background='';
+      if (pill.dataset.type === filterType) {
+        if (filterType==='residential') pill.classList.add('active-res');
+        else if (filterType==='commercial') pill.classList.add('active-com');
+        else if (filterType==='vacant') pill.classList.add('active-vac');
+        else { pill.style.borderColor='var(--blue)'; pill.style.background='var(--blue-light)'; }
+      }
+    });
+  }
+
+  /* ────────────────────────────────────────────────
+     RENDER
+  ─────────────────────────────────────────────── */
   function render() {
     const total = filtered.length;
-    $resultCount.textContent = `${total.toLocaleString()} result${total!==1?'s':''}`;
-    $statFiltered.textContent = total.toLocaleString() + ' shown';
-
     const start = (page-1)*perPage;
-    const end   = Math.min(start+perPage, total);
-    const slice = filtered.slice(start, end);
-
-    if (viewMode === 'table') renderTable(slice, total, start, end);
-    else                       renderCards(slice, total, start, end);
+    const end   = Math.min(start+perPage,total);
+    const slice = filtered.slice(start,end);
+    if (viewMode==='table') renderTable(slice,total,start,end);
+    else                    renderCards(slice,total,start,end);
   }
 
   /* ── Table ── */
-  function renderTable(slice, total, start, end) {
-    if (slice.length===0) {
-      $tableBody.innerHTML=`<tr><td colspan="7"><div class="no-results"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/></svg><p>No properties match your filters.</p></div></td></tr>`;
+  function renderTable(slice,total,start,end) {
+    if (!slice.length) {
+      $tableBody.innerHTML=`<tr><td colspan="9">${noResultsHtml()}</td></tr>`;
     } else {
-      $tableBody.innerHTML = slice.map((p,i) => `
-        <tr data-idx="${start+i}" style="cursor:pointer">
-          <td><span class="badge badge-group">${p.group??'—'}</span></td>
-          <td><span class="parcel-text">${p.parcel||'—'}</span></td>
-          <td style="max-width:200px">
+      $tableBody.innerHTML = slice.map((p,i) => {
+        const m = p._m;
+        const gcls = m.grade.replace('+','p');
+        const premIcon = m.premiumRisk ? ' <span class="premium-flag" title="High-bid premium risk">⚠️ Premium</span>' : '';
+        return `<tr data-idx="${start+i}" class="grade-row-${gcls}">
+          <td>${gradeBadge(m.grade)} ${premIcon}</td>
+          <td style="max-width:220px">
             <div class="address-text">${p.address||'—'}</div>
             <div class="owner-text">${p.name||''}</div>
           </td>
           <td>${typeBadge(p.type)}</td>
-          <td><span class="badge badge-district">${p.district??'—'}</span></td>
-          <td style="white-space:nowrap">${fmtK(p.fcv)}</td>
           <td style="white-space:nowrap"><span class="${amtCls(p.amountDue)}">${fmt$(p.amountDue)}</span></td>
+          <td style="white-space:nowrap">${fmtK(p.fcv)}</td>
+          <td style="white-space:nowrap;font-weight:600;color:var(--green)">${fmtK(Math.round(m.equity))}</td>
+          <td style="min-width:120px">${equityBar(m.equityPct)}</td>
+          <td><span class="risk-chip risk-${m.risk}">${m.risk}</span></td>
           <td>
             <a class="zillow-btn" href="${zillowUrl(p.address)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
               <span class="zillow-icon">Z</span>Zillow
             </a>
           </td>
-        </tr>`).join('');
-
+        </tr>`;
+      }).join('');
       $tableBody.querySelectorAll('tr[data-idx]').forEach(tr => {
-        tr.addEventListener('click', () => openModal(parseInt(tr.dataset.idx)));
+        tr.addEventListener('click', ()=>openModal(parseInt(tr.dataset.idx)));
       });
     }
     updateSortHeaders();
-    renderPagination($pagTable, total, start, end);
+    renderPagination($pagTable,total,start,end);
   }
 
   /* ── Cards ── */
-  function renderCards(slice, total, start, end) {
-    if (slice.length===0) {
-      $cardGrid.innerHTML=`<div style="grid-column:1/-1"><div class="no-results"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/></svg><p>No properties match your filters.</p></div></div>`;
+  function renderCards(slice,total,start,end) {
+    if (!slice.length) {
+      $cardGrid.innerHTML=`<div style="grid-column:1/-1">${noResultsHtml()}</div>`;
     } else {
-      $cardGrid.innerHTML = slice.map((p,i) => `
-        <div class="prop-card" data-idx="${start+i}">
+      $cardGrid.innerHTML = slice.map((p,i) => {
+        const m   = p._m;
+        const gcls= m.grade.replace('+','p');
+        return `<div class="prop-card card-${gcls}" data-idx="${start+i}">
           <div class="card-map" data-addr="${p.address}">
             <div class="card-map-ph" data-addr="${p.address}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1a6fc4" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#1a6fc4" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
               <span>Click to load map</span>
             </div>
             <span class="card-amount-badge ${amtBadge(p.amountDue)}">${fmt$(p.amountDue)}</span>
+            <span class="card-grade-overlay cgo-${gcls}">${m.grade}</span>
           </div>
           <div class="card-body">
             <div class="card-address">${p.address||'—'}</div>
             <div class="card-owner">${p.name||''}</div>
-            <div class="card-meta">
-              <span class="badge badge-group">Group ${p.group??'—'}</span>
-              <span class="badge badge-district">Dist. ${p.district??'—'}</span>
+            <div class="card-equity-row">
+              <div>
+                <div class="card-equity-label">Equity</div>
+                <div class="card-equity-val" style="color:var(--green)">${fmtK(Math.round(m.equity))}</div>
+              </div>
+              <div style="text-align:right">
+                <div class="card-equity-label">FCV</div>
+                <div class="card-equity-val">${fmtK(p.fcv)}</div>
+              </div>
+            </div>
+            ${equityBar(m.equityPct)}
+            <div class="card-meta" style="margin-top:8px">
               ${typeBadge(p.type)}
+              <span class="risk-chip risk-${m.risk}">${m.risk} risk</span>
+              ${m.premiumRisk ? '<span class="premium-flag">⚠️ Premium</span>' : ''}
             </div>
             <div class="card-footer">
-              <div>
-                <div class="card-fcv">FCV: ${fmtK(p.fcv)}</div>
-                <div class="card-parcel">${p.parcel||''}</div>
-              </div>
+              <span style="font-size:.7rem;color:var(--gray-500)">Dist. ${p.district||'—'} · Grp ${p.group||'—'}</span>
               <a class="zillow-btn" href="${zillowUrl(p.address)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
                 <span class="zillow-icon">Z</span>Zillow
               </a>
             </div>
           </div>
-        </div>`).join('');
-
-      // Observe placeholders for lazy map loading
-      $cardGrid.querySelectorAll('.card-map-ph').forEach(ph => observer.observe(ph));
-
-      // Click to open modal
-      $cardGrid.querySelectorAll('.prop-card').forEach(card => {
-        card.addEventListener('click', () => openModal(parseInt(card.dataset.idx)));
-      });
+        </div>`;
+      }).join('');
+      $cardGrid.querySelectorAll('.card-map-ph').forEach(ph=>observer.observe(ph));
+      $cardGrid.querySelectorAll('.prop-card').forEach(c=>c.addEventListener('click',()=>openModal(parseInt(c.dataset.idx))));
     }
-    renderPagination($pagCards, total, start, end);
+    renderPagination($pagCards,total,start,end);
   }
 
-  /* ── Modal ── */
+  /* ────────────────────────────────────────────────
+     MODAL
+  ─────────────────────────────────────────────── */
   function openModal(idx) {
-    modalIdx = idx;
-    mapMode = 'map';
-    document.querySelectorAll('.map-tab').forEach(t => t.classList.toggle('active', t.dataset.map==='map'));
+    modalIdx=idx; mapMode='map';
+    document.querySelectorAll('.map-tab').forEach(t=>t.classList.toggle('active',t.dataset.map==='map'));
     populateModal(filtered[idx]);
     $overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow='hidden';
   }
 
   function closeModal() {
     $overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    $modalIframe.src = '';
-    $modalIframe.style.display = 'none';
-    $modalLoading.style.display = 'flex';
+    document.body.style.overflow='';
+    $modalIframe.src=''; $modalIframe.style.display='none';
+    $modalLoading.style.display='flex';
   }
 
   function populateModal(p) {
-    $modalTitle.textContent    = p.address || '—';
-    $modalSubtitle.textContent = p.name || '';
-    $modalPrev.disabled = (modalIdx <= 0);
-    $modalNext.disabled = (modalIdx >= filtered.length - 1);
+    const m = p._m;
+    $modalTitle.textContent    = p.address||'—';
+    $modalSub.textContent      = p.name||'';
+    $modalPrev.disabled = (modalIdx<=0);
+    $modalNext.disabled = (modalIdx>=filtered.length-1);
 
-    // Details grid
+    // Property details
     $modalDetails.innerHTML = `
       <div class="detail-item"><label>Parcel</label><span style="font-family:monospace">${p.parcel||'—'}</span></div>
       <div class="detail-item"><label>Property Type</label><span>${typeBadge(p.type)}</span></div>
       <div class="detail-item"><label>Group</label><span>${p.group??'—'}</span></div>
       <div class="detail-item"><label>District</label><span>${p.district??'—'}</span></div>
       <div class="detail-item"><label>Full Cash Value</label><span>${fmt$(p.fcv)}</span></div>
-      <div class="detail-item"><label>Amount Due</label><span class="${amtCls(p.amountDue)}" style="font-size:1.1rem">${fmt$(p.amountDue)}</span></div>
-      <div class="detail-item"><label>Owner</label><span>${p.name||'—'}</span></div>`;
+      <div class="detail-item"><label>Amount Due</label><span class="${amtCls(p.amountDue)}" style="font-size:.95rem">${fmt$(p.amountDue)}</span></div>
+      <div class="detail-item" style="grid-column:1/-1"><label>Owner</label><span>${p.name||'—'}</span></div>`;
 
-    // Action links
+    // Action buttons
     $modalActions.innerHTML = `
-      <a class="modal-link zillow" href="${zillowUrl(p.address)}" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
-        Zillow Listing
-      </a>
-      <a class="modal-link gmaps" href="${gmapsUrl(p.address)}" target="_blank" rel="noopener noreferrer">&#x1F5FA; Google Maps</a>
-      <a class="modal-link streetview" href="${svUrl(p.address)}" target="_blank" rel="noopener noreferrer">&#x1F4F7; Street View</a>
-      <a class="modal-link sat" href="${satUrl(p.address)}" target="_blank" rel="noopener noreferrer">&#x1F6F0; Satellite</a>`;
+      <a class="modal-link ml-zillow" href="${zillowUrl(p.address)}" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>Zillow</a>
+      <a class="modal-link ml-gmaps" href="${gmapsUrl(p.address)}" target="_blank" rel="noopener">&#x1F5FA; Maps</a>
+      <a class="modal-link ml-sv" href="${svUrl(p.address)}" target="_blank" rel="noopener">&#x1F4F7; Street View</a>
+      <a class="modal-link ml-sat" href="${satUrl(p.address)}" target="_blank" rel="noopener">&#x1F6F0; Satellite</a>`;
+
+    // Investment analysis
+    const scoreColor = m.grade==='A+'?'#f57f17': m.grade==='A'?'#2e7d32': m.grade==='B'?'#1a6fc4': m.grade==='C'?'#e65100':'#c62828';
+    const premiumWarning = m.premiumRisk ? `<div class="warn-box" style="margin-bottom:10px">
+        <span>⚠️</span>
+        <span><strong>High-Bid Premium Risk:</strong> Amount due (${fmt$(p.amountDue)}) exceeds 40% of FCV (${fmt$(p.fcv*0.40)}). A 20% premium on the excess (~${fmt$(m.premiumAmt)}) will be charged on any winning bid.</span>
+      </div>` : '';
+
+    $modalInvest.innerHTML = `
+      <div class="invest-panel">
+        <div class="invest-score-row">
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600)">Deal Grade</div>
+            <div class="big-grade" style="color:${scoreColor}">${m.grade}</div>
+          </div>
+          <div class="score-bar-wrap">
+            <div style="font-size:.76rem;font-weight:600">Score: ${m.score}/100</div>
+            <div class="score-bar"><div class="score-fill" style="width:${m.score}%;background:${scoreColor}"></div></div>
+            <div style="font-size:.68rem;color:var(--gray-500);margin-top:2px">${m.risk === 'low' ? 'Low risk — strong equity cushion' : m.risk==='medium' ? 'Moderate risk — some equity' : 'High risk — limited equity'}</div>
+          </div>
+        </div>
+
+        <div class="equity-analysis">
+          <div class="ea-item"><div class="ea-label">Equity $</div><div class="ea-val" style="color:var(--green)">${fmtK(Math.round(m.equity))}</div></div>
+          <div class="ea-item"><div class="ea-label">Equity %</div><div class="ea-val" style="color:var(--green)">${fmtPct(m.equityPct)}</div></div>
+          <div class="ea-item"><div class="ea-label">LTV Ratio</div><div class="ea-val" style="color:${m.ltv<=0.35?'var(--green)':m.ltv<=0.65?'var(--orange)':'var(--red)'}">${fmtPct(m.ltv)}</div></div>
+          <div class="ea-item"><div class="ea-label">Risk Level</div><div class="ea-val"><span class="risk-chip risk-${m.risk}">${m.risk}</span></div></div>
+        </div>
+
+        <div class="redemption-box">
+          <h4>&#x23F3; Estimated Returns if Redeemed</h4>
+          <div class="redemption-row"><span>Owner-occupied (6% · 9 mo.)</span><span style="font-weight:700;color:var(--green)">+${fmt$(m.returnLow.toFixed(0))}</span></div>
+          <div class="redemption-row"><span>Non-owner (20% · 6 mo.)</span><span style="font-weight:700;color:var(--green)">+${fmt$(m.returnHigh.toFixed(0))}</span></div>
+          <div class="redemption-row"><span style="color:var(--gray-500);font-size:.7rem">If not redeemed → foreclose after 6–9 months</span><span style="color:var(--gray-500);font-size:.7rem">2-yr cert. limit</span></div>
+        </div>
+        ${premiumWarning}
+      </div>`;
 
     loadModalMap(p.address);
   }
 
   function loadModalMap(addr) {
-    $modalIframe.style.display = 'none';
-    $modalLoading.style.display = 'flex';
-    $modalIframe.onload = () => {
-      $modalLoading.style.display = 'none';
-      $modalIframe.style.display = 'block';
-    };
+    $modalIframe.style.display='none'; $modalLoading.style.display='flex';
+    $modalIframe.onload = () => { $modalLoading.style.display='none'; $modalIframe.style.display='block'; };
     $modalIframe.src = mapEmbedUrl(addr, mapMode);
   }
 
-  /* ── Map tabs ── */
-  document.querySelectorAll('.map-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      mapMode = tab.dataset.map;
-      document.querySelectorAll('.map-tab').forEach(t => t.classList.toggle('active', t===tab));
-      if (modalIdx >= 0) loadModalMap(filtered[modalIdx].address);
-    });
-  });
-
-  /* ── Modal nav ── */
-  $modalPrev.addEventListener('click', () => { if(modalIdx>0) openModal(modalIdx-1); });
-  $modalNext.addEventListener('click', () => { if(modalIdx<filtered.length-1) openModal(modalIdx+1); });
-  $modalClose.addEventListener('click', closeModal);
-  $overlay.addEventListener('click', e => { if(e.target===$overlay) closeModal(); });
-  document.addEventListener('keydown', e => {
-    if (!$overlay.classList.contains('open')) return;
-    if (e.key==='Escape') closeModal();
-    if (e.key==='ArrowLeft'  && modalIdx>0)                openModal(modalIdx-1);
-    if (e.key==='ArrowRight' && modalIdx<filtered.length-1) openModal(modalIdx+1);
-  });
-
-  /* ── View toggle ── */
-  $btnTable.addEventListener('click', () => {
-    viewMode='table'; perPage=25;
-    $btnTable.classList.add('active'); $btnCards.classList.remove('active');
-    $viewTable.style.display=''; $viewCards.style.display='none';
-    page=1; render();
-  });
-  $btnCards.addEventListener('click', () => {
-    viewMode='cards'; perPage=12;
-    $btnCards.classList.add('active'); $btnTable.classList.remove('active');
-    $viewCards.style.display=''; $viewTable.style.display='none';
-    page=1; render();
-  });
-
-  /* ── Pagination ── */
-  function renderPagination($el, total, start, end) {
-    const totalPages = Math.ceil(total/perPage);
-    if (total===0) { $el.innerHTML=''; return; }
-
-    const range = [];
-    for (let i=Math.max(2,page-2); i<=Math.min(totalPages-1,page+2); i++) range.push(i);
-    const pages = [1, ...(range[0]>2?['...']:[]), ...range, ...(range[range.length-1]<totalPages-1?['...']:[]), ...(totalPages>1?[totalPages]:[])];
-    const btns = pages.map(p => p==='...' ? `<span class="page-btn" style="cursor:default;border:none;background:none">…</span>`
-      : `<button class="page-btn ${p===page?'active':''}" data-page="${p}">${p}</button>`).join('');
-
-    $el.innerHTML = `
+  /* ────────────────────────────────────────────────
+     PAGINATION
+  ─────────────────────────────────────────────── */
+  function renderPagination($el,total,start,end) {
+    const tp = Math.ceil(total/perPage);
+    if (!total){$el.innerHTML='';return;}
+    const range=[];
+    for(let i=Math.max(2,page-2);i<=Math.min(tp-1,page+2);i++) range.push(i);
+    const pages=[1,...(range[0]>2?['...']:[]),...range,...(range[range.length-1]<tp-1?['...']:[]),...(tp>1?[tp]:[])];
+    const btns=pages.map(p=>p==='...'?`<span class="page-btn" style="cursor:default;border:none;background:none">…</span>`
+      :`<button class="page-btn ${p===page?'active':''}" data-page="${p}">${p}</button>`).join('');
+    $el.innerHTML=`
       <span class="page-info">Showing ${(start+1).toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()}</span>
-      <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;align-items:center;gap:7px">
         <div class="per-page-wrap">
           <span class="per-page-label">Per page:</span>
-          <select class="sort-select" id="per-page-sel-${viewMode}">
+          <select class="sort-select" id="pps-${viewMode}">
             ${(viewMode==='cards'?[12,24,48]:[25,50,100]).map(n=>`<option value="${n}"${n===perPage?' selected':''}>${n}</option>`).join('')}
           </select>
         </div>
-        <div class="page-controls">
+        <div style="display:flex;gap:3px">
           <button class="page-btn" data-page="${page-1}" ${page===1?'disabled':''}>&#8249;</button>
           ${btns}
-          <button class="page-btn" data-page="${page+1}" ${page===totalPages?'disabled':''}>&#8250;</button>
+          <button class="page-btn" data-page="${page+1}" ${page===tp?'disabled':''}>&#8250;</button>
         </div>
       </div>`;
-
-    $el.querySelectorAll('[data-page]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const p=parseInt(btn.dataset.page);
-        if (!isNaN(p) && p>=1 && p<=totalPages) { page=p; render(); window.scrollTo({top:0,behavior:'smooth'}); }
-      });
-    });
-    const $pp = document.getElementById(`per-page-sel-${viewMode}`);
-    if ($pp) $pp.addEventListener('change', () => { perPage=parseInt($pp.value); page=1; render(); });
+    $el.querySelectorAll('[data-page]').forEach(btn=>btn.addEventListener('click',()=>{
+      const p=parseInt(btn.dataset.page);
+      if(!isNaN(p)&&p>=1&&p<=tp){page=p;render();window.scrollTo({top:0,behavior:'smooth'});}
+    }));
+    const $pp=document.getElementById(`pps-${viewMode}`);
+    if($pp) $pp.addEventListener('change',()=>{perPage=parseInt($pp.value);page=1;render();});
   }
 
   /* ── Sort headers ── */
   function updateSortHeaders() {
-    document.querySelectorAll('#prop-table thead th[data-col]').forEach(th => {
+    document.querySelectorAll('#prop-table thead th[data-col]').forEach(th=>{
       th.classList.remove('asc','desc');
-      if (th.dataset.col===sortCol) th.classList.add(sortDir);
+      if(th.dataset.col===sortCol) th.classList.add(sortDir);
     });
   }
 
-  /* ── Events ── */
-  let timer;
-  $search.addEventListener('input', () => { clearTimeout(timer); timer=setTimeout(applyFilters,200); });
-  [$filterGroup,$filterDistrict,$filterMin,$filterMax,$filterFcvMin,$filterFcvMax].forEach(el=>el.addEventListener('change',applyFilters));
-  [$filterMin,$filterMax,$filterFcvMin,$filterFcvMax].forEach(el=>el.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(applyFilters,400);}));
+  function noResultsHtml() {
+    return `<div class="no-results"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10"/></svg><p>No properties match your filters.</p></div>`;
+  }
 
-  $sortSelect.addEventListener('change', () => {
-    const parts = $sortSelect.value.split('-');
-    sortDir = parts.pop(); sortCol = parts.join('-');
-    applySort();
+  /* ────────────────────────────────────────────────
+     EVENT WIRING
+  ─────────────────────────────────────────────── */
+  let timer;
+  $search.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(applyFilters,200);});
+  [$filterGroup,$filterDist,$filterMin,$filterMax,$filterEqPct,$filterMaxDue,$filterMinFCV]
+    .forEach(el=>el.addEventListener('change',applyFilters));
+  [$filterMin,$filterMax,$filterEqPct,$filterMaxDue,$filterMinFCV]
+    .forEach(el=>el.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(applyFilters,400);}));
+
+  $sortSelect.addEventListener('change',()=>{
+    const parts=$sortSelect.value.split('-'); sortDir=parts.pop(); sortCol=parts.join('-'); applySort();
   });
 
-  $btnReset.addEventListener('click', () => {
-    $search.value=''; $filterGroup.value=''; $filterDistrict.value='';
-    $filterMin.value=''; $filterMax.value=''; $filterFcvMin.value=''; $filterFcvMax.value='';
-    filterType = '';
+  $btnReset.addEventListener('click',()=>{
+    $search.value=''; $filterGroup.value=''; $filterDist.value='';
+    $filterMin.value=''; $filterMax.value=''; $filterEqPct.value='';
+    $filterMaxDue.value=''; $filterMinFCV.value='';
+    filterType=''; filterGrade=''; hotOnly=false;
+    $btnHot.classList.remove('active');
+    document.querySelectorAll('.grade-pill').forEach(p=>p.classList.remove('active'));
+    document.querySelector('.grade-pill[data-grade=""]').classList.add('active');
     applyFilters();
   });
 
-  document.querySelectorAll('#prop-table thead th[data-col]').forEach(th => {
-    th.addEventListener('click', () => {
+  $btnHot.addEventListener('click',()=>{
+    hotOnly=!hotOnly;
+    $btnHot.classList.toggle('active',hotOnly);
+    applyFilters();
+  });
+
+  document.querySelectorAll('#grade-pills .grade-pill').forEach(pill=>{
+    pill.addEventListener('click',()=>{
+      filterGrade=pill.dataset.grade;
+      document.querySelectorAll('#grade-pills .grade-pill').forEach(p=>p.classList.remove('active'));
+      pill.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('.type-pill').forEach(pill=>{
+    pill.addEventListener('click',()=>{filterType=pill.dataset.type;applyFilters();});
+  });
+
+  document.querySelectorAll('#prop-table thead th[data-col]').forEach(th=>{
+    th.addEventListener('click',()=>{
       const col=th.dataset.col;
-      sortDir = sortCol===col ? (sortDir==='asc'?'desc':'asc') : (col==='address'?'asc':'desc');
-      sortCol = col;
+      sortDir=sortCol===col?(sortDir==='asc'?'desc':'asc'):(col==='address'?'asc':'desc');
+      sortCol=col;
       const match=`${sortCol}-${sortDir}`;
       if([...$sortSelect.options].some(o=>o.value===match)) $sortSelect.value=match;
       applySort();
     });
   });
 
-  $btnExport.addEventListener('click', () => {
-    const rows = filtered.map(p=>[p.group,p.parcel,`"${p.address}"`,p.district,`"${p.name}"`,p.fcv,p.amountDue]);
-    const csv  = [['Group','Parcel','Address','District','Owner Name','FCV','Amount Due'],...rows].map(r=>r.join(',')).join('\n');
-    const a=document.createElement('a');
-    a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-    a.download='tax-lien-properties.csv'; a.click();
-  });
+  // View toggle
+  $btnTable.addEventListener('click',()=>{viewMode='table';perPage=25;$btnTable.classList.add('active');$btnCards.classList.remove('active');$viewTable.style.display='';$viewCards.style.display='none';page=1;render();});
+  $btnCards.addEventListener('click',()=>{viewMode='cards';perPage=12;$btnCards.classList.add('active');$btnTable.classList.remove('active');$viewCards.style.display='';$viewTable.style.display='none';page=1;render();});
 
-  /* ── Type pill clicks ── */
-  document.querySelectorAll('.type-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterType = pill.dataset.type;
-      applyFilters();
+  // Map tabs
+  document.querySelectorAll('.map-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      mapMode=tab.dataset.map;
+      document.querySelectorAll('.map-tab').forEach(t=>t.classList.toggle('active',t===tab));
+      if(modalIdx>=0) loadModalMap(filtered[modalIdx].address);
     });
   });
 
-  /* ── Mobile filter toggle ── */
-  const $filterToggle  = document.getElementById('filter-toggle');
-  const $sidebarContent = document.getElementById('sidebar-content');
-  if ($filterToggle) {
-    $filterToggle.addEventListener('click', () => {
-      const open = $sidebarContent.classList.toggle('open');
-      $filterToggle.classList.toggle('open', open);
-    });
-  }
+  // Modal nav + close
+  $modalPrev.addEventListener('click',()=>{if(modalIdx>0) openModal(modalIdx-1);});
+  $modalNext.addEventListener('click',()=>{if(modalIdx<filtered.length-1) openModal(modalIdx+1);});
+  $modalClose.addEventListener('click',closeModal);
+  $overlay.addEventListener('click',e=>{if(e.target===$overlay)closeModal();});
+  document.addEventListener('keydown',e=>{
+    if(!$overlay.classList.contains('open'))return;
+    if(e.key==='Escape')closeModal();
+    if(e.key==='ArrowLeft'&&modalIdx>0) openModal(modalIdx-1);
+    if(e.key==='ArrowRight'&&modalIdx<filtered.length-1) openModal(modalIdx+1);
+  });
+
+  // Process guide toggle
+  const $guideToggle=$('#guide-toggle'), $guideBody=$('#guide-body'), $guideArrow=$('#guide-arrow');
+  function $(id){return document.getElementById(id);}
+  document.getElementById('guide-toggle').addEventListener('click',()=>{
+    const open = document.getElementById('guide-body').classList.toggle('open');
+    document.getElementById('guide-toggle').classList.toggle('open',open);
+  });
+
+  // Mobile filter toggle
+  const $filterToggle=document.getElementById('filter-toggle');
+  const $sidebarContent=document.getElementById('sidebar-content');
+  if($filterToggle) $filterToggle.addEventListener('click',()=>{
+    const open=$sidebarContent.classList.toggle('open');
+    $filterToggle.classList.toggle('open',open);
+  });
+
+  // CSV export
+  $btnExport.addEventListener('click',()=>{
+    const rows=filtered.map(p=>[
+      p.group,p.parcel,`"${p.address}"`,p.district,`"${p.name}"`,
+      p.fcv,p.amountDue,Math.round(p._m.equity),(p._m.equityPct*100).toFixed(1),
+      p._m.grade,p._m.risk,p._m.premiumRisk?'YES':'NO',p.type
+    ]);
+    const csv=[['Group','Parcel','Address','District','Owner','FCV','Amount Due','Equity $','Equity %','Grade','Risk','Premium Risk','Type'],...rows].map(r=>r.join(',')).join('\n');
+    const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+    a.download='tax-sale-investor-analysis.csv'; a.click();
+  });
 
   /* ── Init ── */
   applyFilters();
