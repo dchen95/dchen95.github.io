@@ -48,6 +48,24 @@ data/seed/listings.json ──────────────────�
 - The scraper fetches a few dozen small pages per run, at most weekly, rate-limited. Don't crank it.
 - If a run can't parse anything (markup change, network block), it falls back to known data and says so — it never fabricates records to pad the count.
 
+## Snapshot history
+
+Because the refresh workflow commits dated snapshots, the pipeline diffs consecutive scrapes and surfaces *what changed* in the UI.
+
+- **Archive** — before each scrape, the workflow copies the current `src/data/jobs.json` to `data/history/<date>.json` (committed alongside `src/data/`), so every run leaves an auditable dated snapshot.
+- **Diff** (`scripts/diff-snapshots.mjs`, pure Node, no deps) — after the scrape, `npm run data:diff` compares the newest history snapshot against the fresh `jobs.json` and writes `src/data/changes.json`:
+
+  ```json
+  { "since": "2026-07-04", "newRefs": [], "removedRefs": [],
+    "payChanged": [{ "ref": 580531, "from": {"min": 230000, "max": null}, "to": {"min": 250000, "max": null} }] }
+  ```
+
+  With no prior snapshot it writes the empty structure with `since: null`. `npm run data:seed` also writes an empty `changes.json` so fresh checkouts always have the file.
+- **UI** — `App.jsx` imports `changes.json`, tags each new listing's card with a "New" pill, and shows one line under the hero: *"Since &lt;date&gt;: X new · Y removed · Z pay changes"* (only when `since` is set and there's at least one change).
+- **Tests** — `scripts/test-diff.mjs` (run by `npm run data:test`, or `npm run data:test:diff`) covers new/removed refs, pay changes, and the no-history case.
+
 ## Automation
 
-`.github/workflows/refresh-caa-jobs-data.yml` (repo root) runs the tests, scrapes, verifies the app still builds, and commits `src/data/` when the snapshot changed. Weekly by schedule, or on demand via *Run workflow*.
+`.github/workflows/refresh-caa-jobs-data.yml` (repo root) runs the tests, archives the current snapshot to `data/history/`, scrapes, diffs against the previous snapshot, verifies the app still builds, and commits `data/history/` + `src/data/` when anything changed. Weekly by schedule, or on demand via *Run workflow*.
+
+`.github/workflows/deploy-pages.yml` builds the app with `BASE_PATH=/caa-jobs/` and publishes it (plus the root static site) to GitHub Pages on every push to `master`.

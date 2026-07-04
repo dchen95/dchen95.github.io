@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "data:scrape": "node scripts/scrape.mjs",
     "data:seed": "node scripts/seed.mjs",
-    "data:test": "node scripts/test-extract.mjs"
+    "data:diff": "node scripts/diff-snapshots.mjs",
+    "data:test": "node scripts/test-extract.mjs && node scripts/test-diff.mjs",
+    "data:test:diff": "node scripts/test-diff.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.383.0",

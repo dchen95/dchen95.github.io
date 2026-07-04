@@ -7,6 +7,7 @@ import {
 
 import JOBS from "./data/jobs.json";
 import META from "./data/meta.json";
+import CHANGES from "./data/changes.json";
 
 /* ============================================================================
    Waveform — a CAA-only job board reimagining GasWork.com
@@ -30,6 +31,11 @@ const C = {
   teal: "#0B6E5D", tealDeep: "#073A32", tealSoft: "#E4F0EC",
   mint: "#15C39A", amber: "#8A5E0C", amberSoft: "#F5EDD9",
 };
+
+/* Snapshot diff (scripts/diff-snapshots.mjs): which listings are new/removed/
+   repriced since the previous scrape. Empty until the refresh workflow runs. */
+const NEW_REFS = new Set(CHANGES.newRefs);
+const CHANGE_COUNT = CHANGES.newRefs.length + CHANGES.removedRefs.length + CHANGES.payChanged.length;
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const kFmt = (n) => `$${Math.round(n / 1000)}K`;
@@ -253,6 +259,7 @@ function JobCard({ job, saved, onSave, onOpen }) {
       </div>
 
       <div className="flex items-center flex-wrap" style={{ gap: 6 }}>
+        {NEW_REFS.has(job.ref) && <Pill tone="teal" icon={Sparkles}>New</Pill>}
         {job.immediate && <Pill tone="amber" icon={Zap}>Immediate start</Pill>}
         {!job.immediate && job.urgent && <Pill tone="amber" icon={Zap}>Actively recruiting</Pill>}
         <Pill tone={job.position === "Locum" ? "ink" : "neutral"}>{job.position}</Pill>
@@ -839,6 +846,13 @@ export default function App() {
         {view === "browse" ? (
           <>
             <Hero stats={stats} />
+
+            {CHANGES.since && CHANGE_COUNT > 0 && (
+              <div className="flex items-center gap-1.5" style={{ marginTop: 10, fontSize: 12.5, color: C.sub, fontWeight: 600 }}>
+                <Sparkles size={13} color={C.teal} strokeWidth={2.2} />
+                Since {CHANGES.since}: {CHANGES.newRefs.length} new · {CHANGES.removedRefs.length} removed · {CHANGES.payChanged.length} pay {CHANGES.payChanged.length === 1 ? "change" : "changes"}
+              </div>
+            )}
 
             {/* search */}
             <div style={{ position: "relative", marginTop: 18 }}>
