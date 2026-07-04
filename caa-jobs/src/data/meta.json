@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-07-03",
+  "scrapedAt": "2026-07-04",
   "source": "https://www.gaswork.com/search/Anesthesiologist-Assistants/Job/All",
   "total": 25,
   "withPay": 8,
@@ -16,5 +16,5 @@
     "Tennessee",
     "Texas"
   ],
-  "method": "seed"
+  "method": "seed-fallback"
 }
