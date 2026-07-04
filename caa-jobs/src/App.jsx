@@ -790,11 +790,11 @@ export default function App() {
     });
     const payVal = (j) => j.payMax ?? j.payMin ?? j.x.package?.max ?? j.x.package?.min ?? -1;
     out.sort((a, b) => {
-      if (sort === "newest") return b.posted.localeCompare(a.posted);
+      if (sort === "newest") return (b.posted || "").localeCompare(a.posted || "");
       if (sort === "pay") return payVal(b) - payVal(a);
       if (sort === "bonus") return (b.x.signOn.amount ?? -1) - (a.x.signOn.amount ?? -1);
       if (sort === "value") return (b.x.firstYear.min ?? payVal(b)) - (a.x.firstYear.min ?? payVal(a));
-      if (sort === "state") return a.state.localeCompare(b.state) || (a.city || "").localeCompare(b.city || "");
+      if (sort === "state") return (a.state || "").localeCompare(b.state || "") || (a.city || "").localeCompare(b.city || "");
       return 0;
     });
     return out;

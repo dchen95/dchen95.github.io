@@ -39,6 +39,74 @@ jobs:
       - name: Scrape gaswork.com
         run: npm run data:scrape
 
+      - name: Upload raw HTML cache
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-html
+          path: caa-jobs/data/raw/
+          retention-days: 5
+          if-no-files-found: warn
+
+      - name: Debug — raw HTML excerpts
+        if: always()
+        run: |
+          set +e
+          RAW=$(ls -d data/raw/*/ 2>/dev/null | tail -1)
+          echo "RAW DIR: $RAW"
+          ls -la "$RAW" 2>/dev/null | head -60
+          SEARCH=$(ls "$RAW"search*.html 2>/dev/null | head -1)
+          if [ -n "$SEARCH" ]; then
+            echo "===== SEARCH PAGE: $SEARCH ($(wc -c <"$SEARCH") bytes) ====="
+            echo "--- refs on page ---"
+            grep -oE '(/post/|PostI[Dd]=|postid=)[0-9]+' "$SEARCH" | sort -u | head -60
+            echo "--- postback / pagination hints ---"
+            grep -oE "__doPostBack\([^)]*\)" "$SEARCH" | sort -u | head -40
+            grep -oE 'Page\$[0-9]+' "$SEARCH" | sort -u | head -40
+            grep -oiE 'href="[^"]*"' "$SEARCH" | grep -iE 'page|search' | sort -u | head -40
+            echo "--- hidden form fields ---"
+            grep -oE 'name="__[A-Za-z]+"' "$SEARCH" | sort -u
+            echo "--- form tag ---"
+            grep -oiE '<form[^>]*>' "$SEARCH" | head -3
+            echo "--- result count text ---"
+            grep -oiE '[0-9,]+ *(results?|listings?|records?|posts?|jobs?|matches)[^<]{0,40}' "$SEARCH" | head -6
+            grep -oiE '(of|to) *[0-9,]+[^<]{0,30}' "$SEARCH" | head -10
+            echo "--- head 4000 (base64 collapsed) ---"
+            head -c 40000 "$SEARCH" | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g' | head -c 4000
+            echo
+            echo "--- window around first post ref ---"
+            OFF=$(grep -boE '(/post/|PostI[Dd]=)[0-9]+' "$SEARCH" | head -1 | cut -d: -f1)
+            if [ -n "$OFF" ]; then
+              START=$((OFF>1200 ? OFF-1200 : 0))
+              tail -c +$((START+1)) "$SEARCH" | head -c 6000 | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g'
+              echo
+            fi
+            echo "--- tail 3000 (pager usually near bottom) ---"
+            tail -c 3000 "$SEARCH" | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g'
+            echo
+          else
+            echo "No cached search page found."
+          fi
+          POST=$(ls "$RAW"post-*.html 2>/dev/null | head -1)
+          if [ -n "$POST" ]; then
+            echo "===== POST PAGE: $POST ($(wc -c <"$POST") bytes) ====="
+            echo "--- labelled-field context ---"
+            grep -oiE '(Employer|Company|Group|Facility|Agency|City|State|Position|Status|Posted|Renewed|Updated|Reference|Date)[^A-Za-z][^<]{0,80}' "$POST" | head -50
+            echo "--- head 3000 (base64 collapsed) ---"
+            head -c 30000 "$POST" | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g' | head -c 3000
+            echo
+            echo "--- window around Employer/City label ---"
+            OFF=$(grep -bioE '(employer|city)' "$POST" | head -1 | cut -d: -f1)
+            if [ -n "$OFF" ]; then
+              START=$((OFF>500 ? OFF-500 : 0))
+              tail -c +$((START+1)) "$POST" | head -c 6000 | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g'
+              echo
+            fi
+          else
+            echo "No cached post page found."
+          fi
+          true
+
       - name: Diff against previous snapshot
         run: npm run data:diff
 
