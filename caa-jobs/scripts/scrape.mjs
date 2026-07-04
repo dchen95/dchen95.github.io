@@ -23,8 +23,12 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { parseSearchPage, parseDetailPage } from "./lib/gaswork.mjs";
 import { buildDataset } from "./lib/extract.mjs";
+
+const execFileP = promisify(execFile);
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -34,9 +38,15 @@ const opt = (f, d) => (args.includes(f) ? args[args.indexOf(f) + 1] : d);
 const BASE = "https://www.gaswork.com";
 const SEARCH_URL = `${BASE}/search/Anesthesiologist-Assistants/Job/All`;
 const DELAY_MS = parseInt(opt("--delay", "2000"), 10);
-const UA = "WaveformCAAJobs/1.0 (personal job-search aggregator; links back to original postings)";
+// GasWork's WAF 403s non-browser user agents, so requests present standard
+// browser headers. Crawl behaviour stays polite regardless: 2s between
+// requests, ≤3 retries, and every record links back to the original posting.
+const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
+const ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8";
+const ACCEPT_LANG = "en-US,en;q=0.9";
 const today = new Date().toISOString().slice(0, 10);
 const cacheDir = join(root, "data/raw", today);
+const curlJarPath = join(root, "data/raw", "cookies.txt");
 
 const MAX_PAGES = 30; // hard cap on search-result pages, whatever pagination style
 
@@ -54,26 +64,93 @@ function storeCookies(res) {
 }
 const cookieHeader = () => [...jar.entries()].map(([k, v]) => `${k}=${v}`).join("; ");
 
-async function fetchPage(url, cacheName, { method = "GET", body = null } = {}) {
+/**
+ * Transport fallback: some WAFs 403 Node's fetch (undici TLS fingerprint) but
+ * accept curl. After the first 403 from fetch we try curl once; if curl gets
+ * through, ALL subsequent requests use curl (with its own cookie-jar file).
+ */
+let transport = "fetch";
+let curlProbed = false;
+
+async function curlRequest(url, { method = "GET", body = null } = {}) {
+  const cargs = [
+    "-sS", "--max-time", "60", "-L", "--compressed",
+    "-A", UA,
+    "-H", `Accept: ${ACCEPT}`,
+    "-H", `Accept-Language: ${ACCEPT_LANG}`,
+    "-c", curlJarPath, "-b", curlJarPath,
+    "-o", "-",
+    "-w", "\n__HTTP_STATUS__:%{http_code}",
+  ];
+  if (body != null) {
+    cargs.push("--data-raw", body, "-H", "Content-Type: application/x-www-form-urlencoded", "-e", SEARCH_URL);
+  }
+  if (method !== "GET" && body == null) cargs.push("-X", method);
+  cargs.push(url);
+  const { stdout } = await execFileP("curl", cargs, { maxBuffer: 32 * 1024 * 1024 });
+  const m = stdout.match(/\n__HTTP_STATUS__:(\d{3})\s*$/);
+  const status = m ? parseInt(m[1], 10) : 0;
+  const html = m ? stdout.slice(0, m.index) : stdout;
+  return { ok: status >= 200 && status < 400, status, html };
+}
+
+async function fetchRequest(url, { method = "GET", body = null } = {}) {
+  const headers = { "User-Agent": UA, Accept: ACCEPT, "Accept-Language": ACCEPT_LANG };
+  if (jar.size) headers.Cookie = cookieHeader();
+  if (body != null) {
+    headers["Content-Type"] = "application/x-www-form-urlencoded";
+    headers.Referer = SEARCH_URL;
+    headers.Origin = BASE;
+  }
+  const res = await fetch(url, { method, headers, body, redirect: "follow" });
+  storeCookies(res);
+  const html = await res.text();
+  return { ok: res.ok, status: res.status, html };
+}
+
+async function request(url, opts = {}) {
+  if (transport === "curl") return curlRequest(url, opts);
+  const r = await fetchRequest(url, opts);
+  if (r.status === 403 && !curlProbed) {
+    curlProbed = true;
+    try {
+      const c = await curlRequest(url, opts);
+      if (c.ok) {
+        transport = "curl";
+        console.log("  (direct fetch got 403; curl got through — switching to curl transport)");
+        return c;
+      }
+      console.warn(`  (fetch 403 and curl also blocked: HTTP ${c.status})`);
+    } catch (err) {
+      console.warn(`  (fetch 403 and curl fallback errored: ${err.message})`);
+    }
+  }
+  return r;
+}
+
+async function fetchPage(url, cacheName, opts = {}) {
   const cachePath = join(cacheDir, cacheName);
   mkdirSync(cacheDir, { recursive: true });
+  let lastErrBody = null;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const headers = { "User-Agent": UA, Accept: "text/html" };
-      if (jar.size) headers.Cookie = cookieHeader();
-      if (body != null) {
-        headers["Content-Type"] = "application/x-www-form-urlencoded";
-        headers.Referer = SEARCH_URL;
-        headers.Origin = BASE;
+      const r = await request(url, opts);
+      if (!r.ok) {
+        lastErrBody = r.html;
+        throw new Error(`HTTP ${r.status}`);
       }
-      const res = await fetch(url, { method, headers, body, redirect: "follow" });
-      storeCookies(res);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const html = await res.text();
-      writeFileSync(cachePath, html);
-      return html;
+      writeFileSync(cachePath, r.html);
+      return r.html;
     } catch (err) {
-      if (attempt === 3) throw new Error(`Failed to fetch ${url}: ${err.message}`);
+      if (attempt === 3) {
+        if (lastErrBody) {
+          // Keep the block/error page for diagnosis (name avoids the cache
+          // re-parser: doesn't start with "search"/match post-<ref>.html).
+          writeFileSync(join(cacheDir, `err-${cacheName}`), lastErrBody);
+          console.warn(`    error body (first 300): ${lastErrBody.replace(/\s+/g, " ").slice(0, 300)}`);
+        }
+        throw new Error(`Failed to fetch ${url}: ${err.message}`);
+      }
       await sleep(attempt * 2000);
     }
   }

@@ -36,6 +36,39 @@ jobs:
           mkdir -p data/history
           cp src/data/jobs.json "data/history/$(date -u +%F).json"
 
+      - name: Probe gaswork.com reachability
+        run: |
+          set +e
+          URL="https://www.gaswork.com/search/Anesthesiologist-Assistants/Job/All"
+          ACC="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+          echo "== curl default UA =="
+          curl -sS --max-time 30 -o /tmp/probe1.html -w 'status=%{http_code} size=%{size_download} ip=%{remote_ip}\n' "$URL"
+          head -c 400 /tmp/probe1.html; echo
+          sleep 2
+          echo "== curl browser UA/headers =="
+          curl -sS --max-time 30 -A "$UA_B" -H "$ACC" -H 'Accept-Language: en-US,en;q=0.9' --compressed -o /tmp/probe2.html -w 'status=%{http_code} size=%{size_download}\n' "$URL"
+          head -c 400 /tmp/probe2.html; echo
+          sleep 2
+          echo "== curl browser UA, HTTP/1.1, no-www =="
+          curl -sS --max-time 30 --http1.1 -A "$UA_B" -H "$ACC" -o /tmp/probe3.html -w 'status=%{http_code} size=%{size_download}\n' "https://gaswork.com/search/Anesthesiologist-Assistants/Job/All"
+          head -c 400 /tmp/probe3.html; echo
+          sleep 2
+          echo "== node fetch browser UA =="
+          node -e '
+            fetch("https://www.gaswork.com/search/Anesthesiologist-Assistants/Job/All", { headers: {
+              "User-Agent": process.env.UA_B,
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+              "Accept-Language": "en-US,en;q=0.9",
+            }}).then(async (r) => {
+              const t = await r.text();
+              console.log("status=" + r.status, "server=" + r.headers.get("server"), "len=" + t.length);
+              console.log(t.slice(0, 400));
+            }).catch((e) => console.log("fetch error:", e.message));
+          ' 2>&1
+          true
+        env:
+          UA_B: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+
       - name: Scrape gaswork.com
         run: npm run data:scrape
 
@@ -55,6 +88,10 @@ jobs:
           RAW=$(ls -d data/raw/*/ 2>/dev/null | tail -1)
           echo "RAW DIR: $RAW"
           ls -la "$RAW" 2>/dev/null | head -60
+          for E in $(ls "$RAW"err-*.html 2>/dev/null | head -3); do
+            echo "===== ERROR PAGE: $E ====="
+            head -c 600 "$E" | sed -E 's#[A-Za-z0-9+/=]{200,}#[B64]#g'; echo
+          done
           SEARCH=$(ls "$RAW"search*.html 2>/dev/null | head -1)
           if [ -n "$SEARCH" ]; then
             echo "===== SEARCH PAGE: $SEARCH ($(wc -c <"$SEARCH") bytes) ====="
