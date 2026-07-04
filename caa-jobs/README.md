@@ -45,10 +45,23 @@ git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
 
-### Optional: deploy free
+## Deploy
 
-- **Vercel / Netlify** — import the repo; build command `npm run build`, output dir `dist`.
-- **GitHub Pages** — `npm run build`, then publish `dist/` (set Vite `base` to your repo name in `vite.config.js` if serving from a subpath).
+### GitHub Pages (this repo)
+
+The board is published at **https://dchen95.github.io/caa-jobs/** by `.github/workflows/deploy-pages.yml` (repo root). On every push to `master` (or a manual *Run workflow*) it:
+
+1. `npm ci` and runs the extraction tests,
+2. builds with `BASE_PATH=/caa-jobs/ npm run build` so assets resolve under the subpath,
+3. assembles `_site/` — the root user-site static files plus the built app copied to `_site/caa-jobs` — and deploys it with `actions/deploy-pages`.
+
+**One-time manual step (owner):** repo **Settings → Pages → Source → "GitHub Actions"**. The workflow deploys from `master`, so it only takes effect once this branch is merged there.
+
+`vite.config.js` reads `base` from `BASE_PATH` (default `/`), so the same build serves at root on Vercel/Netlify and under `/caa-jobs/` on Pages.
+
+### Other hosts
+
+- **Vercel / Netlify** — import the repo; build command `npm run build`, output dir `dist` (root-relative assets, no `BASE_PATH` needed).
 
 ## Project structure
 
