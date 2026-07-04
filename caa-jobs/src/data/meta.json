@@ -1,0 +1,20 @@
+{
+  "scrapedAt": "2026-07-03",
+  "source": "https://www.gaswork.com/search/Anesthesiologist-Assistants/Job/All",
+  "total": 25,
+  "withPay": 8,
+  "withSignOn": 13,
+  "noCall": 8,
+  "medianBase": 270000,
+  "states": [
+    "Colorado",
+    "Florida",
+    "Georgia",
+    "Indiana",
+    "Ohio",
+    "South Carolina",
+    "Tennessee",
+    "Texas"
+  ],
+  "method": "seed"
+}

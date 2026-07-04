@@ -1,0 +1,50 @@
+name: Refresh CAA jobs data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 11 * * 1" # Mondays 11:17 UTC
+
+concurrency:
+  group: refresh-caa-jobs-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: caa-jobs
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: caa-jobs/package-lock.json
+
+      - run: npm ci
+
+      - name: Extraction regression tests
+        run: npm run data:test
+
+      - name: Scrape gaswork.com
+        run: npm run data:scrape
+
+      - name: Verify app builds with fresh data
+        run: npm run build
+
+      - name: Commit refreshed snapshot
+        run: |
+          if git diff --quiet -- src/data; then
+            echo "Snapshot unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data
+          git commit -m "data: refresh CAA listings snapshot ($(date -u +%F))"
+          git push

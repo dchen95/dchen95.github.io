@@ -1,0 +1,2161 @@
+[
+  {
+    "ref": 577267,
+    "role": "CAA — Broward Health Medical Center",
+    "employer": "Envision",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Fort Lauderdale",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "New CAA openings with Envision at Broward Health Medical Center, featuring a $150k start-date bonus, relocation support, and 10- and 12-hour scheduling options.",
+    "comp": [
+      {
+        "k": "Start-date bonus",
+        "v": "$150k"
+      },
+      {
+        "k": "Relocation",
+        "v": "Assistance"
+      },
+      {
+        "k": "Licensure",
+        "v": "FL license help"
+      }
+    ],
+    "bonus": "$150k start-date bonus",
+    "tags": [
+      "Relocation",
+      "10s & 12s"
+    ],
+    "immediate": true,
+    "urgent": true,
+    "posted": "2026-05-18",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 150000,
+        "offered": true,
+        "label": "$150k start-date bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": true,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [
+          "10s",
+          "12s"
+        ],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 150000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 46,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 580531,
+    "role": "CAA — Central Texas anesthesia team",
+    "employer": "Baylor Scott & White Health",
+    "kind": "Advertising Firm",
+    "etype": "Agency",
+    "city": "Temple",
+    "state": "Texas",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 230000,
+    "payMax": null,
+    "summary": "Central Texas role paying new grads $230K and experienced CAAs $260K with annual increases, plus a $20k annual bonus and a $75k sign-on bonus.",
+    "comp": [
+      {
+        "k": "New-grad base",
+        "v": "$230K"
+      },
+      {
+        "k": "Experienced base",
+        "v": "$260K"
+      },
+      {
+        "k": "Annual bonus",
+        "v": "$20k"
+      },
+      {
+        "k": "Sign-on bonus",
+        "v": "$75k"
+      }
+    ],
+    "bonus": "$75k sign-on bonus",
+    "tags": [
+      "Annual raises",
+      "New grads welcome"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-05",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": 230000,
+        "max": null,
+        "source": "stated",
+        "newGrad": 230000,
+        "experienced": 260000
+      },
+      "package": null,
+      "signOn": {
+        "amount": 75000,
+        "offered": true,
+        "label": "$75k sign-on bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": 20000,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": true,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 325000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 230000
+          },
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 75000
+          },
+          {
+            "label": "Annual bonus",
+            "amount": 20000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 28,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 422394,
+    "role": "CAA — Memorial Health University Medical Center",
+    "employer": "HCA Healthcare Anesthesia Services",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Savannah",
+    "state": "Georgia",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "HCA is adding CAAs to its employed anesthesia team at Memorial Health University Medical Center in Savannah.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "Employed team",
+      "Hospital"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-02-24",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 129,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 569346,
+    "role": "CAA — new anesthesia care program",
+    "employer": "HCA Healthcare Anesthesia Services",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Fort Pierce",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": null,
+    "payMin": null,
+    "payMax": null,
+    "summary": "HCA is introducing CAAs into the anesthesia care team at its Fort Pierce facility.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "New AA program"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-03-24",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": null,
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 101,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 566421,
+    "role": "CAA — orthopedic anesthesia",
+    "employer": "OrthoMed Anesthesia",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Houston",
+    "state": "Texas",
+    "position": "Full-Time",
+    "w2": null,
+    "payMin": null,
+    "payMax": null,
+    "summary": "Orthopedic-focused CAA role with competitive pay and no nights, weekends, or call.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "No call",
+      "No nights/weekends",
+      "Orthopedic"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-07",
+    "updated": "2026-06-17",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": true,
+        "noWeekends": true,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": null,
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 26,
+      "daysUpdated": 16,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 581587,
+    "role": "CAA — Nashville facilities",
+    "employer": "US Anesthesia Partners (USAP)",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "US Anesthesia Partners is hiring CAAs to support its Nashville-area facilities.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "Multi-site group"
+    ],
+    "immediate": false,
+    "urgent": true,
+    "posted": "2026-06-12",
+    "updated": "2026-06-17",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 21,
+      "daysUpdated": 16,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 564579,
+    "role": "CAA — weekend coverage, Wellstar North Fulton",
+    "employer": "MAK Anesthesia",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Roswell",
+    "state": "Georgia",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "Weekend CAA position (Friday–Sunday, 7a–7p) at Wellstar North Fulton with a minimum of six weeks of vacation.",
+    "comp": [
+      {
+        "k": "Vacation",
+        "v": "6+ weeks"
+      }
+    ],
+    "bonus": null,
+    "tags": [
+      "Weekend shifts (Fri–Sun)",
+      "6+ weeks vacation"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-16",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": true,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": 6,
+        "weeksMax": null,
+        "label": "minimum of six weeks of vacation"
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 17,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 526702,
+    "role": "CAA — Metro Atlanta hospitals & centers",
+    "employer": "MAK Anesthesia",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Metro Atlanta",
+    "state": "Georgia",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 230000,
+    "payMax": 300000,
+    "summary": "CAA coverage across major Wellstar hospitals and outpatient centers throughout Metro Atlanta.",
+    "comp": [
+      {
+        "k": "Base range",
+        "v": "$230K–$300K"
+      }
+    ],
+    "bonus": null,
+    "tags": [
+      "Multiple sites",
+      "Outpatient"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-16",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": 230000,
+        "max": 300000,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 230000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 230000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 17,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 548049,
+    "role": "CAA — Orlando Health Anesthesiology",
+    "employer": "Orlando Health Anesthesiology",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Orlando",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "Orlando Health is hiring CAAs with $100k in transition support funds and schedules offering up to 22 weeks off.",
+    "comp": [
+      {
+        "k": "Transition support funds",
+        "v": "$100k"
+      },
+      {
+        "k": "Time off",
+        "v": "Up to 22 weeks"
+      }
+    ],
+    "bonus": "$100k support funds",
+    "tags": [
+      "Up to 22 weeks off",
+      "Flexible schedule"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-12",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 100000,
+        "offered": true,
+        "label": "$100k support funds"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": 22,
+        "label": "up to 22 weeks off"
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 100000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 21,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 570146,
+    "role": "CAA — Digestive Health Institute",
+    "employer": "Orlando Health Anesthesiology",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Orlando",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA role at Orlando Health's Digestive Health Institute with $100K in upfront transitional support funds and no call, nights, weekends, or holidays.",
+    "comp": [
+      {
+        "k": "Transition support funds",
+        "v": "$100K"
+      }
+    ],
+    "bonus": "$100K support funds",
+    "tags": [
+      "No call",
+      "No nights/weekends/holidays"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-05-28",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 100000,
+        "offered": true,
+        "label": "$100K support funds"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": true,
+        "noWeekends": true,
+        "noHolidays": true,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 100000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 36,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 574882,
+    "role": "CAA — Sebastian River Hospital",
+    "employer": "Orlando Health Anesthesiology",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Sebastian",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA position at Orlando Health Sebastian River Hospital with $100K upfront transitional support funds and no call, nights, weekends, or holidays.",
+    "comp": [
+      {
+        "k": "Transition support funds",
+        "v": "$100K"
+      }
+    ],
+    "bonus": "$100K support funds",
+    "tags": [
+      "No call",
+      "No nights/weekends/holidays"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-01",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 100000,
+        "offered": true,
+        "label": "$100K support funds"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": true,
+        "noWeekends": true,
+        "noHolidays": true,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 100000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 32,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 570817,
+    "role": "CAA — Winnie Palmer Hospital",
+    "employer": "Orlando Health Anesthesiology",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Orlando",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA opening at Winnie Palmer Hospital with $100K in upfront transitional support funds.",
+    "comp": [
+      {
+        "k": "Transition support funds",
+        "v": "$100K"
+      }
+    ],
+    "bonus": "$100K support funds",
+    "tags": [
+      "Women's & children's"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-05",
+    "updated": "2026-06-16",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 100000,
+        "offered": true,
+        "label": "$100K support funds"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 100000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 28,
+      "daysUpdated": 17,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 574572,
+    "role": "CAA — flexible FTE, University of Colorado",
+    "employer": "University of Colorado",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Aurora",
+    "state": "Colorado",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 230000,
+    "payMax": 290000,
+    "summary": "Flexible 0.6–1.0 FTE hospital positions with day, evening, and night shift options.",
+    "comp": [
+      {
+        "k": "Base range",
+        "v": "$230K–$290K"
+      }
+    ],
+    "bonus": null,
+    "tags": [
+      "Flexible 0.6–1.0 FTE",
+      "Day/evening/night"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-15",
+    "updated": "2026-06-15",
+    "x": {
+      "base": {
+        "min": 230000,
+        "max": 290000,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": {
+          "min": 0.6,
+          "max": 1
+        },
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 230000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 230000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 18,
+      "daysUpdated": 18,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 567381,
+    "role": "Pediatric Anesthetist (CRNA/CAA)",
+    "employer": "University of Colorado Anschutz — Pediatric Anesthesiology",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Aurora",
+    "state": "Colorado",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 230000,
+    "payMax": 290000,
+    "summary": "Pediatric anesthetist role (CRNA/CAA) in the Pediatric Division of Anesthesiology at CU Anschutz.",
+    "comp": [
+      {
+        "k": "Base range",
+        "v": "$230K–$290K"
+      }
+    ],
+    "bonus": null,
+    "tags": [
+      "Pediatric",
+      "Academic"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-11",
+    "updated": "2026-06-11",
+    "x": {
+      "base": {
+        "min": 230000,
+        "max": 290000,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 230000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 230000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 22,
+      "daysUpdated": 22,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 581299,
+    "role": "CAA — independent practice expansion",
+    "employer": "Houston Anesthesiology Associates",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Houston / Woodlands / Katy / Baytown",
+    "state": "Texas",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 250000,
+    "payMax": null,
+    "summary": "Independent practice expanding across multiple surgery centers in the greater Houston area, adding locations.",
+    "comp": [
+      {
+        "k": "Base",
+        "v": "From $250,000"
+      }
+    ],
+    "bonus": null,
+    "tags": [
+      "Independent practice",
+      "Multiple surgery centers"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-11",
+    "updated": "2026-06-11",
+    "x": {
+      "base": {
+        "min": 250000,
+        "max": null,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 250000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 250000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 22,
+      "daysUpdated": 22,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 553515,
+    "role": "CAA — Phoebe Putney Health System",
+    "employer": "Phoebe Putney Health System",
+    "kind": "Facility: Hospital",
+    "etype": "Direct",
+    "city": "Albany",
+    "state": "Georgia",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 260000,
+    "payMax": null,
+    "summary": "Hospital CAA role with W-2 income starting at $260k, a $30k sign-on bonus, 8–10 weeks of PTO/holidays/CME, plus productivity, incentive, and call pay.",
+    "comp": [
+      {
+        "k": "Base",
+        "v": "From $260k"
+      },
+      {
+        "k": "Sign-on bonus",
+        "v": "$30k"
+      },
+      {
+        "k": "PTO / holidays / CME",
+        "v": "8–10 weeks"
+      },
+      {
+        "k": "Extras",
+        "v": "Productivity, incentive, call pay, relocation"
+      }
+    ],
+    "bonus": "$30k sign-on bonus",
+    "tags": [
+      "8–10 wks PTO",
+      "Relocation"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-05",
+    "updated": "2026-06-05",
+    "x": {
+      "base": {
+        "min": 260000,
+        "max": null,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 30000,
+        "offered": true,
+        "label": "$30k sign-on bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": true,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": 8,
+        "weeksMax": 10,
+        "label": "8–10 weeks of pto"
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 290000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 260000
+          },
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 30000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 28,
+      "daysUpdated": 28,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 580464,
+    "role": "CAA — private group, Brevard County",
+    "employer": "Brevard Physician Associates, PLLC",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Brevard County",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "Private-group CAA position with a newly enhanced compensation and PTO package, plus a sign-on bonus.",
+    "comp": [
+      {
+        "k": "Compensation",
+        "v": "Newly enhanced"
+      },
+      {
+        "k": "Sign-on bonus",
+        "v": "Offered"
+      }
+    ],
+    "bonus": "Sign-on offered",
+    "tags": [
+      "Enhanced PTO"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-05",
+    "updated": "2026-06-05",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": true,
+        "label": "Sign-on offered"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 28,
+      "daysUpdated": 28,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 541522,
+    "role": "CAA — guaranteed-hours hourly role",
+    "employer": "Consultant Anesthesiologists, Inc",
+    "kind": "Group: Private Practice",
+    "etype": "Direct",
+    "city": "Columbus",
+    "state": "Ohio",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "Full- or part-time hourly CAA role with guaranteed scheduled hours, early paid release on light days, a signing bonus, and a total package of $270K–$327K.",
+    "comp": [
+      {
+        "k": "Total package",
+        "v": "$270K–$327K"
+      },
+      {
+        "k": "Signing bonus",
+        "v": "Offered"
+      },
+      {
+        "k": "Scheduled hours",
+        "v": "Guaranteed"
+      }
+    ],
+    "bonus": "Signing bonus",
+    "tags": [
+      "Full- or part-time",
+      "Guaranteed hours",
+      "Hourly"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-05-20",
+    "updated": "2026-05-20",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": {
+        "min": 270000,
+        "max": 327000
+      },
+      "signOn": {
+        "amount": null,
+        "offered": true,
+        "label": "Signing bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": true,
+        "guaranteedHours": true
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 270000,
+        "parts": [
+          {
+            "label": "Total package (floor)",
+            "amount": 270000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 44,
+      "daysUpdated": 44,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 574387,
+    "role": "Locum CAA — Level 3 hospital",
+    "employer": "Anesthesia Solutions LLC",
+    "kind": "Recruitment Agency",
+    "etype": "Agency",
+    "city": "San Antonio",
+    "state": "Texas",
+    "position": "Locum",
+    "w2": "1099",
+    "payMin": null,
+    "payMax": null,
+    "summary": "Locum CAA coverage at a Level 3 hospital, five 8-hour days Monday–Friday, with no call or weekends.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "No call",
+      "No weekends",
+      "5×8s M–F",
+      "Level 3 hospital"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-12",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": false,
+        "noWeekends": true,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [
+          "8s"
+        ],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "1099"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 21,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 581966,
+    "role": "Locum CAA — small hospital",
+    "employer": "Anesthesia Solutions LLC",
+    "kind": "Recruitment Agency",
+    "etype": "Agency",
+    "city": "New Braunfels",
+    "state": "Texas",
+    "position": "Locum",
+    "w2": null,
+    "payMin": null,
+    "payMax": null,
+    "summary": "Locum CAA coverage at a small hospital, 10-hour shifts Monday–Friday, with no call.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "No call",
+      "10-hr shifts M–F",
+      "Small hospital"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-06-18",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [
+          "10s"
+        ],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": null,
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 15,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 554261,
+    "role": "CAA — increased salary options",
+    "employer": "US Anesthesia Partners (USAP)",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "San Antonio",
+    "state": "Texas",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 250000,
+    "payMax": null,
+    "summary": "CAA role with salary starting at $250,000, no nights/weekends/call, and a choice of a $50K sign-on bonus or $75K in student-loan repayment.",
+    "comp": [
+      {
+        "k": "Base",
+        "v": "From $250,000"
+      },
+      {
+        "k": "Sign-on bonus",
+        "v": "$50K"
+      },
+      {
+        "k": "or Student-loan repayment",
+        "v": "$75K"
+      }
+    ],
+    "bonus": "$50K sign-on / $75K loans",
+    "tags": [
+      "No call/nights/weekends",
+      "Student-loan option"
+    ],
+    "immediate": false,
+    "urgent": true,
+    "posted": "2025-12-11",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": 250000,
+        "max": null,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 50000,
+        "offered": true,
+        "label": "$50K sign-on / $75K loans"
+      },
+      "loanRepayment": {
+        "amount": 75000,
+        "offered": true,
+        "alternativeToSignOn": true
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": true,
+        "noWeekends": true,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 300000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 250000
+          },
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 50000
+          }
+        ],
+        "note": "Sign-on bonus and loan repayment are an either/or choice; the larger applies to year one only once."
+      },
+      "daysPosted": 204,
+      "daysUpdated": 15,
+      "longRunning": true
+    }
+  },
+  {
+    "ref": 557786,
+    "role": "CAA — MUSC Health Florence",
+    "employer": "The Medical University of South Carolina",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Florence",
+    "state": "South Carolina",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA position at MUSC Health Florence with a $50K commencement bonus and $15K site incentive, no weekends or call, and 8/10/12-hour shift options.",
+    "comp": [
+      {
+        "k": "Commencement bonus",
+        "v": "$50K"
+      },
+      {
+        "k": "Site incentive",
+        "v": "$15K"
+      }
+    ],
+    "bonus": "$50K commencement bonus",
+    "tags": [
+      "No weekends",
+      "No call",
+      "8s/10s/12s"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-01-06",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 50000,
+        "offered": true,
+        "label": "$50K commencement bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [
+        {
+          "amount": 15000,
+          "label": "site incentive"
+        },
+        {
+          "amount": 15000,
+          "label": "incentive"
+        }
+      ],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": false,
+        "noWeekends": true,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [
+          "8s",
+          "10s",
+          "12s"
+        ],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 50000
+          },
+          {
+            "label": "Site incentive",
+            "amount": 15000
+          },
+          {
+            "label": "Incentive",
+            "amount": 15000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 178,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 575448,
+    "role": "CAA — Indiana, near Chicago",
+    "employer": "CompHealth",
+    "kind": "Recruitment Agency",
+    "etype": "Agency",
+    "city": null,
+    "state": "Indiana",
+    "position": "Full-Time",
+    "w2": "1099",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA opening in Indiana about 40 minutes from Chicago, with no call and W-2 or 1099 options.",
+    "comp": [],
+    "bonus": null,
+    "tags": [
+      "No call",
+      "40 min to Chicago",
+      "W-2 or 1099"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2026-05-06",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": false,
+        "label": null
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": true,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2",
+        "1099"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [],
+        "note": null
+      },
+      "daysPosted": 58,
+      "daysUpdated": 15,
+      "longRunning": false
+    }
+  },
+  {
+    "ref": 531057,
+    "role": "CAA — El Paso, grads welcome",
+    "employer": "Tenet Health",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "El Paso",
+    "state": "Texas",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": 270000,
+    "payMax": null,
+    "summary": "Actively recruiting full-time CAAs in El Paso at $270K plus a sign-on bonus; 2026 and 2027 graduates welcome.",
+    "comp": [
+      {
+        "k": "Base",
+        "v": "$270K"
+      },
+      {
+        "k": "Sign-on bonus",
+        "v": "Offered"
+      }
+    ],
+    "bonus": "Sign-on offered",
+    "tags": [
+      "New grads (2026 & 2027)"
+    ],
+    "immediate": false,
+    "urgent": true,
+    "posted": "2025-09-19",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": 270000,
+        "max": null,
+        "source": "stated",
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": null,
+        "offered": true,
+        "label": "Sign-on offered"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": true,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": 270000,
+        "parts": [
+          {
+            "label": "Base salary",
+            "amount": 270000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 287,
+      "daysUpdated": 15,
+      "longRunning": true
+    }
+  },
+  {
+    "ref": 408273,
+    "role": "CAA — West Palm Beach area",
+    "employer": "Envision",
+    "kind": "Group: National Private Practice",
+    "etype": "Direct",
+    "city": "Loxahatchee",
+    "state": "Florida",
+    "position": "Full-Time",
+    "w2": "W-2",
+    "payMin": null,
+    "payMax": null,
+    "summary": "CAA opportunity in the West Palm Beach area with newly increased compensation and a $45K start-date bonus.",
+    "comp": [
+      {
+        "k": "Start-date bonus",
+        "v": "$45K"
+      },
+      {
+        "k": "Compensation",
+        "v": "Newly increased"
+      }
+    ],
+    "bonus": "$45K start-date bonus",
+    "tags": [
+      "West Palm Beach area"
+    ],
+    "immediate": false,
+    "urgent": false,
+    "posted": "2025-03-31",
+    "updated": "2026-06-18",
+    "x": {
+      "base": {
+        "min": null,
+        "max": null,
+        "source": null,
+        "newGrad": null,
+        "experienced": null
+      },
+      "package": null,
+      "signOn": {
+        "amount": 45000,
+        "offered": true,
+        "label": "$45K start-date bonus"
+      },
+      "loanRepayment": {
+        "amount": null,
+        "offered": false,
+        "alternativeToSignOn": false
+      },
+      "annualBonus": null,
+      "incentives": [],
+      "relocation": false,
+      "schedule": {
+        "noCall": false,
+        "noNights": false,
+        "noWeekends": false,
+        "noHolidays": false,
+        "weekendOnly": false,
+        "shifts": [],
+        "fte": null,
+        "partTimeOption": false,
+        "guaranteedHours": false
+      },
+      "timeOff": {
+        "weeksMin": null,
+        "weeksMax": null,
+        "label": null
+      },
+      "newGrad": false,
+      "employmentOptions": [
+        "W-2"
+      ],
+      "firstYear": {
+        "min": null,
+        "parts": [
+          {
+            "label": "Sign-on / start bonus",
+            "amount": 45000
+          }
+        ],
+        "note": null
+      },
+      "daysPosted": 459,
+      "daysUpdated": 15,
+      "longRunning": true
+    }
+  }
+]
