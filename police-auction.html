@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Police Auto Auction Browser | Montgomery County, MD</title>
+  <style>
+    :root {
+      --blue: #1a6fc4; --blue-dark: #145da0; --blue-light: #e8f0fb;
+      --green: #2e7d32; --green-light: #e8f5e9;
+      --orange: #e65100; --orange-light: #fff3e0;
+      --red: #c62828; --red-light: #ffebee;
+      --gold: #f57f17; --gold-light: #fff8e1;
+      --purple: #6a1b9a; --purple-light: #f3e5f5;
+      --gray-50:#fafafa; --gray-100:#f5f5f5; --gray-200:#eeeeee;
+      --gray-300:#e0e0e0; --gray-400:#bdbdbd; --gray-500:#9e9e9e;
+      --gray-600:#757575; --gray-700:#616161; --gray-800:#424242; --gray-900:#212121;
+      --radius:8px;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);
+      --shadow-md:0 4px 6px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06);
+      --shadow-lg:0 10px 25px rgba(0,0,0,.15);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--gray-100);color:var(--gray-900);min-height:100vh;}
+
+    /* ── Header ── */
+    .site-header{background:linear-gradient(135deg,#0d2137,#1a6fc4);color:#fff;padding:0 24px;}
+    .header-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;gap:10px;}
+    .header-brand h1{font-size:1.4rem;font-weight:800;letter-spacing:-.4px;}
+    .header-brand p{font-size:.78rem;opacity:.75;margin-top:2px;}
+    .header-brand a.back-link{color:#bcd8f5;font-size:.72rem;text-decoration:none;display:inline-block;margin-top:5px;}
+    .header-brand a.back-link:hover{text-decoration:underline;}
+    .header-badges{display:flex;gap:8px;flex-wrap:wrap;}
+    .header-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600;}
+    .header-badge.hot{background:rgba(245,127,23,.3);border-color:rgba(245,127,23,.6);}
+
+    /* ── Info panel ── */
+    .info-panel{background:linear-gradient(135deg,#0d2137,#1a3c5e);border-bottom:3px solid var(--gold);padding:0 24px;}
+    .info-panel-inner{max-width:1440px;margin:0 auto;}
+    .info-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 0;cursor:pointer;color:#fff;gap:10px;}
+    .info-toggle-label{font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.9);}
+    .info-toggle-arrow{transition:transform .25s;color:rgba(255,255,255,.6);font-size:.75rem;}
+    .info-toggle.open .info-toggle-arrow{transform:rotate(180deg);}
+    .info-body{display:none;padding:0 0 16px;}
+    .info-body.open{display:block;}
+    .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
+    .info-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:12px 14px;}
+    .info-card h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);margin-bottom:6px;}
+    .info-card p,.info-card li{font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.5;}
+    .info-card a{color:#8fc4f5;text-decoration:none;}
+    .info-card a:hover{text-decoration:underline;}
+    .info-card ul{padding-left:15px;}
+    .info-card .hl{color:#ffd54f;font-weight:700;}
+
+    /* ── Stats bar ── */
+    .stats-bar{background:#fff;border-bottom:1px solid var(--gray-200);padding:0 24px;box-shadow:var(--shadow-sm);}
+    .stats-inner{max-width:1440px;margin:0 auto;display:flex;overflow-x:auto;}
+    .stat-card{flex:1;min-width:130px;padding:14px 18px;border-right:1px solid var(--gray-200);display:flex;flex-direction:column;gap:3px;}
+    .stat-card:last-child{border-right:none;}
+    .stat-label{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-600);}
+    .stat-value{font-size:1.3rem;font-weight:800;white-space:nowrap;}
+    .stat-sub{font-size:.68rem;color:var(--gray-500);}
+    .sv-blue{color:var(--blue);} .sv-green{color:var(--green);} .sv-gold{color:var(--gold);} .sv-red{color:var(--red);} .sv-purple{color:var(--purple);}
+
+    /* ── VIN lookup tool ── */
+    .lookup-wrap{max-width:1440px;margin:20px auto 0;padding:0 24px;}
+    .lookup-card{background:#fff;border:1px solid var(--gray-200);border-left:4px solid var(--blue);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:16px 18px;}
+    .lookup-card h2{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;}
+    .lookup-card .lookup-sub{font-size:.78rem;color:var(--gray-600);margin-top:3px;margin-bottom:12px;}
+    .lookup-row{display:flex;gap:9px;flex-wrap:wrap;align-items:stretch;}
+    .lookup-input{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:.95rem;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;}
+    .lookup-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,111,196,.15);}
+    .lookup-btn{padding:10px 20px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s;display:flex;align-items:center;gap:6px;justify-content:center;}
+    .lookup-btn:hover{background:var(--blue-dark);}
+    .lookup-btn:disabled{opacity:.6;cursor:progress;}
+    .lookup-hint{font-size:.72rem;color:var(--gray-500);margin-top:7px;}
+    .lookup-hint.warn{color:var(--orange);font-weight:600;}
+    .lookup-result{margin-top:14px;display:none;}
+    .lookup-result.show{display:block;}
+    .lr-card{border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;}
+    .lr-head{background:linear-gradient(135deg,var(--blue-light),#f4f9ff);padding:12px 15px;border-bottom:1px solid var(--gray-200);}
+    .lr-title{font-size:1.15rem;font-weight:800;color:var(--gray-900);}
+    .lr-vin{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;color:var(--gray-600);margin-top:2px;letter-spacing:.5px;}
+    .lr-inauction{display:inline-block;margin-top:7px;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:700;background:var(--green-light);color:var(--green);cursor:pointer;border:1px solid #a5d6a7;}
+    .lr-inauction:hover{background:#d7f0d9;}
+    .lr-notfound{display:inline-block;margin-top:7px;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:700;background:var(--gray-100);color:var(--gray-600);border:1px solid var(--gray-300);}
+    .lr-body{padding:14px 15px;}
+    .lr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px 16px;}
+    .lr-item label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);display:block;margin-bottom:2px;}
+    .lr-item span{font-size:.9rem;font-weight:600;}
+    .lr-warn{margin-top:12px;background:var(--gold-light);border:1px solid var(--gold);border-radius:6px;padding:8px 11px;font-size:.75rem;color:var(--orange);}
+    .lr-error{background:var(--red-light);border:1px solid #ef9a9a;border-radius:6px;padding:10px 13px;font-size:.8rem;color:var(--red);font-weight:600;}
+
+    /* ── Notice banner ── */
+    .notice-banner{max-width:1440px;margin:14px auto 0;padding:0 24px;}
+    .notice-inner{background:var(--gold-light);border:1px solid var(--gold);border-radius:var(--radius);padding:10px 14px;font-size:.8rem;color:#7a4f00;display:flex;align-items:flex-start;gap:9px;justify-content:space-between;}
+    .notice-inner .nb-text{flex:1;line-height:1.5;}
+    .notice-dismiss{background:none;border:none;color:#7a4f00;font-size:1rem;cursor:pointer;font-weight:800;padding:0 4px;flex-shrink:0;}
+
+    /* ── Layout ── */
+    .main{max-width:1440px;margin:20px auto;padding:0 24px;display:flex;gap:20px;align-items:flex-start;}
+
+    /* ── Sidebar ── */
+    .sidebar{width:250px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;}
+    .filter-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+    .filter-card-title{background:var(--gray-50);border-bottom:1px solid var(--gray-200);padding:9px 13px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-700);display:flex;align-items:center;gap:6px;}
+    .filter-card-body{padding:11px 13px;display:flex;flex-direction:column;gap:11px;}
+    label.filter-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);display:block;margin-bottom:4px;}
+    select.filter-select,input.filter-input{width:100%;padding:7px 9px;border:1px solid var(--gray-300);border-radius:5px;font-size:.8rem;background:#fff;color:var(--gray-900);appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23757575'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;padding-right:24px;}
+    input.filter-input{background-image:none;padding-right:9px;}
+    select.filter-select:focus,input.filter-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,111,196,.15);}
+    .range-inputs{display:flex;gap:5px;align-items:center;}
+    .range-inputs input{flex:1;}
+    .range-inputs span{color:var(--gray-500);font-size:.8rem;}
+    .checkbox-row{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--gray-700);cursor:pointer;}
+    .checkbox-row input{width:15px;height:15px;accent-color:var(--blue);cursor:pointer;}
+    .btn-reset{width:100%;padding:8px;border:1px solid var(--gray-300);border-radius:5px;background:#fff;font-size:.78rem;font-weight:600;color:var(--gray-700);cursor:pointer;transition:all .15s;}
+    .btn-reset:hover{background:var(--gray-100);}
+
+    /* ── Content ── */
+    .content{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;}
+    .toolbar{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:11px 14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+    .search-wrap{flex:1;min-width:180px;position:relative;}
+    .search-wrap svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--gray-400);pointer-events:none;}
+    .search-input{width:100%;padding:8px 9px 8px 32px;border:1px solid var(--gray-300);border-radius:5px;font-size:.83rem;}
+    .search-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(26,111,196,.15);}
+    .result-count{font-size:.78rem;color:var(--gray-600);white-space:nowrap;}
+
+    /* ── Table ── */
+    .table-wrap{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    table{width:100%;border-collapse:collapse;font-size:.8rem;}
+    thead th{background:var(--gray-50);border-bottom:2px solid var(--gray-200);padding:10px 11px;text-align:left;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-700);white-space:nowrap;cursor:pointer;user-select:none;}
+    thead th:hover{background:var(--gray-100);color:var(--blue);}
+    thead th .si{margin-left:3px;opacity:.35;font-size:.7rem;}
+    thead th.asc .si::after{content:'↑';opacity:1;} thead th.desc .si::after{content:'↓';opacity:1;} thead th:not(.asc):not(.desc) .si::after{content:'↕';}
+    tbody tr{border-bottom:1px solid var(--gray-200);transition:background .1s;cursor:pointer;}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:hover{background:#fafbff;}
+    tbody tr.row-flash{animation:flash 1.6s ease;}
+    @keyframes flash{0%,40%{background:#fff3cd;}100%{background:transparent;}}
+    tbody td{padding:9px 11px;vertical-align:middle;}
+    .case-cell{font-weight:700;color:var(--gray-800);white-space:nowrap;}
+    .vin-cell{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;letter-spacing:.3px;white-space:nowrap;}
+    .model-main{font-weight:600;}
+    .model-sub{font-size:.7rem;color:var(--gray-600);margin-top:1px;}
+    .model-pending{color:var(--gray-400);font-style:italic;display:inline-flex;align-items:center;gap:5px;}
+    .model-dash{color:var(--gray-400);}
+    .mini-spin{width:11px;height:11px;border:2px solid var(--gray-300);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;display:inline-block;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.66rem;font-weight:700;white-space:nowrap;}
+    .badge-body{background:var(--blue-light);color:var(--blue-dark);}
+    .badge-partial{background:var(--gold-light);color:var(--orange);border:1px solid #ffcc80;}
+    .badge-novin{background:var(--gray-200);color:var(--gray-600);}
+    .badge-warn{background:var(--gold-light);color:var(--orange);margin-left:5px;}
+    .mileage-cell{white-space:nowrap;}
+
+    /* ── No results ── */
+    .no-results{text-align:center;padding:50px 20px;color:var(--gray-500);}
+    .no-results p{font-size:.88rem;}
+
+    /* ── Modal ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s;}
+    .modal-overlay.open{opacity:1;pointer-events:auto;}
+    .modal{background:#fff;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);transform:scale(.96);transition:transform .2s;}
+    .modal-overlay.open .modal{transform:scale(1);}
+    .modal-header{padding:16px 18px;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0;gap:10px;background:linear-gradient(135deg,var(--blue-light),#f4f9ff);}
+    .modal-title{font-size:1.15rem;font-weight:800;}
+    .modal-subtitle{font-size:.76rem;color:var(--gray-600);margin-top:3px;font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.4px;}
+    .modal-close{background:#fff;border:1px solid var(--gray-300);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gray-600);flex-shrink:0;transition:all .15s;}
+    .modal-close:hover{background:var(--gray-100);}
+    .modal-body{padding:18px;overflow-y:auto;flex:1;}
+    .modal-section-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-600);margin:4px 0 10px;padding-bottom:5px;border-bottom:1px solid var(--gray-200);}
+    .modal-section-title:not(:first-child){margin-top:20px;}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 16px;}
+    .detail-item label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gray-600);display:block;margin-bottom:2px;}
+    .detail-item span{font-size:.9rem;font-weight:600;word-break:break-word;}
+    .detail-item .mono{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;}
+    .modal-pending{font-size:.82rem;color:var(--gray-500);font-style:italic;display:flex;align-items:center;gap:7px;}
+
+    /* ── Footer ── */
+    .site-footer{max-width:1440px;margin:30px auto 24px;padding:20px 24px 0;border-top:1px solid var(--gray-300);font-size:.74rem;color:var(--gray-600);line-height:1.6;}
+    .site-footer p{margin-bottom:5px;}
+    .site-footer a{color:var(--blue);text-decoration:none;}
+    .site-footer a:hover{text-decoration:underline;}
+    .site-footer .copyright{margin-top:10px;color:var(--gray-500);}
+
+    /* ── Mobile filter toggle ── */
+    .filter-toggle-btn{display:none;width:100%;padding:9px 13px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius);font-size:.83rem;font-weight:600;cursor:pointer;text-align:left;margin-bottom:6px;align-items:center;justify-content:space-between;}
+
+    /* ── Responsive ── */
+    @media(max-width:1000px){.main{flex-direction:column;padding:0 16px;}.sidebar{width:100%;}.filter-toggle-btn{display:flex;}.sidebar-collapsible{display:none;flex-direction:column;gap:14px;}.sidebar-collapsible.open{display:flex;}.lookup-wrap,.notice-banner{padding:0 16px;}}
+    @media(max-width:700px){.stats-inner{flex-wrap:wrap;}.stat-card{min-width:48%;border-right:none;border-bottom:1px solid var(--gray-200);flex:none;width:50%;}.info-grid{grid-template-columns:1fr 1fr;}table{min-width:640px;}.modal-overlay{padding:0;align-items:flex-end;}.modal{border-radius:16px 16px 0 0;max-height:95vh;}}
+    @media(max-width:500px){.main{padding:0 10px;margin:14px auto;}.lookup-wrap,.notice-banner{padding:0 10px;}.info-grid{grid-template-columns:1fr;}.detail-grid{grid-template-columns:1fr;}.lr-grid{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <h1>&#x1F693; Police Auto Auction Browser</h1>
+      <p>Montgomery County, MD — Public Auction &middot; July 25, 2026</p>
+      <a href="index.html" class="back-link">&larr; Back to David Chen</a>
+    </div>
+    <div class="header-badges">
+      <span class="header-badge">&#x1F4C5; Sat, Jul 25 2026</span>
+      <span class="header-badge">Gates 7:30 AM &middot; Bids 9:00 AM</span>
+      <span class="header-badge hot">Min bid $50</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── Info panel ── -->
+<div class="info-panel">
+  <div class="info-panel-inner">
+    <div class="info-toggle" id="info-toggle">
+      <span class="info-toggle-label">
+        <span>&#x2139;&#xFE0F;</span>
+        Auction details, terms &amp; how VIN identification works
+      </span>
+      <span class="info-toggle-arrow">&#x25BC;</span>
+    </div>
+    <div class="info-body" id="info-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>What is this?</h3>
+          <p>The county publishes a notice of abandoned vehicles headed to public auction — but it lists only a coded make and a raw <span class="hl">VIN</span>, not the model. This tool decodes each VIN into a readable year / make / model so you can see what's actually being sold.</p>
+        </div>
+        <div class="info-card">
+          <h3>When &amp; where</h3>
+          <p><span class="hl">Saturday, July 25, 2026</span><br>Gates open 7:30 AM &middot; announcements 9:00 AM<br>No admittance after 8:45 AM without authorization.<br>305 Metropolitan Grove Road,<br>Gaithersburg, Maryland 20878</p>
+        </div>
+        <div class="info-card">
+          <h3>Terms &amp; payment</h3>
+          <p>Minimum bid <span class="hl">$50.00</span> per vehicle. All sales final; vehicles sold <span class="hl">&ldquo;as is, where they sit.&rdquo;</span></p>
+          <p style="margin-top:6px">Accepted: Cash, Visa, Master Card, American Express, Discover.</p>
+        </div>
+        <div class="info-card">
+          <h3>Reclaim / contact</h3>
+          <p>Vehicle Recovery Section,<br>Montgomery County Police<br>Phone: <a href="tel:+12407736411">240-773-6411</a><br>Email: <a href="mailto:abandoned.vehicle@montgomerycountymd.gov">abandoned.vehicle@montgomerycountymd.gov</a></p>
+        </div>
+        <div class="info-card">
+          <h3>Data &amp; accuracy</h3>
+          <p>Vehicle list transcribed from the official county auction notice. Models are decoded from the VIN via the free <a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener">NHTSA vPIC</a> database and are <span class="hl">best-effort</span> — verify in person before bidding. Not affiliated with Montgomery County.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Stats bar ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-card"><span class="stat-label">Vehicles</span><span class="stat-value sv-blue" id="stat-total">—</span><span class="stat-sub">in this auction</span></div>
+    <div class="stat-card"><span class="stat-label">Models decoded</span><span class="stat-value sv-green" id="stat-decoded">—</span><span class="stat-sub" id="stat-decoded-sub">via VIN lookup</span></div>
+    <div class="stat-card"><span class="stat-label">Distinct makes</span><span class="stat-value sv-purple" id="stat-makes">—</span><span class="stat-sub">brands</span></div>
+    <div class="stat-card"><span class="stat-label">Year range</span><span class="stat-value sv-gold" id="stat-years">—</span><span class="stat-sub">oldest / newest</span></div>
+    <div class="stat-card"><span class="stat-label">With mileage</span><span class="stat-value sv-red" id="stat-mileage">—</span><span class="stat-sub">odometer listed</span></div>
+  </div>
+</div>
+
+<!-- ── Notice banner (API failure) ── -->
+<div class="notice-banner" id="notice-banner" style="display:none">
+  <div class="notice-inner">
+    <div class="nb-text" id="notice-text"></div>
+    <button class="notice-dismiss" id="notice-dismiss" title="Dismiss">&times;</button>
+  </div>
+</div>
+
+<!-- ── VIN lookup tool ── -->
+<div class="lookup-wrap">
+  <div class="lookup-card">
+    <h2>&#x1F50D; Identify any VIN</h2>
+    <p class="lookup-sub">Paste any Vehicle Identification Number to decode its year, make, and model — and see if it's in this auction.</p>
+    <div class="lookup-row">
+      <input type="text" class="lookup-input" id="lookup-input" placeholder="e.g. 1C4HJXDN8LW122914" maxlength="17" autocomplete="off" spellcheck="false" />
+      <button class="lookup-btn" id="lookup-btn"><span>Identify vehicle</span></button>
+    </div>
+    <div class="lookup-hint" id="lookup-hint">Enter an 11–17 character VIN.</div>
+    <div class="lookup-result" id="lookup-result"></div>
+  </div>
+</div>
+
+<!-- ── Main ── -->
+<div class="main">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <button class="filter-toggle-btn" id="filter-toggle-btn"><span>&#x1F50D; Filters</span><span>&#x25BC;</span></button>
+    <div class="sidebar-collapsible" id="sidebar-collapsible">
+      <div class="filter-card">
+        <div class="filter-card-title">&#x1F39B;&#xFE0F; Filters</div>
+        <div class="filter-card-body">
+          <div>
+            <label class="filter-label" for="f-make">Make</label>
+            <select class="filter-select" id="f-make"><option value="">All makes</option></select>
+          </div>
+          <div>
+            <label class="filter-label" for="f-body">Body type</label>
+            <select class="filter-select" id="f-body"><option value="">All body types</option></select>
+          </div>
+          <div>
+            <label class="filter-label">Year range</label>
+            <div class="range-inputs">
+              <input type="number" class="filter-input" id="f-year-min" placeholder="Min" />
+              <span>–</span>
+              <input type="number" class="filter-input" id="f-year-max" placeholder="Max" />
+            </div>
+          </div>
+          <label class="checkbox-row"><input type="checkbox" id="f-hasvin" /> Only vehicles with full VIN</label>
+          <button class="btn-reset" id="btn-reset">Reset filters</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Search case #, VIN, make, or model…" autocomplete="off" />
+      </div>
+      <span class="result-count" id="result-count">—</span>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="case">Case <span class="si"></span></th>
+              <th data-sort="year">Year <span class="si"></span></th>
+              <th data-sort="make">Make <span class="si"></span></th>
+              <th data-sort="model">Model <span class="si"></span></th>
+              <th data-sort="body">Body <span class="si"></span></th>
+              <th data-sort="vin">VIN <span class="si"></span></th>
+              <th data-sort="mileage">Mileage <span class="si"></span></th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+      <div class="no-results" id="no-results" style="display:none"><p>No vehicles match your filters.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal ── -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modal-title">—</div>
+        <div class="modal-subtitle" id="modal-subtitle">—</div>
+      </div>
+      <button class="modal-close" id="modal-close">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <p><strong>Source:</strong> Montgomery County Department of Police — Notice: Public Auction (JULY_COURT_POST_2026). Vehicle list transcribed from the official county notice for the auction of July 25, 2026.</p>
+  <p><strong>VIN decoding:</strong> Powered by the U.S. NHTSA <a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener">vPIC</a> Product Information Catalog Vehicle Listing API (public domain). Decoded models are best-effort and should be verified in person.</p>
+  <p><strong>Disclaimer:</strong> This is an independent viewing tool and is <em>not affiliated with, endorsed by, or operated by</em> Montgomery County or its Police Department. Confirm all auction details with the county before attending or bidding.</p>
+  <p class="copyright">&copy; David Chen 2026</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ── Reference maps ──
+  var MAKE_CODES = {
+    HOND:"Honda", TOYT:"Toyota", NISS:"Nissan", CHEV:"Chevrolet", FORD:"Ford",
+    ACUR:"Acura", HYUN:"Hyundai", SUBA:"Subaru", BMW:"BMW", MERZ:"Mercedes-Benz",
+    MERC:"Mercedes-Benz", JEEP:"Jeep", DODG:"Dodge", CHRY:"Chrysler", VOLK:"Volkswagen",
+    VOLV:"Volvo", LEXS:"Lexus", INFI:"Infiniti", CADI:"Cadillac", LINC:"Lincoln",
+    GMC:"GMC", KIA:"Kia", MAZD:"Mazda", MITS:"Mitsubishi", AUDI:"Audi", SCIO:"Scion",
+    TESL:"Tesla", FIAT:"Fiat", SAAB:"Saab", JAGU:"Jaguar", LAND:"Land Rover",
+    YAMA:"Yamaha", KAWK:"Kawasaki", HD:"Harley-Davidson", SUZI:"Suzuki",
+    ZHNG:"Zhongneng", KAUF:"Kaufman", HOMD:"Homemade", HOMD1:"Homemade", AIRM:"Airman",
+    TRAN:"Import scooter", BRIM:"Trailer", KAUK:"Kawasaki", H0DT:"Import scooter",
+    "H0D":"Import scooter", HZ:"Import scooter", HZ2T:"Import scooter", LWG:"Import scooter",
+    LLP:"Import scooter", AC:"Trailer", KM:"Kymco", KTB:"Trailer", "5KT":"Trailer"
+  };
+  var BODY_CODES = {
+    "4DR":"Sedan", "2DR":"Coupe", "SUV":"SUV", "SUB":"SUV", "VAN":"Van",
+    "TRK":"Pickup / Truck", "TRL":"Trailer", "TRC":"Truck Cab", "M/C":"Motorcycle",
+    "MC":"Motorcycle", "SCO":"Scooter / Moped", "BIK":"Bike", "CAM":"Camper",
+    "LIM":"Limousine", "MB":"Mini-bike"
+  };
+
+  var CACHE_KEY = "paVinCache:2026-07";
+  var VPIC_BATCH = "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/";
+  var VPIC_SINGLE = "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/";
+
+  // ── State ──
+  var vehicles = [];        // records from JSON, augmented with .decoded
+  var decodeMap = {};       // VIN -> decoded fields object
+  var sortKey = "case", sortDir = "asc";
+  var apiFailed = false;
+
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
+    });
+  }
+  function makeName(code) {
+    if (!code) return null;
+    return MAKE_CODES[code] || null;
+  }
+  function bodyName(code) {
+    if (!code) return "—";
+    return BODY_CODES[code] || code;
+  }
+
+  // ── localStorage helpers (guarded) ──
+  function loadCache() {
+    try {
+      var raw = localStorage.getItem(CACHE_KEY);
+      if (raw) return JSON.parse(raw) || {};
+    } catch (e) {}
+    return {};
+  }
+  function saveCache() {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(decodeMap)); } catch (e) {}
+  }
+
+  // ── Normalize a vPIC result into our compact shape ──
+  function normalize(r) {
+    if (!r) return null;
+    function v(x) { return (x && String(x).trim()) ? String(x).trim() : undefined; }
+    var out = {
+      make: v(r.Make), model: v(r.Model), trim: v(r.Trim), series: v(r.Series),
+      bodyClass: v(r.BodyClass), fuel: v(r.FuelTypePrimary), drive: v(r.DriveType),
+      displacement: v(r.DisplacementL), modelYear: v(r.ModelYear),
+      errorCode: r.ErrorCode != null ? String(r.ErrorCode) : undefined
+    };
+    // Title-case make (vPIC returns UPPERCASE)
+    if (out.make) {
+      out.make = out.make.replace(/\w\S*/g, function (t) {
+        return t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
+      });
+    }
+    return out;
+  }
+
+  // ── Decode a batch of vehicle records via vPIC ──
+  function decodeBatch(chunk) {
+    var body = new URLSearchParams();
+    body.set("format", "json");
+    body.set("data", chunk.map(function (v) { return v.vin + "," + (v.year || ""); }).join(";"));
+    return fetch(VPIC_BATCH, { method: "POST", body: body })
+      .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
+      .then(function (json) {
+        var results = (json && json.Results) || [];
+        results.forEach(function (r) {
+          var norm = normalize(r);
+          var vin = r.VIN || r.Vin;
+          if (vin && norm) { decodeMap[vin] = norm; }
+        });
+      });
+  }
+
+  // ── Kick off progressive decoding of all complete VINs ──
+  function decodeAll() {
+    var pending = vehicles.filter(function (v) {
+      return v.vinComplete && v.vin && !decodeMap[v.vin];
+    });
+    updateDecodedStat();
+    if (!pending.length) { return Promise.resolve(); }
+
+    var chunks = [];
+    for (var i = 0; i < pending.length; i += 50) { chunks.push(pending.slice(i, i + 50)); }
+
+    // Sequential to be gentle on the free API.
+    var chain = Promise.resolve();
+    chunks.forEach(function (chunk) {
+      chain = chain.then(function () {
+        if (apiFailed) return;
+        return decodeBatch(chunk).then(function () {
+          applyDecoded();
+          saveCache();
+          updateDecodedStat();
+          renderTable();
+        }).catch(function (e) {
+          handleApiFailure();
+        });
+      });
+    });
+    return chain;
+  }
+
+  function handleApiFailure() {
+    if (apiFailed) return;
+    apiFailed = true;
+    showNotice("Couldn't reach the NHTSA VIN database right now, so some models may be missing. " +
+               "Everything else on this page still works — try again later for full model names.");
+  }
+
+  function showNotice(msg) {
+    $("notice-text").textContent = msg;
+    $("notice-banner").style.display = "";
+  }
+
+  // ── Attach decoded data onto vehicle records ──
+  function applyDecoded() {
+    vehicles.forEach(function (v) {
+      if (v.vin && decodeMap[v.vin]) { v.decoded = decodeMap[v.vin]; }
+    });
+    populateMakeFilter();
+  }
+
+  // ── Resolve the best display make for a vehicle ──
+  function displayMake(v) {
+    if (v.decoded && v.decoded.make) return v.decoded.make;
+    var m = makeName(v.makeCode);
+    return m || "—";
+  }
+  function displayModel(v) {
+    if (v.decoded) {
+      if (v.decoded.model) return v.decoded.model;
+      // decoded but no model came back
+      return null;
+    }
+    return undefined; // undefined = still pending / not decoded yet
+  }
+
+  // ── Stats ──
+  function updateStats() {
+    $("stat-total").textContent = vehicles.length;
+    var makes = {};
+    vehicles.forEach(function (v) { var m = displayMake(v); if (m && m !== "—") makes[m] = 1; });
+    $("stat-makes").textContent = Object.keys(makes).length;
+    var years = vehicles.map(function (v) { return v.year; }).filter(Boolean);
+    if (years.length) {
+      $("stat-years").textContent = Math.min.apply(null, years) + "–" + Math.max.apply(null, years);
+    } else { $("stat-years").textContent = "—"; }
+    $("stat-mileage").textContent = vehicles.filter(function (v) { return v.mileage != null; }).length;
+  }
+  function updateDecodedStat() {
+    var target = vehicles.filter(function (v) { return v.vinComplete; }).length;
+    var done = vehicles.filter(function (v) { return v.vinComplete && v.vin && decodeMap[v.vin]; }).length;
+    $("stat-decoded").textContent = done + " / " + target;
+    $("stat-decoded-sub").textContent = done < target && !apiFailed ? "decoding…" : "via VIN lookup";
+    // recompute distinct makes as decoding fills in
+    var makes = {};
+    vehicles.forEach(function (v) { var m = displayMake(v); if (m && m !== "—") makes[m] = 1; });
+    $("stat-makes").textContent = Object.keys(makes).length;
+  }
+
+  // ── Filter dropdowns ──
+  function populateMakeFilter() {
+    var sel = $("f-make");
+    var cur = sel.value;
+    var makes = {};
+    vehicles.forEach(function (v) { var m = displayMake(v); if (m && m !== "—") makes[m] = 1; });
+    var list = Object.keys(makes).sort();
+    sel.innerHTML = '<option value="">All makes</option>' +
+      list.map(function (m) { return '<option value="' + esc(m) + '">' + esc(m) + "</option>"; }).join("");
+    if (list.indexOf(cur) >= 0) sel.value = cur;
+  }
+  function populateBodyFilter() {
+    var sel = $("f-body");
+    var names = {};
+    vehicles.forEach(function (v) { names[bodyName(v.body)] = 1; });
+    var list = Object.keys(names).filter(function (n) { return n !== "—"; }).sort();
+    sel.innerHTML = '<option value="">All body types</option>' +
+      list.map(function (n) { return '<option value="' + esc(n) + '">' + esc(n) + "</option>"; }).join("");
+  }
+
+  // ── Filtering + sorting ──
+  function getFiltered() {
+    var q = $("search-input").value.trim().toLowerCase();
+    var fMake = $("f-make").value;
+    var fBody = $("f-body").value;
+    var yMin = parseInt($("f-year-min").value, 10);
+    var yMax = parseInt($("f-year-max").value, 10);
+    var hasVin = $("f-hasvin").checked;
+
+    var rows = vehicles.filter(function (v) {
+      if (fMake && displayMake(v) !== fMake) return false;
+      if (fBody && bodyName(v.body) !== fBody) return false;
+      if (!isNaN(yMin) && (v.year == null || v.year < yMin)) return false;
+      if (!isNaN(yMax) && (v.year == null || v.year > yMax)) return false;
+      if (hasVin && !v.vinComplete) return false;
+      if (q) {
+        var hay = [v.case, v.vin, displayMake(v), v.makeCode,
+                   (v.decoded && v.decoded.model) || "", bodyName(v.body)]
+                  .join(" ").toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+
+    rows.sort(function (a, b) {
+      var av, bv;
+      switch (sortKey) {
+        case "year": av = a.year || 0; bv = b.year || 0; break;
+        case "make": av = displayMake(a); bv = displayMake(b); break;
+        case "model": av = (a.decoded && a.decoded.model) || "￿"; bv = (b.decoded && b.decoded.model) || "￿"; break;
+        case "body": av = bodyName(a.body); bv = bodyName(b.body); break;
+        case "vin": av = a.vin || "￿"; bv = b.vin || "￿"; break;
+        case "mileage": av = a.mileage == null ? -1 : a.mileage; bv = b.mileage == null ? -1 : b.mileage; break;
+        default: av = a.case; bv = b.case;
+      }
+      if (typeof av === "string") { av = av.toLowerCase(); bv = String(bv).toLowerCase(); }
+      if (av < bv) return sortDir === "asc" ? -1 : 1;
+      if (av > bv) return sortDir === "asc" ? 1 : -1;
+      return a.case < b.case ? -1 : 1;
+    });
+    return rows;
+  }
+
+  function modelCellHtml(v) {
+    if (!v.vinComplete) {
+      // Cannot decode — fall back to make-code hint only
+      return '<span class="model-dash">—</span>';
+    }
+    var m = displayModel(v);
+    if (m === undefined) {
+      if (apiFailed) return '<span class="model-dash">—</span>';
+      return '<span class="model-pending"><span class="mini-spin"></span>decoding…</span>';
+    }
+    if (m === null) {
+      return '<span class="model-dash">—</span><span class="badge badge-warn" title="VIN decoded but no model returned">no match</span>';
+    }
+    var sub = "";
+    if (v.decoded) {
+      var extra = v.decoded.trim || v.decoded.series;
+      if (extra) sub = '<div class="model-sub">' + esc(extra) + "</div>";
+    }
+    return '<span class="model-main">' + esc(m) + "</span>" + sub;
+  }
+
+  function vinCellHtml(v) {
+    if (!v.vin) return '<span class="badge badge-novin">no VIN</span>';
+    if (!v.vinComplete) {
+      return '<span class="vin-cell">' + esc(v.vin) + '</span> <span class="badge badge-partial">partial</span>';
+    }
+    return '<span class="vin-cell">' + esc(v.vin) + "</span>";
+  }
+
+  function renderTable() {
+    var rows = getFiltered();
+    var tbody = $("table-body");
+    $("result-count").textContent = rows.length === vehicles.length
+      ? rows.length + " vehicles"
+      : rows.length + " of " + vehicles.length + " vehicles";
+
+    if (!rows.length) {
+      tbody.innerHTML = "";
+      $("no-results").style.display = "";
+      return;
+    }
+    $("no-results").style.display = "none";
+
+    var html = rows.map(function (v) {
+      var mk = displayMake(v);
+      var mileage = v.mileage != null ? v.mileage.toLocaleString() + " mi" : '<span class="model-dash">—</span>';
+      return '<tr data-case="' + esc(v.case) + '">' +
+        '<td class="case-cell">' + esc(v.case) + "</td>" +
+        "<td>" + (v.year || '<span class="model-dash">—</span>') + "</td>" +
+        "<td>" + (mk === "—" ? '<span class="model-dash">—</span>' : esc(mk)) + "</td>" +
+        "<td>" + modelCellHtml(v) + "</td>" +
+        '<td><span class="badge badge-body">' + esc(bodyName(v.body)) + "</span></td>" +
+        "<td>" + vinCellHtml(v) + "</td>" +
+        '<td class="mileage-cell">' + mileage + "</td>" +
+        "</tr>";
+    }).join("");
+    tbody.innerHTML = html;
+
+    Array.prototype.forEach.call(tbody.querySelectorAll("tr"), function (tr) {
+      tr.addEventListener("click", function () { openModal(tr.getAttribute("data-case")); });
+    });
+  }
+
+  function updateSortHeaders() {
+    Array.prototype.forEach.call(document.querySelectorAll("thead th"), function (th) {
+      th.classList.remove("asc", "desc");
+      if (th.getAttribute("data-sort") === sortKey) th.classList.add(sortDir);
+    });
+  }
+
+  // ── Modal ──
+  function detailRow(label, val, mono) {
+    if (val == null || val === "") return "";
+    return '<div class="detail-item"><label>' + esc(label) + "</label><span" +
+      (mono ? ' class="mono"' : "") + ">" + esc(val) + "</span></div>";
+  }
+
+  function openModal(caseNo) {
+    var v = vehicles.find(function (x) { return x.case === caseNo; });
+    if (!v) return;
+    var mk = displayMake(v);
+    var d = v.decoded;
+    var title = (v.year ? v.year + " " : "") + (mk !== "—" ? mk : "") +
+                (d && d.model ? " " + d.model : "");
+    $("modal-title").textContent = title.trim() || "Case " + v.case;
+    $("modal-subtitle").textContent = "Case " + v.case + (v.vin ? " · VIN " + v.vin : " · VIN not listed");
+
+    var listed = "";
+    listed += detailRow("Case number", v.case);
+    listed += detailRow("Model year", v.year);
+    listed += detailRow("Make (notice code)", v.makeCode ? v.makeCode + (makeName(v.makeCode) ? " — " + makeName(v.makeCode) : "") : null);
+    listed += detailRow("Body (notice code)", v.body ? v.body + " — " + bodyName(v.body) : null);
+    listed += detailRow("VIN", v.vin || "Not listed", true);
+    listed += detailRow("Mileage", v.mileage != null ? v.mileage.toLocaleString() + " mi" : "Not listed");
+
+    var decodedHtml;
+    if (!v.vinComplete) {
+      decodedHtml = '<p class="modal-pending">VIN is incomplete or missing in the notice, so it can\'t be decoded.</p>';
+    } else if (d) {
+      var dr = "";
+      dr += detailRow("Make", d.make);
+      dr += detailRow("Model", d.model);
+      dr += detailRow("Trim", d.trim);
+      dr += detailRow("Series", d.series);
+      dr += detailRow("Body class", d.bodyClass);
+      dr += detailRow("Fuel type", d.fuel);
+      dr += detailRow("Drive type", d.drive);
+      dr += detailRow("Engine (L)", d.displacement);
+      decodedHtml = dr
+        ? '<div class="detail-grid">' + dr + "</div>"
+        : '<p class="modal-pending">VIN decoded, but NHTSA returned no model details for it.</p>';
+    } else if (apiFailed) {
+      decodedHtml = '<p class="modal-pending">The VIN database was unreachable. Reload later to decode this vehicle.</p>';
+    } else {
+      decodedHtml = '<p class="modal-pending"><span class="mini-spin"></span> Decoding VIN…</p>';
+    }
+
+    $("modal-body").innerHTML =
+      '<div class="modal-section-title">From the auction notice</div>' +
+      '<div class="detail-grid">' + listed + "</div>" +
+      '<div class="modal-section-title">Decoded from VIN (NHTSA vPIC)</div>' +
+      decodedHtml;
+
+    $("modal-overlay").classList.add("open");
+  }
+  function closeModal() { $("modal-overlay").classList.remove("open"); }
+
+  // ── VIN lookup tool ──
+  function cleanVin(s) { return s.toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+
+  function lookupVin() {
+    var raw = $("lookup-input").value;
+    var vin = cleanVin(raw);
+    var hint = $("lookup-hint");
+    var resultBox = $("lookup-result");
+
+    if (vin.length < 11) {
+      hint.textContent = "That VIN looks too short — enter 11–17 characters.";
+      hint.className = "lookup-hint warn";
+      return;
+    }
+    hint.textContent = "Enter an 11–17 character VIN.";
+    hint.className = "lookup-hint";
+
+    // Match against inventory
+    var match = vehicles.find(function (v) { return v.vin === vin; });
+
+    var btn = $("lookup-btn");
+    btn.disabled = true;
+    btn.querySelector("span").textContent = "Identifying…";
+    resultBox.className = "lookup-result show";
+    resultBox.innerHTML = '<div class="lr-card"><div class="lr-body"><p class="modal-pending"><span class="mini-spin"></span> Decoding VIN…</p></div></div>';
+
+    // Use cache if present
+    var cached = decodeMap[vin];
+    var yr = match && match.year ? match.year : "";
+    var url = VPIC_SINGLE + encodeURIComponent(vin) + "?format=json" + (yr ? "&modelyear=" + yr : "");
+
+    var p = cached
+      ? Promise.resolve(cached)
+      : fetch(url).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+          .then(function (j) {
+            var norm = normalize(j && j.Results && j.Results[0]);
+            if (norm) { decodeMap[vin] = norm; saveCache(); }
+            return norm;
+          });
+
+    p.then(function (d) {
+      renderLookupResult(vin, d, match);
+    }).catch(function (e) {
+      resultBox.innerHTML = '<div class="lr-error">Couldn\'t reach the NHTSA VIN database. Check your connection and try again.</div>';
+    }).then(function () {
+      btn.disabled = false;
+      btn.querySelector("span").textContent = "Identify vehicle";
+    });
+  }
+
+  function renderLookupResult(vin, d, match) {
+    var resultBox = $("lookup-result");
+    if (!d) {
+      resultBox.innerHTML = '<div class="lr-error">No decode data returned for that VIN.</div>';
+      return;
+    }
+    var title = [(d.modelYear || ""), (d.make || ""), (d.model || "")].join(" ").trim() || "Unknown vehicle";
+    var noModel = !d.make || !d.model;
+
+    var grid = "";
+    grid += lrItem("Year", d.modelYear);
+    grid += lrItem("Make", d.make);
+    grid += lrItem("Model", d.model);
+    grid += lrItem("Trim", d.trim);
+    grid += lrItem("Series", d.series);
+    grid += lrItem("Body class", d.bodyClass);
+    grid += lrItem("Fuel", d.fuel);
+    grid += lrItem("Drive", d.drive);
+    grid += lrItem("Engine (L)", d.displacement);
+
+    var inAuction = match
+      ? '<span class="lr-inauction" data-case="' + esc(match.case) + '">&#x2713; In this auction — case ' + esc(match.case) + ' (click to view)</span>'
+      : '<span class="lr-notfound">Not in this auction\'s inventory</span>';
+
+    var warn = noModel
+      ? '<div class="lr-warn">&#9888; NHTSA couldn\'t fully identify this VIN (check digit or partial VIN). Details shown may be incomplete.</div>'
+      : "";
+
+    resultBox.innerHTML =
+      '<div class="lr-card">' +
+        '<div class="lr-head">' +
+          '<div class="lr-title">' + esc(title) + "</div>" +
+          '<div class="lr-vin">' + esc(vin) + "</div>" +
+          inAuction +
+        "</div>" +
+        '<div class="lr-body">' +
+          (grid ? '<div class="lr-grid">' + grid + "</div>" : '<p class="modal-pending">No detailed fields returned.</p>') +
+          warn +
+        "</div>" +
+      "</div>";
+
+    var chip = resultBox.querySelector(".lr-inauction");
+    if (chip) {
+      chip.addEventListener("click", function () {
+        var c = chip.getAttribute("data-case");
+        highlightRow(c);
+      });
+    }
+  }
+  function lrItem(label, val) {
+    if (val == null || val === "") return "";
+    return '<div class="lr-item"><label>' + esc(label) + "</label><span>" + esc(val) + "</span></div>";
+  }
+
+  function highlightRow(caseNo) {
+    // Clear filters so the row is guaranteed visible
+    resetFilters(true);
+    renderTable();
+    var tr = document.querySelector('tr[data-case="' + caseNo + '"]');
+    if (tr) {
+      tr.scrollIntoView({ behavior: "smooth", block: "center" });
+      tr.classList.remove("row-flash");
+      void tr.offsetWidth;
+      tr.classList.add("row-flash");
+    }
+  }
+
+  // ── Reset ──
+  function resetFilters(skipRender) {
+    $("search-input").value = "";
+    $("f-make").value = "";
+    $("f-body").value = "";
+    $("f-year-min").value = "";
+    $("f-year-max").value = "";
+    $("f-hasvin").checked = false;
+    if (!skipRender) renderTable();
+  }
+
+  // ── Wire up events ──
+  function bindEvents() {
+    $("info-toggle").addEventListener("click", function () {
+      this.classList.toggle("open");
+      $("info-body").classList.toggle("open");
+    });
+    $("filter-toggle-btn").addEventListener("click", function () {
+      $("sidebar-collapsible").classList.toggle("open");
+    });
+    $("notice-dismiss").addEventListener("click", function () {
+      $("notice-banner").style.display = "none";
+    });
+
+    ["search-input", "f-make", "f-body", "f-year-min", "f-year-max"].forEach(function (id) {
+      $(id).addEventListener("input", renderTable);
+    });
+    $("f-hasvin").addEventListener("change", renderTable);
+    $("btn-reset").addEventListener("click", function () { resetFilters(); });
+
+    Array.prototype.forEach.call(document.querySelectorAll("thead th"), function (th) {
+      th.addEventListener("click", function () {
+        var k = th.getAttribute("data-sort");
+        if (sortKey === k) { sortDir = sortDir === "asc" ? "desc" : "asc"; }
+        else { sortKey = k; sortDir = "asc"; }
+        updateSortHeaders();
+        renderTable();
+      });
+    });
+
+    $("lookup-btn").addEventListener("click", lookupVin);
+    $("lookup-input").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") lookupVin();
+    });
+    $("lookup-input").addEventListener("input", function () {
+      var v = cleanVin(this.value);
+      if (this.value !== v) this.value = v;
+      var hint = $("lookup-hint");
+      if (/[IOQ]/.test(v)) {
+        hint.textContent = "Heads up: real VINs never contain the letters I, O, or Q.";
+        hint.className = "lookup-hint warn";
+      } else {
+        hint.textContent = "Enter an 11–17 character VIN.";
+        hint.className = "lookup-hint";
+      }
+    });
+
+    $("modal-close").addEventListener("click", closeModal);
+    $("modal-overlay").addEventListener("click", function (e) {
+      if (e.target === $("modal-overlay")) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeModal();
+    });
+  }
+
+  // ── Boot ──
+  function boot(data) {
+    vehicles = (data.vehicles || []).map(function (v) {
+      return {
+        case: v.case, year: v.year, makeCode: v.makeCode, vin: v.vin,
+        body: v.body, mileage: v.mileage, vinComplete: !!v.vinComplete,
+        decoded: null
+      };
+    });
+
+    decodeMap = loadCache();
+    applyDecoded();
+
+    updateStats();
+    populateBodyFilter();
+    populateMakeFilter();
+    updateSortHeaders();
+    updateDecodedStat();
+    renderTable();
+    bindEvents();
+
+    // Try optional prebuilt cache, then decode whatever's still missing.
+    fetch("police-auction/data/decoded-vins.json")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (pre) {
+        if (pre && typeof pre === "object") {
+          Object.keys(pre).forEach(function (vin) {
+            if (!decodeMap[vin]) decodeMap[vin] = pre[vin];
+          });
+          applyDecoded();
+          saveCache();
+          updateDecodedStat();
+          renderTable();
+        }
+        return decodeAll();
+      });
+  }
+
+  function bootError(msg) {
+    $("result-count").textContent = "";
+    $("table-body").innerHTML = "";
+    $("no-results").style.display = "";
+    $("no-results").innerHTML = "<p>" + esc(msg) + "</p>";
+    showNotice(msg);
+  }
+
+  fetch("police-auction/data/auction-2026-07.json")
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(boot)
+    .catch(function (e) {
+      bootError("Couldn't load the auction vehicle list (" + e.message + "). Please refresh the page.");
+    });
+})();
+</script>
+</body>
+</html>
