@@ -1,0 +1,2546 @@
+{
+ "source": "Montgomery County Department of Police \u2014 Notice: Public Auction (JULY_COURT_POST_2026.pdf)",
+ "auction": {
+  "date": "2026-07-25",
+  "gatesOpen": "7:30 AM",
+  "auctionStarts": "9:00 AM",
+  "lastAdmittance": "8:45 AM",
+  "location": "305 Metropolitan Grove Road, Gaithersburg, Maryland 20878",
+  "phone": "240-773-6411",
+  "email": "abandoned.vehicle@montgomerycountymd.gov",
+  "minimumBid": 50,
+  "payment": "Cash, Visa, Master Card, American Express, and Discover",
+  "terms": "All sales are final. Vehicles are purchased \u201cas is, where they sit.\u201d"
+ },
+ "vehicles": [
+  {
+   "case": "25-1704",
+   "year": 1999,
+   "makeCode": "HOND",
+   "vin": "2HGEJ6675XH568522",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "25-2138",
+   "year": null,
+   "makeCode": "SUZI",
+   "vin": null,
+   "body": "M/C",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "25-2203",
+   "year": 2017,
+   "makeCode": "TOYT",
+   "vin": "2T1BURHE7HC901109",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-0147",
+   "year": 2002,
+   "makeCode": "NISS",
+   "vin": "JN8AS58V18W132791",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-0709",
+   "year": 2010,
+   "makeCode": "TOYT",
+   "vin": "JTMRK4DV7A5088130",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1083",
+   "year": 1995,
+   "makeCode": "ACUR",
+   "vin": "JH4KA827XSC002515",
+   "body": "2DR",
+   "mileage": 205592,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1208",
+   "year": 2004,
+   "makeCode": "TOYT",
+   "vin": "5TDZA23C64S214726",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1233",
+   "year": 2021,
+   "makeCode": "HOND",
+   "vin": "5FNYF6H98MB075804",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1323",
+   "year": 2021,
+   "makeCode": "TOYT",
+   "vin": "4T1FZ1FB9MU069696",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1356",
+   "year": 2026,
+   "makeCode": "TESL",
+   "vin": "7SAYGDED1TA474840",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1424",
+   "year": 2011,
+   "makeCode": "CADI",
+   "vin": "1GYS4BEF8BR387489",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1591",
+   "year": 2025,
+   "makeCode": null,
+   "vin": "HZ2TBCNF0R1006282",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1645",
+   "year": 2011,
+   "makeCode": "HOND",
+   "vin": "5FNRL5H62BB071158",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1676",
+   "year": 2012,
+   "makeCode": "NISS",
+   "vin": "3N1AB6AP3CL664462",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1715",
+   "year": 2006,
+   "makeCode": null,
+   "vin": "5KTBS19136F203792",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1759",
+   "year": 2014,
+   "makeCode": "CHEV",
+   "vin": "1G1YK3D78E5121657",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1824",
+   "year": 2011,
+   "makeCode": "NISS",
+   "vin": "JN8AS5MV1BW294613",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1837",
+   "year": 2012,
+   "makeCode": "SUBA",
+   "vin": "4S4BRBJC1C3292291",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1870",
+   "year": 1978,
+   "makeCode": "AIRM",
+   "vin": "CPL3273324608",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-1885",
+   "year": 2015,
+   "makeCode": "KAUF",
+   "vin": "5VGFW5326FL000662",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1896",
+   "year": 2020,
+   "makeCode": "HOND",
+   "vin": "SHHFK7H90LU418062",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1940",
+   "year": 2014,
+   "makeCode": "TOYT",
+   "vin": "5YFBURHE2EP053944",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1967",
+   "year": 2000,
+   "makeCode": "LINC",
+   "vin": "1LNHM81W6YY842777",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1981",
+   "year": 2005,
+   "makeCode": "HYUN",
+   "vin": "KMHDN46D85U928493",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1989",
+   "year": 2013,
+   "makeCode": "SUBA",
+   "vin": "1F2GPAVC1D2866773",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-1990",
+   "year": 2023,
+   "makeCode": "HOND",
+   "vin": "2HGFE2F54PH511292",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2028",
+   "year": 2023,
+   "makeCode": "JEEP",
+   "vin": "ZACNJDB16PPP39715",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2030",
+   "year": 2002,
+   "makeCode": "BMW",
+   "vin": "WBAEV33452KL66631",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2092",
+   "year": 2023,
+   "makeCode": null,
+   "vin": "H0DTAEFNXPX050155",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2093",
+   "year": null,
+   "makeCode": null,
+   "vin": null,
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2096",
+   "year": 2008,
+   "makeCode": "FORD",
+   "vin": "2FAFP71V48X164394",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2097",
+   "year": 2009,
+   "makeCode": "SUBA",
+   "vin": "JF2SH61629H719547",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2099",
+   "year": 2021,
+   "makeCode": "CHRY",
+   "vin": "2C3CCAAG3MH515893",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2111",
+   "year": 2011,
+   "makeCode": "JEEP",
+   "vin": "1J4PN2GK0BW542566",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2113",
+   "year": 2013,
+   "makeCode": "HYUN",
+   "vin": "5NPEC4AC7DH675222",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2119",
+   "year": 2007,
+   "makeCode": "BMW",
+   "vin": "WBAHN83547DT75853",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2121",
+   "year": 1995,
+   "makeCode": "MERZ",
+   "vin": "WDBGA32E3SA265626",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2124",
+   "year": 2005,
+   "makeCode": "HOND",
+   "vin": "JHMCM56435C001818",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2131",
+   "year": 2005,
+   "makeCode": "AUDI",
+   "vin": "WAUDG74F75N058554",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2132",
+   "year": null,
+   "makeCode": null,
+   "vin": "5GLBE12272C000408",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2133",
+   "year": 2008,
+   "makeCode": "GMC",
+   "vin": "1GTGG29CX81235210",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2134",
+   "year": 1999,
+   "makeCode": "HOND",
+   "vin": "1HGEJ8140XL063564",
+   "body": "2DR",
+   "mileage": 189374,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2140",
+   "year": 2016,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F31GA155128",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2141",
+   "year": 2004,
+   "makeCode": "FORD",
+   "vin": "1FMZU73K34UB78786",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2142",
+   "year": 1998,
+   "makeCode": "TOYT",
+   "vin": "4T1BG22K2WU188354",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2143",
+   "year": 2012,
+   "makeCode": "FORD",
+   "vin": "1FAHP3F23CL402581",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2144",
+   "year": 2000,
+   "makeCode": "VOLK",
+   "vin": "3VWSC29M3YM045926",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2145",
+   "year": null,
+   "makeCode": null,
+   "vin": "HU3YYD1A6T0019407",
+   "body": "MB",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2146",
+   "year": 2012,
+   "makeCode": "HYUN",
+   "vin": "5NPEB4AC5CH372361",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2147",
+   "year": 2013,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F31DA174435",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2149",
+   "year": 2016,
+   "makeCode": "NISS",
+   "vin": "5N1AR2MM7GC629259",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2150",
+   "year": 2013,
+   "makeCode": "FORD",
+   "vin": "3FA6P0H94DR225929",
+   "body": "4DR",
+   "mileage": 136032,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2151",
+   "year": 2002,
+   "makeCode": "LEXS",
+   "vin": "JTHBF30G820047459",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2152",
+   "year": 2016,
+   "makeCode": "DODG",
+   "vin": "1C3CDFFA5GD820733",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2153",
+   "year": 2015,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F74FA122030",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2159",
+   "year": 2001,
+   "makeCode": "FORD",
+   "vin": "1FTNX21L21ED22861",
+   "body": "TRC",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2161",
+   "year": 2024,
+   "makeCode": null,
+   "vin": "H0DTAEG15RX071087",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2162",
+   "year": 1999,
+   "makeCode": "CHEV",
+   "vin": "2G1WL52M0X9168275",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2165",
+   "year": 2017,
+   "makeCode": "TOYT",
+   "vin": "4T1BF1FK5HU294730",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2166",
+   "year": 2018,
+   "makeCode": "NISS",
+   "vin": "1N4AL3AP0JC248277",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2167",
+   "year": 2014,
+   "makeCode": "MAZD",
+   "vin": "JM3KE4CY8E0410000",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2168",
+   "year": 1990,
+   "makeCode": null,
+   "vin": "AC241035MD",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2170",
+   "year": 2024,
+   "makeCode": "KAWK",
+   "vin": "ML5EXGG16RDA31720",
+   "body": "M/C",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2174",
+   "year": 2016,
+   "makeCode": "CHEV",
+   "vin": "1G1JC5SB0G4131948",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2177",
+   "year": 2014,
+   "makeCode": "LEXS",
+   "vin": "JTHBK1GG5E2148814",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2178",
+   "year": 2002,
+   "makeCode": "JEEP",
+   "vin": "1J4GL48K42W351121",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2179",
+   "year": 2010,
+   "makeCode": null,
+   "vin": "48BTE2023AA112790",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2180",
+   "year": 2005,
+   "makeCode": "TOYT",
+   "vin": "5TDZA23CX5S230722",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2181",
+   "year": 1998,
+   "makeCode": "FORD",
+   "vin": "1FTZX1765WNA47930",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2182",
+   "year": 2014,
+   "makeCode": "CHEV",
+   "vin": "2GNALBEK5E6289125",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2183",
+   "year": 2004,
+   "makeCode": "FORD",
+   "vin": "1FDSF34P04EC68373",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2184",
+   "year": 2004,
+   "makeCode": "BMW",
+   "vin": "WBAEU33484PM61841",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2188",
+   "year": 2020,
+   "makeCode": "CHEV",
+   "vin": "1G1ZD5STXLF036255",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2189",
+   "year": 2019,
+   "makeCode": "HD",
+   "vin": "1HD4LE216KC427825",
+   "body": "M/C",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2190",
+   "year": 2008,
+   "makeCode": "TOYT",
+   "vin": "5TDZK23C98S152953",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2191",
+   "year": 2015,
+   "makeCode": "TOYT",
+   "vin": "2T1BURHE7FC282363",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2196",
+   "year": 2003,
+   "makeCode": "VOLK",
+   "vin": "WVWPD63B73P336128",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2197",
+   "year": 2014,
+   "makeCode": "SUBA",
+   "vin": "JF1GPAL62E8221727",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2199",
+   "year": 2012,
+   "makeCode": "VOLK",
+   "vin": "WVWHP7AN1CE508857",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2200",
+   "year": 2008,
+   "makeCode": "FORD",
+   "vin": "1FMCU93118KD14942",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2203",
+   "year": 2005,
+   "makeCode": "ACUR",
+   "vin": "JH4CL96805C010893",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2205",
+   "year": 2004,
+   "makeCode": "LINC",
+   "vin": "1LNHM81W64Y677162",
+   "body": "LIM",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2207",
+   "year": 2004,
+   "makeCode": "MERC",
+   "vin": "WDBUF70J04A436024",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2209",
+   "year": 2005,
+   "makeCode": "CHEV",
+   "vin": "1GCHG35U051269032",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2211",
+   "year": 2014,
+   "makeCode": "FIAT",
+   "vin": "2FBCFABH6E2028587",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2213",
+   "year": 1960,
+   "makeCode": "FORD",
+   "vin": "0Y71IY190350",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2214",
+   "year": 2005,
+   "makeCode": "HOND",
+   "vin": "5FNRL38405B422415",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2220",
+   "year": 2026,
+   "makeCode": "TOYT",
+   "vin": "5YFS4MCE1TP269906",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2221",
+   "year": 2015,
+   "makeCode": "JEEP",
+   "vin": "1C4PJMCB3FW591320",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2225",
+   "year": 2015,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F83FA056322",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2227",
+   "year": 2017,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F75HA113095",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2230",
+   "year": 2002,
+   "makeCode": "HOND",
+   "vin": "SHSRD78862U001522",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2231",
+   "year": 1997,
+   "makeCode": "TOYT",
+   "vin": "JT3GP10V6V7009963",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2232",
+   "year": 2004,
+   "makeCode": "NISS",
+   "vin": "1N6AA06A54N591305",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2234",
+   "year": 2020,
+   "makeCode": "HYUN",
+   "vin": "5NPD84LF4LH510604",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2238",
+   "year": 2015,
+   "makeCode": "JEEP",
+   "vin": "1C4RJFAG6FC698754",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2240",
+   "year": 2001,
+   "makeCode": "HOND",
+   "vin": "JHLRD18451C057225",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2241",
+   "year": 2014,
+   "makeCode": "FORD",
+   "vin": "3FADP4EJ0EM127217",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2246",
+   "year": 2023,
+   "makeCode": "TOYT",
+   "vin": "5YFEPMAE5NP374541",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2247",
+   "year": 2007,
+   "makeCode": "NISS",
+   "vin": "1N4AL21E57N446584",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2249",
+   "year": 2017,
+   "makeCode": null,
+   "vin": "24HPMB151HP117E56",
+   "body": "BIK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2252",
+   "year": 2012,
+   "makeCode": "HOND",
+   "vin": "2HGFB2F55CH554820",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2254",
+   "year": 2024,
+   "makeCode": null,
+   "vin": "H0DTADFR1RX080757",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2257",
+   "year": 2009,
+   "makeCode": "HOND",
+   "vin": "2HGFA55579H704750",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2259",
+   "year": 2006,
+   "makeCode": "ACUR",
+   "vin": "2HNYD188X6H548738",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2263",
+   "year": 2010,
+   "makeCode": "TOYT",
+   "vin": "1NXBU4EE9AZ172347",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2265",
+   "year": 2010,
+   "makeCode": "HOND",
+   "vin": "1HGCP2F36AA121473",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2266",
+   "year": 2005,
+   "makeCode": "ACUR",
+   "vin": "JH4KB16505C003657",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2267",
+   "year": 2005,
+   "makeCode": "SCIO",
+   "vin": "JTKDE177050058895",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2268",
+   "year": 2021,
+   "makeCode": "CHEV",
+   "vin": "KL8CD6SA5MC218717",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2270",
+   "year": 2009,
+   "makeCode": "HOND",
+   "vin": "JHLRE48759C016968",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2272",
+   "year": 2015,
+   "makeCode": null,
+   "vin": "KM4MJ6270F1700449",
+   "body": "MC",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2274",
+   "year": 2007,
+   "makeCode": null,
+   "vin": "4YDT26R287B450991",
+   "body": "CAM",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2275",
+   "year": 2015,
+   "makeCode": "TOYT",
+   "vin": "JTDKN3DU9F1948859",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2276",
+   "year": 2006,
+   "makeCode": "FORD",
+   "vin": "1FTPW14586KC69627",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2277",
+   "year": 2002,
+   "makeCode": "HOND",
+   "vin": "SHSRD78872U011721",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2278",
+   "year": 2021,
+   "makeCode": "DODG",
+   "vin": "2C3CDXHG7MH508838",
+   "body": "4DR",
+   "mileage": 102410,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2279",
+   "year": 2024,
+   "makeCode": "HYUN",
+   "vin": "5NMJBCDE9RH324518",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2280",
+   "year": 1998,
+   "makeCode": "HOND",
+   "vin": "1HGCG5659WA267697",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2281",
+   "year": 2002,
+   "makeCode": "HOND",
+   "vin": "1HGCG6685YA159645",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2282",
+   "year": 2004,
+   "makeCode": "TOYT",
+   "vin": "1NXBR32E74Z195940",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2284",
+   "year": 2017,
+   "makeCode": "TOYT",
+   "vin": "2T1BURHE3HC891324",
+   "body": "4DR",
+   "mileage": 186055,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2286",
+   "year": 2016,
+   "makeCode": "FORD",
+   "vin": "1FM5K8FH1GGB57240",
+   "body": "SUV",
+   "mileage": 123212,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2287",
+   "year": 2000,
+   "makeCode": "MERZ",
+   "vin": "4JGAB54E6YA197792",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2288",
+   "year": 2022,
+   "makeCode": "FORD",
+   "vin": "NM0GE9F28N151775",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2292",
+   "year": 2021,
+   "makeCode": "TESL",
+   "vin": "5YJ3E1EA4MF961391",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2293",
+   "year": 2015,
+   "makeCode": "AUDI",
+   "vin": "WAU32AFD3FN012711",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2294",
+   "year": 1998,
+   "makeCode": "TOYT",
+   "vin": "4T1BG22K5WU324038",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2295",
+   "year": 2010,
+   "makeCode": "CHEV",
+   "vin": "2G1WB5EK7A1223064",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2296",
+   "year": 2005,
+   "makeCode": null,
+   "vin": "1UYVS25355U491911",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2298",
+   "year": 2007,
+   "makeCode": "JEEP",
+   "vin": "1J8GR48K47C631045",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2301",
+   "year": 2004,
+   "makeCode": "VOLV",
+   "vin": "YV1TS59HX41382111",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2305",
+   "year": 2006,
+   "makeCode": "HOND",
+   "vin": "5FNRL38756B437360",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2308",
+   "year": 1999,
+   "makeCode": "TOYT",
+   "vin": "4T1BG22K5XU611803",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2310",
+   "year": 2003,
+   "makeCode": "HOND",
+   "vin": "JHLRD78893C001619",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2314",
+   "year": 2008,
+   "makeCode": "HOND",
+   "vin": "2HGFA16538H323922",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2315",
+   "year": 2004,
+   "makeCode": "BMW",
+   "vin": "WBAEV53414KM37659",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2319",
+   "year": 2011,
+   "makeCode": "ACUR",
+   "vin": "19UUA9F52BA000912",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2321",
+   "year": 2009,
+   "makeCode": "SUBA",
+   "vin": "JF2SH61679H720726",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2322",
+   "year": 2021,
+   "makeCode": "VOLK",
+   "vin": "3VWC57BU4MM046244",
+   "body": "4DR",
+   "mileage": 89347,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2327",
+   "year": 2017,
+   "makeCode": "NISS",
+   "vin": "5N1DR2MN5HC633687",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2329",
+   "year": 2019,
+   "makeCode": null,
+   "vin": "LWGPCGL05KA015553",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2330",
+   "year": 2019,
+   "makeCode": "DODG",
+   "vin": "2C3CDXL93KH588015",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2331",
+   "year": 2007,
+   "makeCode": "NISS",
+   "vin": "5N1BA08A17N703862",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2336",
+   "year": 2023,
+   "makeCode": "TRAN",
+   "vin": "LLPTGKBF4P1080131",
+   "body": "SCO",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2338",
+   "year": 2015,
+   "makeCode": "FIAT",
+   "vin": "3C3CFFAR5FT676763",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2341",
+   "year": 2012,
+   "makeCode": "CHRY",
+   "vin": "1C3CCBAB4CN208636",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2342",
+   "year": 2020,
+   "makeCode": "TOYT",
+   "vin": "JTDEPRAE2LJ052843",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2343",
+   "year": 2011,
+   "makeCode": "NISS",
+   "vin": "1N4AA5AP5BC865662",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2348",
+   "year": 1999,
+   "makeCode": "TOYT",
+   "vin": "2T1CF22P7XC191918",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2350",
+   "year": 2017,
+   "makeCode": "YAMA",
+   "vin": "JYARN47E3HA001677",
+   "body": "M/C",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2353",
+   "year": 2025,
+   "makeCode": "HOND",
+   "vin": "2HKRS4H2XSH401592",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2355",
+   "year": 2011,
+   "makeCode": "HYUN",
+   "vin": "5NPDH4AE2BH021143",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2356",
+   "year": 2019,
+   "makeCode": "NISS",
+   "vin": "3N1AB7AP7KY213946",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2361",
+   "year": 2013,
+   "makeCode": "INFI",
+   "vin": "JN1CV6AR2DM357504",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2362",
+   "year": 2011,
+   "makeCode": "NISS",
+   "vin": "3N1AB6AP6BL695882",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2363",
+   "year": 2007,
+   "makeCode": "ACUR",
+   "vin": "JH4KB16637C001462",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2370",
+   "year": 2007,
+   "makeCode": "MERZ",
+   "vin": "WDDDJ72X97A078949",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2371",
+   "year": 2006,
+   "makeCode": "CHEV",
+   "vin": "1GNDS13S162180852",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2372",
+   "year": 1989,
+   "makeCode": null,
+   "vin": "1L8T1201XK1D64452",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2374",
+   "year": 2005,
+   "makeCode": "TOYT",
+   "vin": "JTDKB20U550130025",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2377",
+   "year": 2007,
+   "makeCode": "CHEV",
+   "vin": "3GNFK16347G133062",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2378",
+   "year": 2004,
+   "makeCode": "CHEV",
+   "vin": "1GCGG25V741240138",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2379",
+   "year": 2010,
+   "makeCode": "DODG",
+   "vin": "2B3CA3CV6AH168128",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2383",
+   "year": 2013,
+   "makeCode": "CHEV",
+   "vin": "1GNSCAE05DR108715",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2384",
+   "year": 2004,
+   "makeCode": "MERZ",
+   "vin": "4JGAB57E24A483449",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2385",
+   "year": 2008,
+   "makeCode": "NISS",
+   "vin": "1N4AL21E28N411437",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2386",
+   "year": 2021,
+   "makeCode": "JEEP",
+   "vin": "1C4RJKBG5M8122533",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2389",
+   "year": 2011,
+   "makeCode": "TOYT",
+   "vin": "JTEBU4BF8BK111713",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2391",
+   "year": 1990,
+   "makeCode": "HOMD",
+   "vin": "VA206099TR",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2392",
+   "year": 1998,
+   "makeCode": "ACUR",
+   "vin": "JH4DB7653WS003350",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2393",
+   "year": 1999,
+   "makeCode": "BRIM",
+   "vin": "43YDC1028XC003668",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2396",
+   "year": 2007,
+   "makeCode": "HYUN",
+   "vin": "KMHCM36CX7U024857",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2399",
+   "year": 2012,
+   "makeCode": "MITS",
+   "vin": "JA4AP4AU8CZ001934",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2401",
+   "year": 1998,
+   "makeCode": "HOND",
+   "vin": "2HGEJ6349WH111947",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2402",
+   "year": 2005,
+   "makeCode": "SCIO",
+   "vin": "JTKDE177150055388",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2403",
+   "year": 2011,
+   "makeCode": "TOYT",
+   "vin": "5TFDY5F11BX176671",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2405",
+   "year": 2024,
+   "makeCode": "JEEP",
+   "vin": "1C4RJKBGXR8528525",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2407",
+   "year": 2006,
+   "makeCode": "NISS",
+   "vin": "3N1AB51D16L545958",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2408",
+   "year": 2001,
+   "makeCode": "FORD",
+   "vin": "1FTNS24L81HB58220",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2410",
+   "year": 2008,
+   "makeCode": "CHEV",
+   "vin": "3GNFK12398G235559",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2413",
+   "year": 2004,
+   "makeCode": "HOND",
+   "vin": "1HGCM66544A079469",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2414",
+   "year": 2022,
+   "makeCode": "TOYT",
+   "vin": "JTDEPMAEXNJ197716",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2416",
+   "year": 2010,
+   "makeCode": "NISS",
+   "vin": "1N4AL2AP9AN472078",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2419",
+   "year": 2020,
+   "makeCode": "JEEP",
+   "vin": "3C4NJDCBXLT150423",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2420",
+   "year": 2023,
+   "makeCode": "MAZD",
+   "vin": "7MMVABEY3PN123138",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2421",
+   "year": 1998,
+   "makeCode": "HOND",
+   "vin": "2HGEJ6427WH109840",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2423",
+   "year": 2015,
+   "makeCode": "ACUR",
+   "vin": "5J8TB4H57FL019362",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2424",
+   "year": 2001,
+   "makeCode": "CHEV",
+   "vin": "1GCDM19W51B111491",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2425",
+   "year": 2016,
+   "makeCode": "DODG",
+   "vin": "2C4RDGCG7GR350822",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2427",
+   "year": 2014,
+   "makeCode": "CHEV",
+   "vin": "1G1JC5SG2E4130650",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2428",
+   "year": 2021,
+   "makeCode": "FORD",
+   "vin": "1FMSK8DH3MGC22798",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2430",
+   "year": 2014,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F38EA238911",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2432",
+   "year": 2022,
+   "makeCode": "TESL",
+   "vin": "7SAYGDEF8NF382387",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2434",
+   "year": 2017,
+   "makeCode": "KIA",
+   "vin": "KNDJN2A26H7410922",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2435",
+   "year": 2026,
+   "makeCode": "HOND",
+   "vin": "2HGFE4F82TH326822",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2441",
+   "year": null,
+   "makeCode": null,
+   "vin": "4YMU",
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2444",
+   "year": 2016,
+   "makeCode": "HYUN",
+   "vin": "5NPDH4AE9GH743944",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2445",
+   "year": 2004,
+   "makeCode": "SCIO",
+   "vin": "JTLKT324740149212",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2446",
+   "year": 2003,
+   "makeCode": "HOND",
+   "vin": "5FNRL18063B152251",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2456",
+   "year": 2017,
+   "makeCode": "TOYT",
+   "vin": "4T1BF1FK6HU442304",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2457",
+   "year": 2009,
+   "makeCode": "HOND",
+   "vin": "2HGFA16559H534251",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2458",
+   "year": 2004,
+   "makeCode": "CHEV",
+   "vin": "1GNDT13SX42228584",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2461",
+   "year": 2002,
+   "makeCode": "BMW",
+   "vin": "WBAEU33402PH85706",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2462",
+   "year": 2011,
+   "makeCode": "LEXS",
+   "vin": "JTHBF5C2XB2101120",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2463",
+   "year": 2012,
+   "makeCode": "HOND",
+   "vin": "19XFB2F99CE308091",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2464",
+   "year": 2017,
+   "makeCode": "JEEP",
+   "vin": "1C4NJDEB1HD177973",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2468",
+   "year": 2007,
+   "makeCode": "FORD",
+   "vin": "1FAFP34N87W336120",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2472",
+   "year": 2010,
+   "makeCode": "HOND",
+   "vin": "5J6RE4H73AL007200",
+   "body": "SUB",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2474",
+   "year": 2017,
+   "makeCode": "TOYT",
+   "vin": "5TDDZRFH8HS481116",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2475",
+   "year": 2000,
+   "makeCode": "HOND",
+   "vin": "1HGCG1658YA096808",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2476",
+   "year": 2024,
+   "makeCode": "CHEV",
+   "vin": "1G1ZD5ST4RF179064",
+   "body": "4DR",
+   "mileage": 49892,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2479",
+   "year": 2025,
+   "makeCode": "NISS",
+   "vin": "3N1AB8CV2SY353517",
+   "body": "4DR",
+   "mileage": 31056,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2480",
+   "year": 2018,
+   "makeCode": "KIA",
+   "vin": "KNDJN2A25J7564060",
+   "body": "4DR",
+   "mileage": 88287,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2481",
+   "year": 1996,
+   "makeCode": "NISS",
+   "vin": "JN8AR05YXTW026183",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2484",
+   "year": 2014,
+   "makeCode": "MAZD",
+   "vin": "JM1BM1U75E1184122",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2486",
+   "year": 2016,
+   "makeCode": "HOND",
+   "vin": "2HGFC1F9XGH644139",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2488",
+   "year": 2016,
+   "makeCode": "BMW",
+   "vin": "WBXHT3C31GP880907",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2489",
+   "year": 2016,
+   "makeCode": "VOLK",
+   "vin": "3VWD67AJ7GM250520",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2491",
+   "year": 2004,
+   "makeCode": "BMW",
+   "vin": "WBANA53564B846714",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2492",
+   "year": 2019,
+   "makeCode": "TOYT",
+   "vin": "JTMH1RFVXKD509919",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2494",
+   "year": 2014,
+   "makeCode": "TOYT",
+   "vin": "2T1BURHE5EC042839",
+   "body": "4DR",
+   "mileage": 145803,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2495",
+   "year": 2016,
+   "makeCode": "FORD",
+   "vin": "1FM5K8D88GGB91310",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2496",
+   "year": 2011,
+   "makeCode": "MERZ",
+   "vin": "WDDHF8HB8BA466154",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2497",
+   "year": 2008,
+   "makeCode": "NISS",
+   "vin": "JN8AS58T18W305644",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2498",
+   "year": 2026,
+   "makeCode": "HOND",
+   "vin": "19XFL2H81TE000060",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2501",
+   "year": 2015,
+   "makeCode": "KIA",
+   "vin": "KNDJP3A59F7804275",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2504",
+   "year": 2023,
+   "makeCode": null,
+   "vin": "H0DTABFF5PX032119",
+   "body": "SCO",
+   "mileage": 575,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2506",
+   "year": 2020,
+   "makeCode": "JEEP",
+   "vin": "1C4HJXDN8LW122914",
+   "body": "SUV",
+   "mileage": 66949,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2507",
+   "year": 2011,
+   "makeCode": "SAAB",
+   "vin": "YS3FA4CY9B1302442",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2508",
+   "year": 2020,
+   "makeCode": "KIA",
+   "vin": "5XXGT4L3XLG387548",
+   "body": "4DR",
+   "mileage": 59468,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2509",
+   "year": 2010,
+   "makeCode": "HYUN",
+   "vin": "KMHHT6KD3AU041421",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2510",
+   "year": 2015,
+   "makeCode": "HOND",
+   "vin": "1HGCR2F8XFA160256",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2512",
+   "year": 2006,
+   "makeCode": "LAND",
+   "vin": "SALAD24486A411238",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2513",
+   "year": 2017,
+   "makeCode": "KIA",
+   "vin": "KNDJN2A22H7424106",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2514",
+   "year": 2022,
+   "makeCode": "CHEV",
+   "vin": "2GNAXUEV7N6144713",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2515",
+   "year": 2012,
+   "makeCode": "HOND",
+   "vin": "5J6RM4H76CL069566",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2516",
+   "year": 2014,
+   "makeCode": "NISS",
+   "vin": "3N1AB7AP3EY227847",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2517",
+   "year": 2019,
+   "makeCode": "CHEV",
+   "vin": "1GNSCHKC5KR188493",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2519",
+   "year": 1996,
+   "makeCode": "INFI",
+   "vin": "JNKCP01D9TT531113",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2520",
+   "year": 2000,
+   "makeCode": "JAGU",
+   "vin": "SAJDA01C7YFL48797",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2522",
+   "year": 2009,
+   "makeCode": "HYUN",
+   "vin": "KMHDU46D49U616857",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2523",
+   "year": 2019,
+   "makeCode": "HYUN",
+   "vin": "3KPC24A30KE044517",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2525",
+   "year": 2021,
+   "makeCode": "TOYT",
+   "vin": "JTDS4MCE8MJ063505",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2526",
+   "year": 2008,
+   "makeCode": "HOND",
+   "vin": "1HGCP26428A054745",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2528",
+   "year": 2010,
+   "makeCode": "KIA",
+   "vin": "KNAGG4A89A5388157",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2529",
+   "year": 2006,
+   "makeCode": "TOYT",
+   "vin": "JTDBE32K863045351",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2532",
+   "year": 2025,
+   "makeCode": "NISS",
+   "vin": "5N1BT3BB4SC779416",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2534",
+   "year": 2008,
+   "makeCode": "NISS",
+   "vin": "3N1AB61E68L641988",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2535",
+   "year": 2016,
+   "makeCode": "YAMA",
+   "vin": "JYARJ16Y0GA010485",
+   "body": "M/C",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2537",
+   "year": 2015,
+   "makeCode": "FORD",
+   "vin": "1FA6P8AM0F5348324",
+   "body": "2DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2538",
+   "year": 2021,
+   "makeCode": "JEEP",
+   "vin": "1C6JJTEG6ML530090",
+   "body": "TRK",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2539",
+   "year": 2019,
+   "makeCode": "LEXS",
+   "vin": "JTHC81D27K5037140",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2541",
+   "year": 2008,
+   "makeCode": "ACUR",
+   "vin": "19UUA66248A030765",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2543",
+   "year": 2015,
+   "makeCode": "NISS",
+   "vin": "3N1CN7APXFL936208",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2544",
+   "year": 2021,
+   "makeCode": "ACUR",
+   "vin": "19UUB6F56MA007330",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2545",
+   "year": 2010,
+   "makeCode": "CHRY",
+   "vin": "2A4RR4DE0AR108324",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2546",
+   "year": 2012,
+   "makeCode": "KIA",
+   "vin": "KNAFU4A2XC5474855",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2548",
+   "year": 2004,
+   "makeCode": "HOND",
+   "vin": "2HGES26744H514906",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2549",
+   "year": 2018,
+   "makeCode": "HOND",
+   "vin": "2HGFC1E52JH706977",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2551",
+   "year": 2009,
+   "makeCode": "CHEV",
+   "vin": "1G1ZK57BX9F168432",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2552",
+   "year": 2025,
+   "makeCode": "NISS",
+   "vin": "3N1AB8CV7SY214015",
+   "body": "4DR",
+   "mileage": 2289,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2553",
+   "year": 2022,
+   "makeCode": "TOYT",
+   "vin": "4T3T6RFV4NU075600",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2554",
+   "year": 2020,
+   "makeCode": "TOYT",
+   "vin": "5TFRX5GN7LX176394",
+   "body": "TRK",
+   "mileage": 105334,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2555",
+   "year": 2024,
+   "makeCode": "FORD",
+   "vin": "1FTFW3L88RKE90314",
+   "body": "TRK",
+   "mileage": 23414,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2557",
+   "year": 2024,
+   "makeCode": "ZHNG",
+   "vin": "HZ2TBCNF8R1008801",
+   "body": "MC",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2558",
+   "year": 2006,
+   "makeCode": "HOND",
+   "vin": "1HGCM66806A073942",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2560",
+   "year": 2013,
+   "makeCode": "SUBA",
+   "vin": "JF1GPAR69DH821490",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2565",
+   "year": 2019,
+   "makeCode": "TOYT",
+   "vin": "2T1BURHE8KC217693",
+   "body": "4DR",
+   "mileage": 142597,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2566",
+   "year": 2007,
+   "makeCode": "MAZD",
+   "vin": "JM1BK323671750616",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2567",
+   "year": 2011,
+   "makeCode": "AUDI",
+   "vin": "WAUMGAFL7BA110316",
+   "body": "4DR",
+   "mileage": 163571,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2569",
+   "year": 2018,
+   "makeCode": "FORD",
+   "vin": "1FTEX1EPXJKE74587",
+   "body": "TRK",
+   "mileage": 134154,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2570",
+   "year": 2013,
+   "makeCode": "GMC",
+   "vin": "1GKS2KE73DR321153",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2571",
+   "year": 2007,
+   "makeCode": "NISS",
+   "vin": "1N4AL21E27N413672",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2572",
+   "year": 2025,
+   "makeCode": "HYUN",
+   "vin": "KMHRC8A38SU384879",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2573",
+   "year": 2006,
+   "makeCode": "CHEV",
+   "vin": "1G1ZT63836F194427",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2574",
+   "year": null,
+   "makeCode": null,
+   "vin": null,
+   "body": "TRL",
+   "mileage": null,
+   "vinComplete": false
+  },
+  {
+   "case": "26-2575",
+   "year": 2021,
+   "makeCode": "HYUN",
+   "vin": "5NPEL4JA5MH100907",
+   "body": "4DR",
+   "mileage": 81616,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2576",
+   "year": 2023,
+   "makeCode": "HYUN",
+   "vin": "5NPLS4AG8PH109202",
+   "body": "4DR",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2578",
+   "year": 2004,
+   "makeCode": "CHEV",
+   "vin": "1GCDM19X44B111866",
+   "body": "VAN",
+   "mileage": null,
+   "vinComplete": true
+  },
+  {
+   "case": "26-2579",
+   "year": 2010,
+   "makeCode": "NISS",
+   "vin": "JN8AZ1MW0AW124304",
+   "body": "SUV",
+   "mileage": null,
+   "vinComplete": true
+  }
+ ]
+}
